@@ -132,7 +132,7 @@ def attractionIdApi(attractionId):
 	for i in range(len(result)):
 		idsList.append(result[i][0])
 
-	finalData = []
+	# finalData = []
 	
 	if int(attractionId) in idsList:
 		cursor.execute(
@@ -148,13 +148,13 @@ def attractionIdApi(attractionId):
 		rowHeaders = [x[0] for x in cursor.description]
 		rowData = [x for x in result]
 		data = dict(zip(rowHeaders,rowData))
-		finalData.append(data)
+		# finalData.append(data)
 
-		finalData[0]['images'] = ImagesList[finalData[0]['id']-1]
+		data['images'] = ImagesList[data['id']-1]
 
 		conn = mypool.connect()
 		cursor = conn.cursor()
-		r = jsonify({"data":finalData})
+		r = jsonify({"data":data})
 		return r, 200
 
 	else:
