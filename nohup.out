@@ -1,0 +1,61 @@
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.31.84.191:3000/ (Press CTRL+C to quit)
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.31.84.191:3000/ (Press CTRL+C to quit)
+150.116.176.133 - - [06/Mar/2022 19:00:43] "GET /api/attraction/1 HTTP/1.1" 200 -
+[2022-03-06 19:00:59,553] ERROR in app: Exception on /api/attractions [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1701, in make_response
+    raise TypeError(
+TypeError: The view function for 'attractionSearchApi' did not return a valid response. The function either returned None or ended without a return statement.
+150.116.176.133 - - [06/Mar/2022 19:00:59] "GET /api/attractions?page-1 HTTP/1.1" 500 -
+150.116.176.133 - - [06/Mar/2022 19:01:04] "GET /api/attractions?page=1 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 19:05:19] "GET /api/attractions?page=0&keyword=北 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 19:06:29] "GET /api/attraction/1 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 19:07:25] "GET /api/attractions?page=0 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 19:07:29] "GET /api/attractions?page=0&keyword=北 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 19:07:46] "GET /api/attraction/1 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 21:26:03] "GET /api/attractions?page=0 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 21:26:04] "GET /favicon.ico HTTP/1.1" 404 -
+150.116.176.133 - - [06/Mar/2022 21:26:10] "GET /api/attractions?page=0&keyword=北 HTTP/1.1" 200 -
+150.116.176.133 - - [06/Mar/2022 21:26:16] "GET /api/attraction/1 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:26] "GET /api/attractions?page=0 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:26] "GET /api/attractions?page=0&keyword=北 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:26] "GET /api/attraction/1 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:27] "GET /favicon.ico HTTP/1.1" 404 -
+111.240.184.12 - - [07/Mar/2022 04:04:27] "GET /favicon.ico HTTP/1.1" 404 -
+111.240.184.12 - - [07/Mar/2022 04:04:27] "GET /favicon.ico HTTP/1.1" 404 -
+111.240.184.12 - - [07/Mar/2022 04:04:37] "GET /api/attractions?page=0 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:39] "GET /api/attractions?page=0 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:04:58] "GET /api/attractions?page=1 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:00] "GET /api/attractions?page=2 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:03] "GET /api/attractions?page=4 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:06] "GET /api/attractions?page=5 HTTP/1.1" 500 -
+111.240.184.12 - - [07/Mar/2022 04:05:12] "GET /api/attractions?page=1&keyword=北 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:15] "GET /api/attractions?page=2&keyword=北 HTTP/1.1" 500 -
+111.240.184.12 - - [07/Mar/2022 04:05:18] "GET /api/attractions?page=2&keyword=館 HTTP/1.1" 500 -
+111.240.184.12 - - [07/Mar/2022 04:05:20] "GET /api/attractions?page=1&keyword=館 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:25] "GET /api/attraction/1 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:05:27] "GET /api/attraction/1 HTTP/1.1" 200 -
+111.240.184.12 - - [07/Mar/2022 04:06:05] "GET /api/attraction/1 HTTP/1.1" 200 -
+150.116.176.133 - - [07/Mar/2022 06:18:03] "GET /api/attraction/1 HTTP/1.1" 200 -
+150.116.176.133 - - [07/Mar/2022 06:18:04] "GET /favicon.ico HTTP/1.1" 404 -
+150.116.176.133 - - [07/Mar/2022 06:19:24] "GET /api/attraction/1 HTTP/1.1" 200 -
