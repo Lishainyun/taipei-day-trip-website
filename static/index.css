@@ -196,6 +196,7 @@ input::placeholder{
 
 .welcomePic{
 
+    content:url("/welcome 2.png");
     position: absolute;
     top:-82px;
     left:128px;
