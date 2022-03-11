@@ -27,6 +27,7 @@ a, a:link, a:visited{
 
 #searchInput{
 
+    position:relative;
     display:flex;
     border:0;
     height:46px;
@@ -38,7 +39,7 @@ a, a:link, a:visited{
     color:#757575;
     line-height:13px;
     padding : 0 0 0 15px;
-    z-index: 2;
+    z-index: 1;
 
 }
 
@@ -407,6 +408,7 @@ input::placeholder{
     
     #searchInput{
 
+        position: relative;
         display:flex;
         border:0;
         height:46px;
@@ -418,7 +420,7 @@ input::placeholder{
         color:#757575;
         line-height:13.3px;
         padding : 0 0 0 15px;
-        z-index: 2;
+        z-index: 1;
 
     }
 
