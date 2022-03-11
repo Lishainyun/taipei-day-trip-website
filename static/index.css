@@ -1,0 +1,255 @@
+*{
+	box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin:0;
+}
+
+a[href="/"], a:link[href="/"], a:visited[href="/"]{
+    color: #448899;
+	text-decoration: none;
+}
+
+a, a:link, a:visited{
+    color: #666666;
+    text-decoration: none;
+}
+
+#searchInput{
+    display:flex;
+    border:0;
+    height:46px;
+    width:400px;
+    margin-top:25px;
+    padding: 0px;
+}
+
+#searchBtnBackground{
+    position: absolute;
+    bottom: 0px;
+    left:400px;
+}
+
+#searchBtnIcon{
+    position: absolute;
+    bottom: 8px;
+    left:415px;
+}
+
+#footer{
+    position:relative;
+    background-color: #757575;
+    height:104px;
+    width:100%;
+}
+
+#footerText{
+    width:234px;
+    height:14px;
+    margin:auto;
+    font-size:16px;
+    line-height: 104px;
+    color:#FFFFFF;
+    text-align: center;
+}
+
+.nav{
+    position: fixed;
+    width:100%;
+    height:54px;
+    margin:0px;
+    background-color: #FFFFFF;
+    top:0px;
+    z-index: 1;
+}
+.navBar{
+
+	position: fixed;
+	width: 1200px;
+    height:54px;
+    margin:0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+	background-color: #FFFFFF;
+	top: 0px;
+	z-index: 1;
+
+}
+
+.navText{
+	font-weight:700;
+    font-size:30px;
+    line-height:34px;
+    padding-top:10px;
+	display: inline-block;
+	margin:0 auto;
+    text-decoration: none;
+}
+
+.header{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
+    border:0;
+	height:320px;
+    width: 100%; 
+    text-align: center;
+}
+
+.headerContainer{
+    width:1180px;
+    height:149px;
+    position: relative;
+}
+
+.headerText1{
+    top:139px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 24px;
+    margin:0px;
+    display: flex;
+    align-items: center;
+    max-width: 1180px;
+    color: #F8F8F8;
+    height:41px;
+    text-shadow: 0px 0px 30px #AABBCC;
+}
+
+.headerText2{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13px;
+    max-width: 1180px;
+    margin-top:15px;
+    height:22px;
+    display: flex;
+    align-items: center;
+    color: #F8F8F8;
+}
+
+input::placeholder{
+    position: relative;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 13.3px;
+    width:370px;
+    height:16px;
+    left: 15px;
+    color:#757575;
+}
+
+
+.welcomePic{
+    position: absolute;
+    top:-85px;
+    left:608px;
+}
+
+.wrapper{
+    display:grid;
+    justify-items: center;
+}
+
+
+
+/*For mobile phones*/
+.indexMenu{
+    float: right;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;	
+}
+
+.indexMenu li{
+    display: inline-block;
+    font-size: 20px;
+    padding: 0 10px;
+    position: relative;
+}
+
+#attractionsContainer{
+	display: grid;
+	max-width: 90%;
+	position:relative;
+	grid-template-columns: 100%;
+	grid-template-rows: auto;
+	grid-gap: 30px 30px;
+    margin:55px 0;
+}
+
+
+/*For tablets*/
+@media screen and (min-width: 601px){
+	.indexMenu{
+		float: right;
+		display: flex;
+		padding: 0;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		list-style-type: none;	
+	}
+
+	.indexMenu li{
+		display: inline-block;
+		font-size: 20px;
+		padding: 0 10px;
+		position: relative;
+	}
+
+	#attractionsContainer{
+		display: grid;
+		max-width: 90%;
+		grid-template-columns: 48% 48%;
+		grid-template-rows: auto;
+		grid-gap:30px 30px;
+		justify-content: space-evenly;
+		margin:0px;
+        position:relative;
+        margin:55px 0;
+	}
+}
+
+/*For pc*/
+@media screen and (min-width: 1201px){
+
+	.indexMenu{
+		float: right;
+		display: flex;
+		padding: 0;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 20px;
+		list-style-type: none;
+        text-decoration: none;
+	}
+
+	.indexMenu li{
+		display: inline-block;
+		font-size: 16px;
+		height:14px;
+        margin:0px;
+        line-height: 13.3px;
+        font-weight:400;
+        font-size:16px;
+	}
+
+	#attractionsContainer{
+		display: grid;
+        max-width: 1170px;
+		grid-template-columns: 23% 23% 23% 23%;
+		grid-template-rows: auto;
+        position: relative;
+        margin:55px 0;
+	}
+}
