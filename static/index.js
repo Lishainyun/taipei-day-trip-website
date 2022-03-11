@@ -52,20 +52,23 @@
     })
 }())
 
+(function searchClick(){
 
-const searchClick = document.getElementById('searchBtnIcon')
-
-searchClick.addEventListener("click", () => {
+    document.getElementById('attractionsContainer').innerHTML="";
     
     let url = 'http://44.199.90.64:3000/api/attractions?';
+    let page = 0;
     let searchInput = document.getElementById('searchInput').value;
-    let keyword = searchInput;
-    document.getElementById('attractionsContainer').innerHTML="";
-    loadData()();
 
-});
+    fetch(url + 'page=' + page + 'keyword=' + searchInput, {
+        method:'get'
+    })
+    .then(response => response.json())
+    .then((res) => {
+        loadData()()
+    })
+})
 
-const searchEnter = document.getElementById('searchInput')
 
 searchEnter.addEventListener("keyup", (event) => {
     if (event.keycode === 13){
