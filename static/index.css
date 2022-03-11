@@ -195,6 +195,7 @@ input::placeholder{
     width:200px;
     height:16px;
     color:#757575;
+    z-index: 2;
 
 }
 
@@ -566,6 +567,7 @@ input::placeholder{
         width:370px;
         height:16px;
         color:#757575;
+        z-index: 2;
     
     }
     
