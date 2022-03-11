@@ -69,7 +69,7 @@ function searchClick(){
     .then(response => response.json())
     .then((res) => {
         
-        if(Response.StatusCode === 500){
+        if(Response.StatusCode != 500){
 
             let data = res['data']
             let dataLength = data.length
