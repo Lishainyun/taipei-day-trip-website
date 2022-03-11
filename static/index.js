@@ -7,7 +7,7 @@ let searchEnter = document.getElementById('searchInput')
 
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
-    let keyword = 0;
+    let keyword = "";
 
 
     function loadData(){
@@ -57,7 +57,7 @@ let searchEnter = document.getElementById('searchInput')
     };
 
     loadData()
-    
+
 }())
 
 (searchClick.addEventListener("click", () => {
