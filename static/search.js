@@ -19,7 +19,7 @@ function searchClick(){
     .then(response => response.json())
     .then((res) => {
         
-        if(res['error'] === true){
+        if(res['message'] === "無此頁面"){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
@@ -30,6 +30,8 @@ function searchClick(){
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
 
+        } else if(res['message'] === "伺服器內部錯誤，請依照規格書指示"){
+            onload()
         } else{
                 
             let data = res['data']
