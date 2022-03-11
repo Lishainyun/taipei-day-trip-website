@@ -45,7 +45,7 @@ a, a:link, a:visited{
 }
 
 #footer{
-    position:absolute;
+    position:relative;
     background-color: #757575;
     height:104px;
     width:100%;

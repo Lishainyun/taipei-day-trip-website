@@ -108,12 +108,13 @@ function searchClick(){
             }
         }else{
 
-                let attractionsContainer = document.getElementById('attractionsContainer');
+                let errorMessageDiv = document.createElement('div');
                 let errorMessage = document.createElement('p')
                 let messageTextnode = document.createTextNode("查無景點")
                 
                 errorMessage.setAttribute('style','color:#757575;font-weight:700;font-size:32px;line-height:13.3px;padding:10px;margin:0;grid-area:1/1/1/2')
         
+                document.body.appendChild(errorMessageDiv)
                 attractionsContainer.appendChild(errorMessage)
                 errorMessage.appendChild(messageTextnode)
 
