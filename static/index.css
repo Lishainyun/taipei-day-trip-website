@@ -208,6 +208,7 @@ input::placeholder{
     top:67px;
     left:128px;
     overflow: hidden;
+    z-index: -1;
 
 }
 
@@ -225,7 +226,7 @@ input::placeholder{
 #attractionsContainer{
 
 	display: grid;
-	max-width: 90%;
+	max-width: 86%;
 	position:relative;
 	grid-template-columns: 100%;
 	grid-template-rows: auto;
@@ -268,7 +269,7 @@ input::placeholder{
 	#attractionsContainer{
 
 		display: grid;
-		max-width: 90%;
+		max-width: 86%;
 		grid-template-columns: 48% 48%;
 		grid-template-rows: auto;
 		grid-gap:30px 30px;
@@ -394,6 +395,7 @@ input::placeholder{
         top:-85px;
         left:52%;
         overflow: hidden;
+        z-index: -1;
     
     }
 
@@ -578,6 +580,7 @@ input::placeholder{
         top:-85px;
         left:608px;
         overflow: hidden;
+        z-index: -1;
     
     }
     
