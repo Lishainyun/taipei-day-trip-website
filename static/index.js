@@ -1,10 +1,7 @@
 "use strict"
 
 function loadData(){
-    let attractionsPic = data[i]['images'][0];
-    let mrt = data[i]['mrt'];
-    let category = data[i]['category'];
-        
+
     let attractionsContainer = document.getElementById('attractionsContainer');
     let picDivTag = document.createElement('div');
     let picImgTag = document.createElement('img');
@@ -32,6 +29,7 @@ function loadData(){
     mrtPTag.appendChild(mrtTextnode);
     picDivTag.appendChild(catPTag);
     catPTag.appendChild(catTextnode);
+
 }
 
 (function onload(){
@@ -48,6 +46,9 @@ function loadData(){
         let data = res['data']
         let dataLength = data.length
         for(let i = 0; i < dataLength; i++){
+            let attractionsPic = data[i]['images'][0];
+            let mrt = data[i]['mrt'];
+            let category = data[i]['category'];
             loadData()
         }
     })
@@ -69,6 +70,9 @@ function searchClick(){
         let data = res['data']
         let dataLength = data.length
         for(let i = 0; i < dataLength; i++){
+            let attractionsPic = data[i]['images'][0];
+            let mrt = data[i]['mrt'];
+            let category = data[i]['category'];
             loadData()()
         }
     })
