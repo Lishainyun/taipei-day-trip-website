@@ -17,10 +17,21 @@ function searchClick(){
     .then(response => response.json())
     .then((res) => {
         
-        if(Response.StatusCode != 500){
+        if(Response.StatusCode === 500){
 
+            // 回傳錯誤訊息
+            let errorMessageDiv = document.getElementById('errorMessage');
+            let messageTextnode = document.createTextNode("查無景點")    
+            errorMessageDiv.appendChild(messageTextnode)
+            // footer 置底
+            let footer = document.getElementById('footer')
+            footer.style.position = "absolute";
+
+        } else{
+                
             let data = res['data']
             let dataLength = data.length
+            
             for(let i = 0; i < dataLength; i++){
                 let attractionsPic = data[i]['images'][0];
                 let mrt = data[i]['mrt'];
@@ -54,17 +65,7 @@ function searchClick(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
-
             }
-        }else{
-                // 回傳錯誤訊息
-                let errorMessageDiv = document.getElementById('errorMessage');
-                let messageTextnode = document.createTextNode("查無景點")    
-                errorMessageDiv.appendChild(messageTextnode)
-                // footer 置底
-                let footer = document.getElementById('footer')
-                footer.style.position = "absolute";
-
         }
     })
 }
