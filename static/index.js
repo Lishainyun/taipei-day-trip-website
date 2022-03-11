@@ -9,7 +9,6 @@ function loadData(){
     let mrtPTag = document.createElement('p');
     let catPTag = document.createElement('p');
             
-    let nameTextnode = document.createTextNode(data[i]['name']);
     let mrtTextnode = document.createTextNode(mrt);
     let catTextnode = document.createTextNode(category);
         
@@ -49,6 +48,7 @@ function loadData(){
             let attractionsPic = data[i]['images'][0];
             let mrt = data[i]['mrt'];
             let category = data[i]['category'];
+            let nameTextnode = document.createTextNode(data[i]['name']);
             loadData()
         }
     })
@@ -73,6 +73,7 @@ function searchClick(){
             let attractionsPic = data[i]['images'][0];
             let mrt = data[i]['mrt'];
             let category = data[i]['category'];
+            let nameTextnode = document.createTextNode(data[i]['name']);
             loadData()()
         }
     })
