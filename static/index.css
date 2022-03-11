@@ -195,7 +195,7 @@ input::placeholder{
     width:200px;
     height:16px;
     color:#757575;
-    z-index: 2;
+    z-index: 1;
 
 }
 
@@ -208,7 +208,7 @@ input::placeholder{
     top:67px;
     left:128px;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
 
 }
 
@@ -395,7 +395,7 @@ input::placeholder{
         top:-85px;
         left:52%;
         overflow: hidden;
-        z-index: -1;
+        z-index: 0;
     
     }
 
@@ -567,7 +567,7 @@ input::placeholder{
         width:370px;
         height:16px;
         color:#757575;
-        z-index: 2;
+        z-index: 1;
     
     }
     
@@ -580,7 +580,7 @@ input::placeholder{
         top:-85px;
         left:608px;
         overflow: hidden;
-        z-index: -1;
+        z-index: 0;
     
     }
     
