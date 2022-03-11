@@ -1,58 +1,85 @@
 *{
+
 	box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+
 }
 
 body{
+
     margin:0;
-    min-height: 100%;
+
 }
 
 a[href="/"], a:link[href="/"], a:visited[href="/"]{
+
     color: #448899;
 	text-decoration: none;
+
 }
 
 a, a:link, a:visited{
+
     color: #666666;
     text-decoration: none;
+
 }
 
 #searchInput{
+
     display:flex;
     border:0;
     height:46px;
-    width:400px;
+    width:230px;
     margin-top:25px;
     border-radius:5px 0 0 5px;
     font-size:16px;
     font-weight:700;
     color:#757575;
-    line-height:13.3px;
+    line-height:13px;
     padding : 0 0 0 15px;
+
 }
 
 #searchBtnBackground{
+
     position: absolute;
     bottom: 0px;
-    left:400px;
+    left:230px;
+
 }
 
 #searchBtnIcon{
+
     position: absolute;
     bottom: 8px;
-    left:415px;
+    left:245px;
+
+}
+
+#errorMessage{
+
+    color:#757575;
+    font-weight:700;
+    font-size:32px;
+    line-height:13.3px;
+    padding:10px;
+    margin:0;
+
 }
 
 #footer{
+
     position:relative;
     background-color: #757575;
     height:104px;
     width:100%;
     bottom:0;
+
 }
 
 #footerText{
+
     width:234px;
     height:14px;
     margin:auto;
@@ -60,9 +87,11 @@ a, a:link, a:visited{
     line-height: 104px;
     color:#FFFFFF;
     text-align: center;
+
 }
 
 .nav{
+
     position: fixed;
     width:100%;
     height:54px;
@@ -70,7 +99,9 @@ a, a:link, a:visited{
     background-color: #FFFFFF;
     top:0px;
     z-index: 1;
+
 }
+
 .navBar{
 
 	position: fixed;
@@ -86,6 +117,7 @@ a, a:link, a:visited{
 }
 
 .navText{
+
 	font-weight:700;
     font-size:30px;
     line-height:34px;
@@ -93,9 +125,11 @@ a, a:link, a:visited{
 	display: inline-block;
 	margin:0 auto;
     text-decoration: none;
+
 }
 
 .header{
+
     display:flex;
     flex-direction: column;
     justify-content:center;
@@ -106,15 +140,19 @@ a, a:link, a:visited{
     width: 100%; 
     text-align: center;
     overflow:hidden;
+
 }
 
 .headerContainer{
-    width:1180px;
-    height:149px;
+
+    width:320px;
+    height:211x;
     position: relative;
+
 }
 
 .headerText1{
+
     top:139px;
     font-weight: 700;
     font-size: 28px;
@@ -122,51 +160,74 @@ a, a:link, a:visited{
     margin:0px;
     display: flex;
     align-items: center;
-    max-width: 1180px;
+    max-width: 320px;
     color: #F8F8F8;
     height:41px;
     text-shadow: 0px 0px 30px #AABBCC;
+
 }
 
 .headerText2{
+
     font-weight: 400;
     font-size: 16px;
     line-height: 13px;
-    max-width: 1180px;
+    max-width: 320px;
     margin-top:15px;
     height:22px;
     display: flex;
     align-items: center;
     color: #F8F8F8;
+
 }
 
 input::placeholder{
+
     position: relative;
     font-weight: 700;
     font-size: 16px;
     line-height: 13.3px;
-    width:370px;
+    width:200px;
     height:16px;
     color:#757575;
+
 }
 
 
 .welcomePic{
+
     position: absolute;
-    top:-85px;
-    left:608px;
+    top:-82px;
+    left:128px;
     overflow: hidden;
+
 }
 
 .wrapper{
+
     display:grid;
     justify-items: center;
+
 }
 
 
 
 /*For mobile phones*/
+
+#attractionsContainer{
+
+	display: grid;
+	max-width: 90%;
+	position:relative;
+	grid-template-columns: 100%;
+	grid-template-rows: auto;
+	grid-gap: 30px 30px;
+    margin:55px 0;
+
+}
+
 .indexMenu{
+
     float: right;
     display: flex;
     padding: 0;
@@ -175,47 +236,26 @@ input::placeholder{
     margin-top: 10px;
     margin-bottom: 10px;
     list-style-type: none;	
+
 }
 
 .indexMenu li{
+
     display: inline-block;
     font-size: 20px;
     padding: 0 10px;
     position: relative;
+
 }
 
-#attractionsContainer{
-	display: grid;
-	max-width: 90%;
-	position:relative;
-	grid-template-columns: 100%;
-	grid-template-rows: auto;
-	grid-gap: 30px 30px;
-    margin:55px 0;
-}
+
 
 
 /*For tablets*/
-@media screen and (min-width: 601px){
-	.indexMenu{
-		float: right;
-		display: flex;
-		padding: 0;
-		align-items: center;
-		flex-wrap: wrap;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		list-style-type: none;	
-	}
-
-	.indexMenu li{
-		display: inline-block;
-		font-size: 20px;
-		padding: 0 10px;
-		position: relative;
-	}
-
+@media screen and (min-width: 501px){
+    
 	#attractionsContainer{
+
 		display: grid;
 		max-width: 90%;
 		grid-template-columns: 48% 48%;
@@ -225,13 +265,172 @@ input::placeholder{
 		margin:0px;
         position:relative;
         margin:55px 0;
+
 	}
+
+    .navBar{
+
+        position: fixed;
+        width: 90%;
+        height:54px;
+        margin:0 auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #FFFFFF;
+        top: 0px;
+        z-index: 1;
+    
+    }
+
+    .navText{
+
+        font-weight:700;
+        font-size:30px;
+        line-height:34px;
+        padding-top:10px;
+        display: inline-block;
+        margin:0 auto;
+        text-decoration: none;
+    
+    }
+
+    
+	.indexMenu{
+
+		float: right;
+		display: flex;
+		padding: 0;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		list-style-type: none;	
+
+	}
+
+	.indexMenu li{
+
+		display: inline-block;
+		font-size: 20px;
+		padding: 0 10px;
+		position: relative;
+
+	}
+    
+    .header{
+    
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
+        border:0;
+        height:320px;
+        width: 100%; 
+        text-align: center;
+        overflow:hidden;
+    
+    }
+    
+    .headerContainer{
+    
+        width:90%;
+        height:149px;
+        position: relative;
+    
+    }
+    
+    .headerText1{
+    
+        top:139px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 24px;
+        margin:0px;
+        display: flex;
+        align-items: center;
+        max-width: 90%;
+        color: #F8F8F8;
+        height:41px;
+        text-shadow: 0px 0px 30px #AABBCC;
+    
+    }
+    
+    .headerText2{
+    
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 13px;
+        max-width: 90%;
+        margin-top:15px;
+        height:22px;
+        display: flex;
+        align-items: center;
+        color: #F8F8F8;
+    
+    }
+
+    .welcomePic{
+
+        position: absolute;
+        top:-85px;
+        left:52%;
+        overflow: hidden;
+    
+    }
+
 }
 
 /*For pc*/
 @media screen and (min-width: 1201px){
 
+    
+    #searchInput{
+
+        display:flex;
+        border:0;
+        height:46px;
+        width:400px;
+        margin-top:25px;
+        border-radius:5px 0 0 5px;
+        font-size:16px;
+        font-weight:700;
+        color:#757575;
+        line-height:13.3px;
+        padding : 0 0 0 15px;
+
+    }
+
+    #searchBtnBackground{
+
+        position: absolute;
+        bottom: 0px;
+        left:400px;
+
+    }
+
+    #searchBtnIcon{
+
+        position: absolute;
+        bottom: 8px;
+        left:415px;
+
+    }
+
+    
+	#attractionsContainer{
+
+		display: grid;
+        max-width: 1170px;
+		grid-template-columns: 23% 23% 23% 23%;
+		grid-template-rows: auto;
+        position: relative;
+        margin:55px 0;
+
+	}
+
 	.indexMenu{
+
 		float: right;
 		display: flex;
 		padding: 0;
@@ -240,9 +439,11 @@ input::placeholder{
 		margin-top: 20px;
 		list-style-type: none;
         text-decoration: none;
+
 	}
 
 	.indexMenu li{
+
 		display: inline-block;
 		font-size: 16px;
 		height:14px;
@@ -250,14 +451,115 @@ input::placeholder{
         line-height: 13.3px;
         font-weight:400;
         font-size:16px;
+
 	}
 
-	#attractionsContainer{
-		display: grid;
-        max-width: 1170px;
-		grid-template-columns: 23% 23% 23% 23%;
-		grid-template-rows: auto;
+    .navBar{
+
+        position: fixed;
+        width: 1200px;
+        height:54px;
+        margin:0 auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #FFFFFF;
+        top: 0px;
+        z-index: 1;
+    
+    }
+    
+    .navText{
+    
+        font-weight:700;
+        font-size:30px;
+        line-height:34px;
+        padding-top:10px;
+        display: inline-block;
+        margin:0 auto;
+        text-decoration: none;
+    
+    }
+    
+    .header{
+    
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
+        border:0;
+        height:320px;
+        width: 100%; 
+        text-align: center;
+        overflow:hidden;
+    
+    }
+    
+    .headerContainer{
+    
+        width:1180px;
+        height:149px;
         position: relative;
-        margin:55px 0;
-	}
+    
+    }
+    
+    .headerText1{
+    
+        top:139px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 24px;
+        margin:0px;
+        display: flex;
+        align-items: center;
+        max-width: 1180px;
+        color: #F8F8F8;
+        height:41px;
+        text-shadow: 0px 0px 30px #AABBCC;
+    
+    }
+    
+    .headerText2{
+    
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 13px;
+        max-width: 1180px;
+        margin-top:15px;
+        height:22px;
+        display: flex;
+        align-items: center;
+        color: #F8F8F8;
+    
+    }
+    
+    input::placeholder{
+    
+        position: relative;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 13.3px;
+        width:370px;
+        height:16px;
+        color:#757575;
+    
+    }
+    
+    
+    .welcomePic{
+    
+        position: absolute;
+        top:-85px;
+        left:608px;
+        overflow: hidden;
+    
+    }
+    
+    .wrapper{
+    
+        display:grid;
+        justify-items: center;
+    
+    }
+
 }
