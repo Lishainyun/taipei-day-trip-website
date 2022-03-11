@@ -3,12 +3,12 @@
 let searchClick = document.getElementById('searchBtnIcon')
 let searchEnter = document.getElementById('searchInput')
 
-let page = 0
-
 (function onload(){
 
     let url = 'http://44.199.90.64:3000/api/attractions?';
+    let page = 0;
     let keyword = 0;
+
 
     (function loadData(){
         fetch(url + 'page=' + page + '&keyword=' + keyword, {
