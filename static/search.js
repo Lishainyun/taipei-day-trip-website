@@ -31,6 +31,9 @@ function searchClick(){
             footer.style.position = "absolute";
 
         } else if(res['message'] === "伺服器內部錯誤，請依照規格書指示"){
+            // footer 置底
+            let footer = document.getElementById('footer');
+            footer.style.position = "relative";
             onload()
         } else{
                 

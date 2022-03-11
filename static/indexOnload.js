@@ -1,9 +1,6 @@
 "use strict"
 
 function onload(){
-    // footer 置底
-    let footer = document.getElementById('footer')
-    footer.style.position = "relative";
 
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
