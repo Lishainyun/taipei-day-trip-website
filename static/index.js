@@ -8,9 +8,6 @@ function loadData(){
     let namePTag = document.createElement('p');
     let mrtPTag = document.createElement('p');
     let catPTag = document.createElement('p');
-            
-    let mrtTextnode = document.createTextNode(mrt);
-    let catTextnode = document.createTextNode(category);
         
     picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden');
     picImgTag.setAttribute('src',attractionsPic)
@@ -48,7 +45,10 @@ function loadData(){
             let attractionsPic = data[i]['images'][0];
             let mrt = data[i]['mrt'];
             let category = data[i]['category'];
-            let nameTextnode = document.createTextNode(data[i]['name']);
+
+            let nameTextnode = document.createTextNode(data[i]['name']);        
+            let mrtTextnode = document.createTextNode(mrt);
+            let catTextnode = document.createTextNode(category);
             loadData()
         }
     })
@@ -73,7 +73,10 @@ function searchClick(){
             let attractionsPic = data[i]['images'][0];
             let mrt = data[i]['mrt'];
             let category = data[i]['category'];
-            let nameTextnode = document.createTextNode(data[i]['name']);
+            
+            let nameTextnode = document.createTextNode(data[i]['name']);        
+            let mrtTextnode = document.createTextNode(mrt);
+            let catTextnode = document.createTextNode(category);
             loadData()()
         }
     })
