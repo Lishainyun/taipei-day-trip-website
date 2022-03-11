@@ -105,7 +105,7 @@ a, a:link, a:visited{
 .navBar{
 
 	position: fixed;
-	width: 1200px;
+	width: 95%;
     height:54px;
     margin:0 auto;
     left: 50%;
@@ -241,10 +241,14 @@ input::placeholder{
 
 .indexMenu li{
 
-    display: inline-block;
-    font-size: 20px;
-    padding: 0 10px;
     position: relative;
+    display: inline-block;
+	height:14px;
+    margin:0px;
+    line-height: 13.3px;
+    font-weight:400;
+    font-size:16px;
+    padding: 0 0 0 20px;
 
 }
 
@@ -271,7 +275,7 @@ input::placeholder{
     .navBar{
 
         position: fixed;
-        width: 90%;
+        width: 95%;
         height:54px;
         margin:0 auto;
         left: 50%;
@@ -310,10 +314,14 @@ input::placeholder{
 
 	.indexMenu li{
 
-		display: inline-block;
-		font-size: 20px;
-		padding: 0 10px;
 		position: relative;
+        display: inline-block;
+		height:14px;
+        margin:0px;
+        line-height: 13.3px;
+        font-weight:400;
+        font-size:16px;
+        padding: 0 0 0 20px;
 
 	}
     
@@ -445,12 +453,12 @@ input::placeholder{
 	.indexMenu li{
 
 		display: inline-block;
-		font-size: 16px;
 		height:14px;
         margin:0px;
         line-height: 13.3px;
         font-weight:400;
         font-size:16px;
+        padding: 0 0 0 20px;
 
 	}
 
