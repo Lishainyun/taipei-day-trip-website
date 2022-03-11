@@ -60,7 +60,7 @@ function searchClick(){
     let page = 0;
     let searchInput = document.getElementById('searchInput').value;
 
-    fetch(url + 'page=' + page + 'keyword=' + searchInput, {
+    fetch(url + 'page=' + page + '&keyword=' + searchInput, {
         method:'get'
     })
     .then(response => response.json())
