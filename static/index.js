@@ -69,7 +69,7 @@ function searchClick(){
     .then(response => response.json())
     .then((res) => {
         
-        if(res['error'] === true){
+        if(Response.StatusCode === 500){
 
             let data = res['data']
             let dataLength = data.length
@@ -107,7 +107,7 @@ function searchClick(){
                 catPTag.appendChild(catTextnode);
             }
         }else{
-            
+
                 let attractionsContainer = document.getElementById('attractionsContainer');
                 let errorMessage = document.createElement('p')
                 let messageTextnode = document.createTextNode("查無景點")
