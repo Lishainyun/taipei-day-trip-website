@@ -7,16 +7,14 @@ let searchEnter = document.getElementById('searchInput')
 
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
-    let keyword = "";
 
+    fetch(url + 'page=' + page, {
+        method:'get'
+    })
+    .then(response => response.json())
+    .then((res) => {
 
-    function loadData(){
-        fetch(url + 'page=' + page + '&keyword=' + keyword, {
-            method:'get'
-        })
-        .then(response => response.json())
-        .then((res) => {
-
+        (function loadData(){
             let data = res['data']
             let dataLength = data.length
             for(let i = 0; i < dataLength; i++){
@@ -53,11 +51,8 @@ let searchEnter = document.getElementById('searchInput')
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
-        })
-    };
-
-    loadData()
-
+        })();
+    })
 }())
 
 (searchClick.addEventListener("click", () => {
