@@ -38,7 +38,7 @@
             let mrtTextnode = document.createTextNode(mrt);
             let catTextnode = document.createTextNode(category);
 
-            picDivTag.setAttribute('style', 'width:100%');
+            picDivTag.setAttribute('style', 'width:100%;border:1px #E8E8E8');
             picImgTag.setAttribute('src',attractionsPic)
             picImgTag.setAttribute('title', nameTextnode);
             picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
