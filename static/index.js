@@ -1,7 +1,6 @@
 "use strict"
 
-let searchClick = document.getElementById('searchBtnIcon')
-let searchEnter = document.getElementById('searchInput')
+
 
 (function onload(){
 
@@ -55,7 +54,10 @@ let searchEnter = document.getElementById('searchInput')
     })
 }())
 
-(searchClick.addEventListener("click", () => {
+
+let searchClick = document.getElementById('searchBtnIcon')
+
+searchClick.addEventListener("click", () => {
     
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let searchInput = document.getElementById('searchInput').value;
@@ -63,13 +65,15 @@ let searchEnter = document.getElementById('searchInput')
     document.getElementById('attractionsContainer').innerHTML="";
     loadData()();
 
-}));
+});
 
-(searchEnter.addEventListener("keyup", (event) => {
+let searchEnter = document.getElementById('searchInput')
+
+searchEnter.addEventListener("keyup", (event) => {
     if (event.keycode === 13){
         event.preventDefault();
         document.getElementById('searchBtnIcon').click()
     }
-}));
+});
 
 
