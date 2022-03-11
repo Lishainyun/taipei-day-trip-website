@@ -53,18 +53,17 @@ function searchClick(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
+                footer.style.position = "relative";
+
             }
         }else{
-
-                let errorMessageDiv = document.createElement('div');
-                let errorMessage = document.createElement('p')
-                let messageTextnode = document.createTextNode("查無景點")
-                
-                errorMessage.setAttribute('style','color:#757575;font-weight:700;font-size:32px;line-height:13.3px;padding:10px;margin:0;grid-area:1/1/1/2')
-        
-                document.body.appendChild(errorMessageDiv)
-                attractionsContainer.appendChild(errorMessage)
-                errorMessage.appendChild(messageTextnode)
+                // 回傳錯誤訊息
+                let errorMessageDiv = document.getElementById('errorMessage');
+                let messageTextnode = document.createTextNode("查無景點")    
+                errorMessageDiv.appendChild(messageTextnode)
+                // footer 置底
+                let footer = document.getElementById('footer')
+                footer.style.position = "absolute";
 
         }
     })
