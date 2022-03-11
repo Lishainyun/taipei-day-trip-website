@@ -38,7 +38,7 @@ a, a:link, a:visited{
     color:#757575;
     line-height:13px;
     padding : 0 0 0 15px;
-    z-index: 1;
+    z-index: 2;
 
 }
 
@@ -201,7 +201,8 @@ input::placeholder{
 
 .welcomePic{
 
-    content:url("/welcome 2.png");
+    width:276px;
+    height:148px;
     position: absolute;
     top:67px;
     left:128px;
@@ -413,7 +414,7 @@ input::placeholder{
         color:#757575;
         line-height:13.3px;
         padding : 0 0 0 15px;
-        z-index: 1;
+        z-index: 2;
 
     }
 
