@@ -38,6 +38,7 @@ a, a:link, a:visited{
     color:#757575;
     line-height:13px;
     padding : 0 0 0 15px;
+    z-index: 1;
 
 }
 
@@ -46,6 +47,7 @@ a, a:link, a:visited{
     position: absolute;
     bottom: 0px;
     left:230px;
+    z-index: 1;
 
 }
 
@@ -54,6 +56,7 @@ a, a:link, a:visited{
     position: absolute;
     bottom: 8px;
     left:245px;
+    z-index: 1;
 
 }
 
@@ -164,6 +167,7 @@ a, a:link, a:visited{
     color: #F8F8F8;
     height:41px;
     text-shadow: 0px 0px 30px #AABBCC;
+    z-index: 1;
 
 }
 
@@ -178,6 +182,7 @@ a, a:link, a:visited{
     display: flex;
     align-items: center;
     color: #F8F8F8;
+    z-index: 1;
 
 }
 
@@ -198,9 +203,10 @@ input::placeholder{
 
     content:url("/welcome 2.png");
     position: absolute;
-    top:-82px;
+    top:67px;
     left:128px;
     overflow: hidden;
+    z-index: 0;
 
 }
 
@@ -234,8 +240,7 @@ input::placeholder{
     padding: 0;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px 0;
     list-style-type: none;	
 
 }
@@ -307,8 +312,7 @@ input::placeholder{
 		padding: 0;
 		align-items: center;
 		flex-wrap: wrap;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin-top: 20px 0;
 		list-style-type: none;	
 
 	}
@@ -362,6 +366,7 @@ input::placeholder{
         color: #F8F8F8;
         height:41px;
         text-shadow: 0px 0px 30px #AABBCC;
+        z-index: 1;
     
     }
     
@@ -376,6 +381,7 @@ input::placeholder{
         display: flex;
         align-items: center;
         color: #F8F8F8;
+        z-index: 1;
     
     }
 
@@ -407,6 +413,7 @@ input::placeholder{
         color:#757575;
         line-height:13.3px;
         padding : 0 0 0 15px;
+        z-index: 1;
 
     }
 
@@ -415,6 +422,7 @@ input::placeholder{
         position: absolute;
         bottom: 0px;
         left:400px;
+        z-index: 1;
 
     }
 
@@ -423,6 +431,7 @@ input::placeholder{
         position: absolute;
         bottom: 8px;
         left:415px;
+        z-index: 1;
 
     }
 
@@ -445,7 +454,7 @@ input::placeholder{
 		padding: 0;
 		align-items: center;
 		flex-wrap: wrap;
-		margin-top: 20px;
+		margin-top: 20px 0;
 		list-style-type: none;
         text-decoration: none;
 
@@ -525,6 +534,7 @@ input::placeholder{
         color: #F8F8F8;
         height:41px;
         text-shadow: 0px 0px 30px #AABBCC;
+        z-index: 1;
     
     }
     
@@ -539,6 +549,7 @@ input::placeholder{
         display: flex;
         align-items: center;
         color: #F8F8F8;
+        z-index: 1;
     
     }
     
