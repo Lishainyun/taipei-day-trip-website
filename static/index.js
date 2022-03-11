@@ -56,7 +56,12 @@ function searchClick(){
     
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
-    let searchInput = document.getElementById('searchInput').value;
+    let searchInput = ""
+    if(document.getElementById('searchInput').value === null){
+        searchInput = ""
+    }else{
+        searchInput = document.getElementById('searchInput').value
+    }
 
     fetch(url + 'page=' + page + '&keyword=' + searchInput, {
         method:'get'
