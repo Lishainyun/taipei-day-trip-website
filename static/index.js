@@ -52,7 +52,7 @@
     })
 }())
 
-(function searchClick(){
+function searchClick(){
 
     document.getElementById('attractionsContainer').innerHTML="";
     
@@ -67,7 +67,7 @@
     .then((res) => {
         loadData()()
     })
-})
+}
 
 
 searchEnter.addEventListener("keyup", (event) => {
