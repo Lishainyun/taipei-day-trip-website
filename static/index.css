@@ -208,7 +208,6 @@ input::placeholder{
     top:67px;
     left:128px;
     overflow: hidden;
-    z-index: 0;
 
 }
 
@@ -395,7 +394,6 @@ input::placeholder{
         top:-85px;
         left:52%;
         overflow: hidden;
-        z-index: 0;
     
     }
 
