@@ -17,7 +17,7 @@ function searchClick(){
     .then(response => response.json())
     .then((res) => {
         
-        if(Response.StatusCode === 500){
+        if(res['error'] === true){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
