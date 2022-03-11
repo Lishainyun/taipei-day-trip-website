@@ -67,8 +67,8 @@ a, a:link, a:visited{
     font-weight:700;
     font-size:32px;
     line-height:13.3px;
-    padding:10px;
-    margin:0;
+    text-align: center;
+    margin: 20px;;
 
 }
 
