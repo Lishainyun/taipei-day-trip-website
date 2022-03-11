@@ -44,7 +44,7 @@
             picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
             namePTag.setAttribute('style','color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0');
             mrtPTag.setAttribute('style','color:#757575;font-weight:400;font-size:16px;line-height:13.3px;width:50%;height:40px;margin:0');
-            catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:13.3px;width:50%;height:40px;margin:0;text-align:right');
+            catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:13.3px;width:50%;height:40px;margin:0;text-align:right;float:right');
             
             attractionsContainer.appendChild(picDivTag);
             picDivTag.appendChild(picImgTag);
