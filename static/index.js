@@ -63,7 +63,7 @@ let page = 0
     let searchInput = document.getElementById('searchInput').value;
     let keyword = searchInput;
     document.getElementById('attractionsContainer').innerHTML="";
-    loadData();
+    loadData()();
 
 }));
 
