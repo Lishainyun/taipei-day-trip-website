@@ -10,7 +10,7 @@ let searchEnter = document.getElementById('searchInput')
     let keyword = 0;
 
 
-    (function loadData(){
+    function loadData(){
         fetch(url + 'page=' + page + '&keyword=' + keyword, {
             method:'get'
         })
@@ -54,7 +54,10 @@ let searchEnter = document.getElementById('searchInput')
                 catPTag.appendChild(catTextnode);
             }
         })
-    }())
+    };
+
+    loadData()
+    
 }())
 
 (searchClick.addEventListener("click", () => {
