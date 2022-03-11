@@ -1,6 +1,6 @@
 "use strict"
 
-let searchClick = document.getElementById('searchBtnBackground')
+let searchClick = document.getElementById('searchBtnIcon')
 let searchEnter = document.getElementById('searchInput')
 
 let page = 0
@@ -70,7 +70,7 @@ let page = 0
 (searchEnter.addEventListener("keyup", (event) => {
     if (event.keycode === 13){
         event.preventDefault();
-        document.getElementById('searchBtnBackground').click()
+        document.getElementById('searchBtnIcon').click()
     }
 }));
 
