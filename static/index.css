@@ -103,12 +103,14 @@ a, a:link, a:visited{
 	height:320px;
     width: 100%; 
     text-align: center;
+    overflow:hidden;
 }
 
 .headerContainer{
     width:1180px;
     height:149px;
     position: relative;
+    overflow:hidden;
 }
 
 .headerText1{
