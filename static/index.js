@@ -53,7 +53,7 @@
 }())
 
 
-let searchClick = document.getElementById('searchBtnIcon')
+const searchClick = document.getElementById('searchBtnIcon')
 
 searchClick.addEventListener("click", () => {
     
@@ -65,7 +65,7 @@ searchClick.addEventListener("click", () => {
 
 });
 
-let searchEnter = document.getElementById('searchInput')
+const searchEnter = document.getElementById('searchInput')
 
 searchEnter.addEventListener("keyup", (event) => {
     if (event.keycode === 13){
