@@ -24,6 +24,7 @@ a, a:link, a:visited{
     width:400px;
     margin-top:25px;
     padding: 0px;
+    border-radius:5px;
 }
 
 #searchBtnBackground{
@@ -148,6 +149,7 @@ input::placeholder{
     position: absolute;
     top:-85px;
     left:608px;
+    overflow: hidden;
 }
 
 .wrapper{
