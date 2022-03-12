@@ -1,3 +1,5 @@
+"use strict"
+
 function searchClick(){
 
     document.getElementById('attractionsContainer').innerHTML="";
@@ -80,7 +82,7 @@ function searchClick(){
 
 const searchEnter = document.getElementById('searchInput')
 
-searchEnter.addEventListener("keyup", (event) => {
+searchEnter.addEventListener("keydown", (event) => {
     if (event.keycode === 13){
         event.preventDefault();
         document.getElementById('searchBtnIcon').click()
