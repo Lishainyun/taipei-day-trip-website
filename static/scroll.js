@@ -85,5 +85,4 @@ function scroll(){
     }
 }
 
-scroll();
-window.onscroll = scroll;
+window.onscroll = scroll();
