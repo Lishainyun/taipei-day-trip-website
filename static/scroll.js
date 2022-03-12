@@ -6,7 +6,8 @@ function scroll(){
     
     let footer = document.getElementById('footer');
     let footerRect = footer.getBoundingClientRect();
-    let clientHeight = footer.clientHeight;
+    let footerTop = footerRect.top;
+    let footerBottom = footerRect.bottom;
     let footerHeight = footerRect.height;
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
@@ -18,7 +19,7 @@ function scroll(){
         searchInput = document.getElementById('searchInput').value
     }
 
-    while( clientHeight === footerHeight ) {
+    while( (footerBottom - footerTop) === footerHeight ) {
 
         fetch(url + 'page=' + page + '&keyword=' + searchInput, {
             method:'get'
