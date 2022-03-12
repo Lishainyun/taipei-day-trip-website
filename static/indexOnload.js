@@ -1,6 +1,6 @@
 "use strict"
 
-function onload(){
+(function onload(){
 
     let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
@@ -48,9 +48,7 @@ function onload(){
 
         }
     })
-}
-
-onload()
+}());
 
 
 
