@@ -130,4 +130,4 @@ function scroll(){
     }
 }
 
-window.addEventListener('scroll', debounce(scroll, 500));
+window.addEventListener('scroll', scroll);
