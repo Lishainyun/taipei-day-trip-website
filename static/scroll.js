@@ -1,7 +1,5 @@
 "use strict"
 
-document.getElementById('footer').onscroll = () => {scroll()}
-
 function scroll(){
     
     let footer = document.getElementById('footer');
@@ -87,4 +85,5 @@ function scroll(){
     }
 }
 
-
+scroll();
+window.onscroll = scroll;
