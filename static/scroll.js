@@ -130,4 +130,4 @@ function scroll(){
     }
 }
 
-document.getElementById('footer').addEventListener('scroll', scroll);
+document.addEventListener('scroll', scroll());
