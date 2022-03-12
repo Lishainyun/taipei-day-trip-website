@@ -132,7 +132,7 @@ function scroll(){
     }
 }
 
-document.addEventListener('scroll', () => {
+document.getElementById('footer').addEventListener('scroll', () => {
 
     if (!ticking){
         window.requestAnimationFrame(() => {
