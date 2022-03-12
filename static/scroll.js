@@ -1,5 +1,7 @@
 "use strict"
 
+let ticking = false;
+
 function scroll(){
     
     let footer = document.getElementById('footer');
@@ -85,4 +87,14 @@ function scroll(){
     }
 }
 
-window.onscroll = scroll();
+document.addEventListener('scroll', () => {
+    
+    if (!ticking){
+        window.requestAnimationFrame(() => {
+            scroll();
+            ticking = false;
+        });
+
+        ticking = true
+    }
+});
