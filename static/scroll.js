@@ -1,7 +1,5 @@
 "use strict"
 
-let ticking = false;
-
 let page = 0;
 let searchInput;
 
@@ -132,14 +130,4 @@ function scroll(){
     }
 }
 
-document.getElementById('footer').addEventListener('scroll', () => {
-
-    if (!ticking){
-        window.requestAnimationFrame(() => {
-            scroll();
-            ticking = false;
-        });
-
-        ticking = true
-    }
-});
+document.getElementById('footer').addEventListener('scroll', scroll);
