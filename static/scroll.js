@@ -1,7 +1,5 @@
 "use strict"
 
-let page = 0;
-let searchInput;
 
 function scroll(){
     
@@ -10,6 +8,8 @@ function scroll(){
     let footerTop = footerRect.top;
     let footerBottom = footerRect.bottom;
     let footerHeight = footerRect.height;
+    let page = 0;
+    let searchInput;
     let url = 'http://44.199.90.64:3000/api/attractions?';
     
 
@@ -124,7 +124,7 @@ function scroll(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
-                footer.style.position = "relative";
+
             }
         })
     }
