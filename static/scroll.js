@@ -132,7 +132,7 @@ function scroll(){
     }
 }
 
-Document.addEventListener('scroll', () => {
+document.addEventListener('scroll', () => {
 
     if (!ticking){
         window.requestAnimationFrame(() => {
