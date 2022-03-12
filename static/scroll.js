@@ -34,8 +34,8 @@ function scroll(){
                     method:'get'
                 })
                 .then(response => response.json())
-                .then((res) => {
-                    let data = res['data']
+                .then((response) => {
+                    let data = response['data']
                     let dataLength = data.length
 
                     for(let i = 0; i < dataLength; i++){
@@ -78,4 +78,5 @@ function scroll(){
     }
 }
 
-let interval = setInterval(scroll, 1000);
+scroll()
+
