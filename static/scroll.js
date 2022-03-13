@@ -148,8 +148,11 @@ function scroll(){
     })
 });
 
-document.getElementById('footer').addEventListener('scroll', scroll);
-
+window.onscroll = () => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+        scroll
+    }
+}
 // () => {
 //     setTimeout(scroll(),3000);
 // });
