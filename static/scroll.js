@@ -3,7 +3,7 @@
 
 function scroll(){
     
-    let footer = document.querySelector('footer');
+    let footer = document.getElementById('footer');
     let footerRect = footer.getBoundingClientRect();
     let footerTop = footerRect.top;
     let footerBottom = footerRect.bottom;
@@ -78,7 +78,7 @@ function scroll(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
-                footer.style.position = "relative";
+
             }
         })
     } else if (page !== 0 && searchInput !== "") {
@@ -130,4 +130,4 @@ function scroll(){
     }
 }
 
-window.addEventListener('scroll', scroll);
+window.addEventListener('scroll', window.setTimeout(scroll,3000));
