@@ -54,7 +54,7 @@ def attractionSearchApi():
 			""", (offset,)
 		)		
 		result = cursor.fetchall()
-		resultLength = len(result) 
+		resultLength = len(result)
 
 		if resultLength >= 12:
 			for i in range(12):

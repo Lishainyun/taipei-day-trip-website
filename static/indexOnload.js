@@ -164,13 +164,15 @@ function search(){
     })
 }
 
-document.getElementById('searchInput').addEventListener("keypress", function(event){
+function enterSearch(e){
 
-    event.preventDefault();
+    e.preventDefault();
 
-    if (event.keycode === 13){
+    if (e.keycode === 13){
 
         document.getElementById('searchBtn').click();
 
     }
-})
+}
+
+document.getElementById('searchInput').addEventListener("keypress", enterSearch(e))
