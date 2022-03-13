@@ -54,15 +54,15 @@ def attractionSearchApi():
 			""", (offset,)
 		)		
 		result = cursor.fetchall()
-		resultLength = len(result) - 1
+		resultLength = len(result) 
 
-		for i in range(resultLength):
+		for i in range(12):
 			rowHeaders = [x[0] for x in cursor.description]
 			rowData = [x for x in list(result[i])]
 			data = dict(zip(rowHeaders,rowData))
 			finalData.append(data)
 
-		for i in range(resultLength):
+		for i in range(12):
 			finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
 
 		if result == []:
@@ -92,15 +92,15 @@ def attractionSearchApi():
 			""", ("%"+keyword+"%", offset,)
 		)
 		result = cursor.fetchall()
-		resultLength = len(result) - 1
+		resultLength = len(result) 
 
-		for i in range(resultLength):
+		for i in range(12):
 			rowHeaders = [x[0] for x in cursor.description]
 			rowData = [x for x in list(result[i])]
 			data = dict(zip(rowHeaders,rowData))
 			finalData.append(data)
 
-		for i in range(resultLength):
+		for i in range(12):
 			finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
 
 		if result == []:
