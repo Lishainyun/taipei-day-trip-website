@@ -165,7 +165,7 @@ document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
     if (e.keycode === 13){
 
-        document.getElementById('searchBtn').click();
+        debounce(search,1000)
 
     }
 })
