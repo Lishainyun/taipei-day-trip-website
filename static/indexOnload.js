@@ -3,6 +3,7 @@
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = "";
 let searchInput = "";
+const selectElement = document.querySelector('#searchInput');
 
 const debounce = function(func, delay){
     let timer;
@@ -160,11 +161,7 @@ function search(){
     })
 }
 
-function enterSearch(ele){
-    if(ele.key === 'enter'){
-        debounce(search,1000)
-    }
-}
+selectElement.addEventListener('change', debounce(search,1000))
 
 // document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
