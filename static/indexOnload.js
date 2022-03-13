@@ -163,13 +163,4 @@ function search(){
 
 selectElement.addEventListener('change', debounce(search,1000))
 
-// document.getElementById('searchInput').addEventListener("keypress", (e)=>{
-
-//     if (e.keycode === 13){
-
-//         debounce(search,1000)
-
-//     }
-// })
-
 document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
