@@ -64,6 +64,10 @@ function onload(){
 onload();
 
 function clickSearch(){
+    debounce(search, 1000)
+}
+
+function search(){
 
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
@@ -147,8 +151,4 @@ function clickSearch(){
     })
 }
 
-enterSearch.addEventListener("keypress", function(event){
-    if(event.keycode == 13){
-        clickSearch()
-    }
-});
+enterSearch.addEventListener("keyup", debounce(search, 1000))
