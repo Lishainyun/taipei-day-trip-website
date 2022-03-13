@@ -130,6 +130,8 @@ function scroll(){
     }
 }
 
-window.addEventListener('scroll', () => {
-    setTimeout(scroll(),3000);
-});
+window.addEventListener('scroll', scroll);
+
+// () => {
+//     setTimeout(scroll(),3000);
+// });
