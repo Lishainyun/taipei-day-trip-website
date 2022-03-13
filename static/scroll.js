@@ -16,7 +16,7 @@ function scroll(){
         searchInput = ""
     }else{
         searchInput = document.getElementById('searchInput').value
-    }
+    };
 
     if( (footerBottom - footerTop) === footerHeight && searchInput === "" ) {
 
@@ -29,9 +29,12 @@ function scroll(){
             while(res['nextPage'] !== null) {
 
                 page = res['nextPage'];
-                nextPageWithoutKeyword()
+                
             }  
-        })
+        });
+
+        nextPageWithoutKeyword();
+
     } else if ( (footerBottom - footerTop) === footerHeight && searchInput !== "" ) {
 
         fetch(url + 'page=' + page + '&keyword=' + searchInput, {
@@ -42,11 +45,12 @@ function scroll(){
             while(response['nextPage'] !== null) {
 
                 page = res['nextPage'];
-                nextPageWithoutKeyword()
+                
             }  
-        })
+        });
+        nextPageWithKeyword();
     }  
-}
+};
 
 function nextPageWithoutKeyword(){
 
