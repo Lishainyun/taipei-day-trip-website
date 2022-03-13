@@ -232,7 +232,6 @@ input::placeholder{
 	grid-template-rows: auto;
 	grid-gap: 30px 30px;
     padding:55px 0;
-    height:100vh - 104px;
 
 }
 
@@ -278,7 +277,6 @@ input::placeholder{
 		margin:0px;
         position:relative;
         padding:55px 0;
-        min-height: 100vh;
 
 	}
 
@@ -452,7 +450,6 @@ input::placeholder{
 		grid-template-rows: auto;
         position: relative;
         padding:55px 0;
-        min-height: 100vh;
 
 	}
 
