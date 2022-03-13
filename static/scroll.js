@@ -143,28 +143,23 @@ function nextPageWithKeyword(){
     })
 };
 
-function throttle(fn, delay){
-    let inThrottle;
-    let timeout = null;
-    return ()=>{
-      let context = this;
-      let args = arguments;
-      if(!inThrottle){
-        fn.apply(context, args)
-        inThrottle = true;
-        clearTimeout(timeout);
-        timeout = setTimeout(()=>{
-          inThrottle = false
-        }, delay)
-      }
-    }
-  }
-
 function startScroll(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         scroll();
     };
 }
 
-document.addEventListener('scroll', throttle(startScroll,5000))
+const debounce = function(func, delay){
+    let timer;
+    return function(){     
+        const context = this; 
+        const args = arguments;
+        clearTimeout(timer); 
+        timer = setTimeout(()=> {
+        func.apply(context, args)
+        },delay);
+    }
+}
+
+window.addEventListener('scroll', debounce(startScroll,5000))
 
