@@ -150,7 +150,7 @@ function nextPageWithKeyword(){
 
 }
 
-window.addEventListener('scroll', scroll);
+document.getElementById('footer').addEventListener('scroll', scroll);
 
 // () => {
 //     setTimeout(scroll(),3000);
