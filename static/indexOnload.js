@@ -76,10 +76,6 @@ function onload(){
 
 onload();
 
-function clickSearch(){
-    debounce(search, 1000)
-}
-
 function search(){
 
     document.getElementById('attractionsContainer').innerHTML="";
@@ -165,7 +161,7 @@ function search(){
 }
 
 
-document.getElementById('searchInput').addEventListener("keypress", (e)=>{
+document.getElementById('searchInput').addEventListener("keyup", (e)=>{
 
     if (e.keycode === 13){
 
@@ -173,3 +169,5 @@ document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
     }
 })
+
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
