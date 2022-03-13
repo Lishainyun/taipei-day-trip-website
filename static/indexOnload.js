@@ -165,11 +165,12 @@ function search(){
     })
 }
 
-enterSearch.addEventListener("keyup", (event)=>{
-
-    event.preventDefault()
+enterSearch.addEventListener("keypress", (event)=>{
 
     if (event.keycode == 13){
-        debounce(search, 1000)
+
+        event.preventDefault();
+        debounce(search, 1000);
+
     }
 })
