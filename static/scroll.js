@@ -1,27 +1,18 @@
 "use strict"
 
-
-let searchInput;
-
 function scroll(){
-    
-    // let footer = document.getElementById('footer');
-    // let footerRect = footer.getBoundingClientRect();
-    // let footerTop = footerRect.top;
-    // let footerBottom = footerRect.bottom;
-    // let footerHeight = footerRect.height;
 
     if (nextPage !== null && searchInput === ""){
         fetch(url + 'page=' + nextPage, {
             method:'get'
         })
         .then(response => response.json())
-        .then((res) => {
-            let data = res['data']
+        .then((respond) => {
+            let data = respond['data']
             let dataLength = data.length
-            let checkNextPage = res['nextPage']
+            let checkNextPage = respond['nextPage']
 
-            while (checkNextPage !== null){
+            if (checkNextPage !== ""){
                 nextPage = checkNextPage
             }
     
@@ -65,14 +56,14 @@ function scroll(){
             method:'get'
         })
         .then(response => response.json())
-        .then((response) => {
-            let data = response['data']
+        .then((responses) => {
+            let data = responses['data']
             let dataLength = data.length
-            let checkNextPage = res['nextPage']
+            let checkNextPage = responses['nextPage']
 
-            while (checkNextPage !== null){
-                nextPage = checkNextPage
-            }
+            if (checkNextPage !== ""){
+                nextPage = checkNextPage;
+            } 
 
             for(let i = 0; i < dataLength; i++){
         
@@ -109,10 +100,12 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }  
         });
+    } else{
+
     }
 };
 
-function startScroll(){
+function scrollToBot(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         scroll();
     };
@@ -123,12 +116,13 @@ const debounce = function(func, delay){
     return function(){     
         const context = this; 
         const args = arguments;
+
         clearTimeout(timer); 
+
         timer = setTimeout(()=> {
         func.apply(context, args)
         },delay);
     }
 }
 
-window.addEventListener('scroll', debounce(startScroll,5000))
-
+window.addEventListener('scroll', debounce(scrollToBot,300))
