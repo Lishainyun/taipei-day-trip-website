@@ -3,7 +3,7 @@
 
 function scroll(){
     
-    let footer = document.getElementById('footer');
+    let footer = document.querySelector('footer');
     let footerRect = footer.getBoundingClientRect();
     let footerTop = footerRect.top;
     let footerBottom = footerRect.bottom;
