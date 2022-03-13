@@ -1,12 +1,12 @@
 "use strict"
 
-let url = 'http://44.199.90.64:3000/api/attractions?';
-let nextPage = 0;
-let searchInput;
 
 function onload(){
 
     let page = 0;
+    let url = 'http://44.199.90.64:3000/api/attractions?';
+    let nextPage = 0;
+    let searchInput;
 
     fetch(url + 'page=' + page, {
         method:'get'
