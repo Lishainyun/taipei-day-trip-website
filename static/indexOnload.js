@@ -160,6 +160,11 @@ function search(){
     })
 }
 
+function enterSearch(ele){
+    if(event.key === 'enter'){
+        debounce(search,1000)
+    }
+}
 
 document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
@@ -170,4 +175,4 @@ document.getElementById('searchInput').addEventListener("keypress", (e)=>{
     }
 })
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
+// document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
