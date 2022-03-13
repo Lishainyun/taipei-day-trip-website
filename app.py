@@ -56,7 +56,7 @@ def attractionSearchApi():
 		result = cursor.fetchall()
 		resultLength = len(result) 
 
-		if resultLength == 12:
+		if resultLength >= 12:
 			for i in range(12):
 				rowHeaders = [x[0] for x in cursor.description]
 				rowData = [x for x in list(result[i])]
@@ -104,7 +104,7 @@ def attractionSearchApi():
 		result = cursor.fetchall()
 		resultLength = len(result) 
 
-		if resultLength == 12:
+		if resultLength >= 12:
 			for i in range(12):
 				rowHeaders = [x[0] for x in cursor.description]
 				rowData = [x for x in list(result[i])]

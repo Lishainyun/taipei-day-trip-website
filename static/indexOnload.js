@@ -146,8 +146,8 @@ function clickSearch(){
     })
 }
 
-function enterSearch(){
-    if(event.key === 'Enter'){
+document.getElementById('searchInput').addEventListener("keyup", function(e){
+    if(e.keycode == 13){
         clickSearch
     }
-}
+});
