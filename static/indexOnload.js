@@ -161,7 +161,7 @@ function search(){
 }
 
 
-document.getElementById('searchInput').addEventListener("keyup", (e)=>{
+document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
     if (e.keycode === 13){
 
