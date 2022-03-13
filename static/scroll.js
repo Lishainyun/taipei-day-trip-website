@@ -166,5 +166,5 @@ function startScroll(){
     };
 }
 
-document.addEventListener('scroll', throttle(startScroll), 5000)
+document.addEventListener('scroll', throttle(startScroll,5000))
 
