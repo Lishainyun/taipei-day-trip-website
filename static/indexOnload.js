@@ -164,9 +164,9 @@ function search(){
     })
 }
 
-function enterSearch(e){
+function enterSearch(event){
 
-    e.preventDefault();
+    event.preventDefault();
 
     if (e.keycode === 13){
 
@@ -175,4 +175,4 @@ function enterSearch(e){
     }
 }
 
-document.getElementById('searchInput').addEventListener("keypress", enterSearch(e))
+document.getElementById('searchInput').addEventListener("keypress", enterSearch(event))
