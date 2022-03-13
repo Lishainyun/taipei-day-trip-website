@@ -1,7 +1,7 @@
 "use strict"
 
 let url = 'http://44.199.90.64:3000/api/attractions?';
-let nextPage = 0;
+let nextPage = "";
 let searchInput = "";
 
 function onload(){
@@ -18,7 +18,7 @@ function onload(){
         let dataLength = data.length;
         let checkNextPage = res['nextPage'];
 
-        if (checkNextPage !== null) {
+        if (checkNextPage !== "") {
             nextPage = checkNextPage
         }
 
@@ -80,9 +80,9 @@ function searchClick(){
         method:'get'
     })
     .then(response => response.json())
-    .then((respinse) => {
+    .then((response) => {
         
-        if(respinse['message'] === "無此頁面"){
+        if(response['message'] === "無此頁面"){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
@@ -93,18 +93,18 @@ function searchClick(){
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
 
-        } else if(respinse['message'] === "伺服器內部錯誤，請依照規格書指示"){
+        } else if(response['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
             let footer = document.getElementById('footer');
             footer.style.position = "relative";
             onload()
         } else{
                 
-            let data = respinse['data']
+            let data = response['data']
             let dataLength = data.length
-            let checkNextPage = res['nextPage'];
+            let checkNextPage = response['nextPage'];
 
-            if (checkNextPage !== null) {
+            if (checkNextPage !== "") {
                 nextPage = checkNextPage
             }
             
@@ -158,7 +158,7 @@ function scroll(){
             let dataLength = data.length
             let checkNextPage = respond['nextPage']
 
-            if (checkNextPage !== null){
+            if (checkNextPage !== ""){
                 nextPage = checkNextPage
             }
     
@@ -207,7 +207,7 @@ function scroll(){
             let dataLength = data.length
             let checkNextPage = responses['nextPage']
 
-            if (checkNextPage !== null){
+            if (checkNextPage !== ""){
                 nextPage = checkNextPage;
             } 
 
@@ -264,11 +264,11 @@ const debounce = function(func, delay){
         const args = arguments;
 
         clearTimeout(timer); 
-        
+
         timer = setTimeout(()=> {
         func.apply(context, args)
         },delay);
     }
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,1000))
+window.addEventListener('scroll', debounce(scrollToBot,300))
