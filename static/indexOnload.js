@@ -166,13 +166,13 @@ function enterSearch(ele){
     }
 }
 
-document.getElementById('searchInput').addEventListener("keypress", (e)=>{
+// document.getElementById('searchInput').addEventListener("keypress", (e)=>{
 
-    if (e.keycode === 13){
+//     if (e.keycode === 13){
 
-        debounce(search,1000)
+//         debounce(search,1000)
 
-    }
-})
+//     }
+// })
 
-// document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))
