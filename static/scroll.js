@@ -4,7 +4,7 @@ let page = 0;
 let searchInput;
 let url = 'http://44.199.90.64:3000/api/attractions?';
 
-(function scroll(){
+function scroll(){
     
     let footer = document.getElementById('footer');
     let footerRect = footer.getBoundingClientRect();
@@ -50,7 +50,7 @@ let url = 'http://44.199.90.64:3000/api/attractions?';
         });
         nextPageWithKeyword();
     }  
-});
+};
 
 (function nextPageWithoutKeyword(){
 
