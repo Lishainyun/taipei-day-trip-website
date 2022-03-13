@@ -208,8 +208,8 @@ function scroll(){
             let checkNextPage = responses['nextPage']
 
             if (checkNextPage !== null){
-                nextPage = checkNextPage
-            }
+                nextPage = checkNextPage;
+            } 
 
             for(let i = 0; i < dataLength; i++){
         
@@ -246,6 +246,8 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }  
         });
+    } else{
+
     }
 };
 
@@ -260,11 +262,13 @@ const debounce = function(func, delay){
     return function(){     
         const context = this; 
         const args = arguments;
+
         clearTimeout(timer); 
+        
         timer = setTimeout(()=> {
         func.apply(context, args)
         },delay);
     }
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,5000))
+window.addEventListener('scroll', debounce(scrollToBot,1000))
