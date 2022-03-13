@@ -164,7 +164,7 @@ function search(){
     })
 }
 
-document.getElementById('searchInput').addEventListener("keyup", function(event){
+document.getElementById('searchInput').addEventListener("keypress", function(event){
 
     event.preventDefault();
 
