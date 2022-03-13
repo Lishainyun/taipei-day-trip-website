@@ -3,7 +3,7 @@
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = "";
 let searchInput = "";
-let enterSearch = document.getElementById('searchBtn');
+let enterSearch = document.querySelector('#searchBtn');
 
 const debounce = function(func, delay){
     let timer;
