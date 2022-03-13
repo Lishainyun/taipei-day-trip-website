@@ -147,8 +147,8 @@ function clickSearch(){
     })
 }
 
-enterSearch.addEventListener("keyup", function(e){
-    if(e.keycode == 13){
+enterSearch.addEventListener("keypress", function(event){
+    if(event.keycode == 13){
         clickSearch()
     }
 });
