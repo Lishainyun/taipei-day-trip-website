@@ -18,7 +18,7 @@ function onload(){
         let dataLength = data.length;
         let checkNextPage = res['nextPage'];
 
-        while (checkNextPage !== null) {
+        if (checkNextPage !== null) {
             nextPage = checkNextPage
         }
 
