@@ -4,7 +4,7 @@ let page = 0;
 let searchInput;
 let url = 'http://44.199.90.64:3000/api/attractions?';
 
-function scroll(){
+(function scroll(){
     
     let footer = document.getElementById('footer');
     let footerRect = footer.getBoundingClientRect();
@@ -50,9 +50,9 @@ function scroll(){
         });
         nextPageWithKeyword();
     }  
-};
+});
 
-function nextPageWithoutKeyword(){
+(function nextPageWithoutKeyword(){
 
     fetch(url + 'page=' + page , {
         method:'get'
@@ -98,10 +98,9 @@ function nextPageWithoutKeyword(){
     
         }
     })
+});
 
-}
-
-function nextPageWithKeyword(){
+(function nextPageWithKeyword(){
 
     fetch(url + 'page=' + page + '&keyword=' + searchInput, {
         method:'get'
@@ -147,8 +146,7 @@ function nextPageWithKeyword(){
     
         }
     })
-
-}
+});
 
 document.getElementById('footer').addEventListener('scroll', scroll);
 
