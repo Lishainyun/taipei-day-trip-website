@@ -143,18 +143,28 @@ function nextPageWithKeyword(){
     })
 };
 
-window.onscroll = () => {
+throttle = (fn, delay) => {
+    let inThrottle;
+    let timeout = null;
+    return ()=>{
+      let context = this;
+      let args = arguments;
+      if(!inThrottle){
+        fn.apply(context, args)
+        inThrottle = true;
+        clearTimeout(timeout);
+        timeout = setTimeout(()=>{
+          inThrottle = false
+        }, delay)
+      }
+    }
+  }
 
-    // let footer = document.getElementById('footer');
-    // let footerRect = footer.getBoundingClientRect();
-    // let footerTop = footerRect.top;
-    // let footerBottom = footerRect.bottom;
-    // let footerHeight = footerRect.height;
-
+function startScroll(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         scroll();
-    }
+    };
 }
-// () => {
-//     setTimeout(scroll(),3000);
-// });
+
+document.addEventListener('scroll', throttle(startScroll), 1000)
+
