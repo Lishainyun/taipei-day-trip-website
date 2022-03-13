@@ -1,5 +1,53 @@
 "use strict"
 
+function scroll(){
+    
+    let footer = document.getElementById('footer');
+    let footerRect = footer.getBoundingClientRect();
+    let footerTop = footerRect.top;
+    let footerBottom = footerRect.bottom;
+    let footerHeight = footerRect.height;
+    let page = 0;
+    let searchInput;
+    let url = 'http://44.199.90.64:3000/api/attractions?';
+    
+
+    if(document.getElementById('searchInput').value === null){
+        searchInput = ""
+    }else{
+        searchInput = document.getElementById('searchInput').value
+    }
+
+    if( (footerBottom - footerTop) === footerHeight && searchInput === "" ) {
+
+        fetch(url + 'page=' + page, {
+            method:'get'
+        })
+        .then(response => response.json())
+        .then((res) => {
+
+            while(res['nextPage'] !== null) {
+
+                page = res['nextPage'];
+                nextPageWithoutKeyword()
+            }  
+        })
+    } else if ( (footerBottom - footerTop) === footerHeight && searchInput !== "" ) {
+
+        fetch(url + 'page=' + page + '&keyword=' + searchInput, {
+            method:'get'
+        })
+        .then(response => response.json())
+        .then((response) => {
+            while(response['nextPage'] !== null) {
+
+                page = res['nextPage'];
+                nextPageWithoutKeyword()
+            }  
+        })
+    }  
+}
+
 function nextPageWithoutKeyword(){
 
     fetch(url + 'page=' + page , {
@@ -96,54 +144,6 @@ function nextPageWithKeyword(){
         }
     })
 
-}
-
-function scroll(){
-    
-    let footer = document.getElementById('footer');
-    let footerRect = footer.getBoundingClientRect();
-    let footerTop = footerRect.top;
-    let footerBottom = footerRect.bottom;
-    let footerHeight = footerRect.height;
-    let page = 0;
-    let searchInput;
-    let url = 'http://44.199.90.64:3000/api/attractions?';
-    
-
-    if(document.getElementById('searchInput').value === null){
-        searchInput = ""
-    }else{
-        searchInput = document.getElementById('searchInput').value
-    }
-
-    if( (footerBottom - footerTop) === footerHeight && searchInput === "" ) {
-
-        fetch(url + 'page=' + page, {
-            method:'get'
-        })
-        .then(response => response.json())
-        .then((res) => {
-
-            while(res['nextPage'] !== null) {
-
-                page = res['nextPage'];
-                nextPageWithoutKeyword()
-            }  
-        })
-    } else if ( (footerBottom - footerTop) === footerHeight && searchInput !== "" ) {
-
-        fetch(url + 'page=' + page + '&keyword=' + searchInput, {
-            method:'get'
-        })
-        .then(response => response.json())
-        .then((response) => {
-            while(response['nextPage'] !== null) {
-
-                page = res['nextPage'];
-                nextPageWithoutKeyword()
-            }  
-        })
-    }  
 }
 
 window.addEventListener('scroll', scroll);
