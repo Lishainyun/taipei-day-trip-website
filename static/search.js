@@ -20,9 +20,9 @@ function searchClick(){
         method:'get'
     })
     .then(response => response.json())
-    .then((res) => {
+    .then((respinse) => {
         
-        if(res['message'] === "無此頁面"){
+        if(respinse['message'] === "無此頁面"){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
@@ -33,15 +33,20 @@ function searchClick(){
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
 
-        } else if(res['message'] === "伺服器內部錯誤，請依照規格書指示"){
+        } else if(respinse['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
             let footer = document.getElementById('footer');
             footer.style.position = "relative";
             onload()
         } else{
                 
-            let data = res['data']
+            let data = respinse['data']
             let dataLength = data.length
+            let checkNextPage = res['nextPage'];
+
+            while (checkNextPage !== null) {
+                nextPage = checkNextPage
+            }
             
             for(let i = 0; i < dataLength; i++){
                 let attractionsPic = data[i]['images'][0];

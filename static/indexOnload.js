@@ -24,10 +24,11 @@ function onload(){
 
         for(let i = 0; i < dataLength; i++){
             let attractionsPic = data[i]['images'][0];
+            let attractionsName = data[i]['name']
             let mrt = data[i]['mrt'];
             let category = data[i]['category'];
 
-            let nameTextnode = document.createTextNode(data[i]['name']);        
+            let nameTextnode = document.createTextNode(attractionsName);        
             let mrtTextnode = document.createTextNode(mrt);
             let catTextnode = document.createTextNode(category);
 
