@@ -3,7 +3,6 @@
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = "";
 let searchInput = "";
-let enterSearch = document.getElementById('searchInput');
 
 const debounce = function(func, delay){
     let timer;
@@ -165,12 +164,13 @@ function search(){
     })
 }
 
-enterSearch.addEventListener("keypress", (event)=>{
+document.getElementById('searchInput').addEventListener("keyup", function(event){
 
-    if (event.keycode == 13){
+    event.preventDefault();
 
-        event.preventDefault();
-        debounce(search, 1000);
+    if (event.keycode === 13){
+
+        document.getElementById('searchBtn').click();
 
     }
 })
