@@ -78,7 +78,6 @@ a, a:link, a:visited{
     background-color: #757575;
     height:104px;
     width:100%;
-    top:-104px;
 
 }
 
@@ -232,7 +231,7 @@ input::placeholder{
 	grid-template-columns: 100%;
 	grid-template-rows: auto;
 	grid-gap: 30px 30px;
-    padding:55px 0 104px 0;
+    padding:55px 0;
     min-height: 100%;
 
 }
@@ -278,7 +277,7 @@ input::placeholder{
 		justify-content: space-evenly;
 		margin:0px;
         position:relative;
-        padding:55px 0 104px 0;
+        padding:55px 0;
         min-height: 100%;
 
 	}
@@ -452,7 +451,7 @@ input::placeholder{
 		grid-template-columns: 23% 23% 23% 23%;
 		grid-template-rows: auto;
         position: relative;
-        padding:55px 0 104px 0;
+        padding:55px 0;
         min-height: 100%;
 
 	}
