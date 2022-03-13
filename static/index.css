@@ -74,10 +74,11 @@ a, a:link, a:visited{
 
 #footer{
 
-    position:relative;
+    position:absolute;
     background-color: #757575;
     height:104px;
     width:100%;
+    bottom:0;
 
 }
 
