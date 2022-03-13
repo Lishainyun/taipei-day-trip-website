@@ -6,11 +6,11 @@ let url = 'http://44.199.90.64:3000/api/attractions?';
 
 function scroll(){
     
-    let footer = document.getElementById('footer');
-    let footerRect = footer.getBoundingClientRect();
-    let footerTop = footerRect.top;
-    let footerBottom = footerRect.bottom;
-    let footerHeight = footerRect.height;
+    // let footer = document.getElementById('footer');
+    // let footerRect = footer.getBoundingClientRect();
+    // let footerTop = footerRect.top;
+    // let footerBottom = footerRect.bottom;
+    // let footerHeight = footerRect.height;
 
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
@@ -18,25 +18,20 @@ function scroll(){
         searchInput = document.getElementById('searchInput').value
     };
 
-    if( (footerBottom - footerTop) === footerHeight && searchInput === "" ) {
-
+    if (searchInput === ""){
         fetch(url + 'page=' + page, {
             method:'get'
         })
         .then(response => response.json())
         .then((res) => {
-
             while(res['nextPage'] !== null) {
 
                 page = res['nextPage'];
-                
-            }  
+                nextPageWithoutKeyword();    
+
+            }
         });
-
-        nextPageWithoutKeyword();
-
-    } else if ( (footerBottom - footerTop) === footerHeight && searchInput !== "" ) {
-
+    }else {
         fetch(url + 'page=' + page + '&keyword=' + searchInput, {
             method:'get'
         })
@@ -45,11 +40,11 @@ function scroll(){
             while(response['nextPage'] !== null) {
 
                 page = res['nextPage'];
-                
+                nextPageWithKeyword
+
             }  
         });
-        nextPageWithKeyword();
-    }  
+    }
 };
 
 function nextPageWithoutKeyword(){
