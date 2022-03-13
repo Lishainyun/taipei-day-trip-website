@@ -143,7 +143,7 @@ function nextPageWithKeyword(){
     })
 };
 
-throttle = (fn, delay) => {
+function throttle(fn, delay){
     let inThrottle;
     let timeout = null;
     return ()=>{
