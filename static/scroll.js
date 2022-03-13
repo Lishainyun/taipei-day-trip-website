@@ -149,7 +149,14 @@ function nextPageWithKeyword(){
 };
 
 window.onscroll = () => {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+
+    // let footer = document.getElementById('footer');
+    // let footerRect = footer.getBoundingClientRect();
+    // let footerTop = footerRect.top;
+    // let footerBottom = footerRect.bottom;
+    // let footerHeight = footerRect.height;
+
+    if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         scroll();
     }
 }
