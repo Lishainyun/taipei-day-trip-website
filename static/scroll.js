@@ -52,7 +52,7 @@ function scroll(){
     }  
 };
 
-(function nextPageWithoutKeyword(){
+function nextPageWithoutKeyword(){
 
     fetch(url + 'page=' + page , {
         method:'get'
@@ -98,9 +98,9 @@ function scroll(){
     
         }
     })
-});
+};
 
-(function nextPageWithKeyword(){
+function nextPageWithKeyword(){
 
     fetch(url + 'page=' + page + '&keyword=' + searchInput, {
         method:'get'
@@ -146,11 +146,11 @@ function scroll(){
     
         }
     })
-});
+};
 
 window.onscroll = () => {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-        scroll
+        scroll();
     }
 }
 // () => {
