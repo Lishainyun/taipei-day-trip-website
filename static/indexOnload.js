@@ -2,7 +2,7 @@
 
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = 0;
-let searchInput = ""
+let searchInput;
 
 function onload(){
 
