@@ -1,14 +1,15 @@
 "use strict"
 
+let searchInput = ""
+
 function searchClick(){
 
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
     document.getElementById('errorMessage').style.margin = "0"
     
-    let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
-    let searchInput = ""
+
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
     }else{
@@ -27,7 +28,7 @@ function searchClick(){
             let errorMessageDiv = document.getElementById('errorMessage');
             let messageTextnode = document.createTextNode("查無景點")    
             errorMessageDiv.appendChild(messageTextnode)
-            document.getElementById('errorMessage').style.margin = "20px"
+            document.getElementById('errorMessage').style.margin = "40px"
             // footer 置底
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";

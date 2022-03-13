@@ -1,8 +1,10 @@
 "use strict"
 
+let url = 'http://44.199.90.64:3000/api/attractions?';
+let nextPage = 0;
+
 function onload(){
 
-    let url = 'http://44.199.90.64:3000/api/attractions?';
     let page = 0;
 
     fetch(url + 'page=' + page, {
@@ -11,8 +13,14 @@ function onload(){
     .then(response => response.json())
     .then((res) => {
 
-        let data = res['data']
-        let dataLength = data.length
+        let data = res['data'];
+        let dataLength = data.length;
+        let checkNextPage = res['nextPage'];
+
+        while (checkNextPage !== null) {
+            nextPage = checkNextPage
+        }
+
         for(let i = 0; i < dataLength; i++){
             let attractionsPic = data[i]['images'][0];
             let mrt = data[i]['mrt'];
