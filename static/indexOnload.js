@@ -3,6 +3,7 @@
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = "";
 let searchInput = "";
+let enterSearch = document.getElementById('searchInput');
 
 function onload(){
 
@@ -146,8 +147,8 @@ function clickSearch(){
     })
 }
 
-document.getElementById('searchInput').addEventListener("keyup", function(e){
+enterSearch.addEventListener("keyup", function(e){
     if(e.keycode == 13){
-        clickSearch
+        clickSearch()
     }
 });
