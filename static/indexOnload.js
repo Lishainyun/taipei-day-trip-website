@@ -62,7 +62,7 @@ function onload(){
 
 onload();
 
-function searchClick(){
+function search(){
 
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
@@ -145,5 +145,3 @@ function searchClick(){
         }
     })
 }
-
-document.getElementById('searchInput').addEventListener('keyup', debounce(searchClick,300))
