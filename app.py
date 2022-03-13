@@ -56,14 +56,24 @@ def attractionSearchApi():
 		result = cursor.fetchall()
 		resultLength = len(result) 
 
-		for i in range(12):
-			rowHeaders = [x[0] for x in cursor.description]
-			rowData = [x for x in list(result[i])]
-			data = dict(zip(rowHeaders,rowData))
-			finalData.append(data)
+		if resultLength == 12:
+			for i in range(12):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
 
-		for i in range(12):
-			finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
+			for i in range(12):
+				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
+		else:
+			for i in range(resultLength):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
+
+			for i in range(resultLength):
+				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
 
 		if result == []:
 			r = jsonify({"error":True,"message":"無此頁面"})
@@ -94,14 +104,24 @@ def attractionSearchApi():
 		result = cursor.fetchall()
 		resultLength = len(result) 
 
-		for i in range(12):
-			rowHeaders = [x[0] for x in cursor.description]
-			rowData = [x for x in list(result[i])]
-			data = dict(zip(rowHeaders,rowData))
-			finalData.append(data)
+		if resultLength == 12:
+			for i in range(12):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
 
-		for i in range(12):
-			finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
+			for i in range(12):
+				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
+		else:
+			for i in range(resultLength):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
+
+			for i in range(resultLength):
+				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
 
 		if result == []:
 			r = jsonify({"error":True,"message":"無此頁面"})

@@ -62,7 +62,7 @@ function onload(){
 
 onload();
 
-function search(){
+function clickSearch(){
 
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
@@ -144,4 +144,10 @@ function search(){
             }
         }
     })
+}
+
+function enterSearch(){
+    if(event.key === 'Enter'){
+        clickSearch
+    }
 }
