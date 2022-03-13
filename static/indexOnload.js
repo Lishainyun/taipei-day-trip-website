@@ -161,7 +161,7 @@ function search(){
 }
 
 function enterSearch(ele){
-    if(event.key === 'enter'){
+    if(ele.key === 'enter'){
         debounce(search,1000)
     }
 }
