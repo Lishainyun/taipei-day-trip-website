@@ -1,4 +1,5 @@
 from flask import *
+from flask_cors import cross-origin
 from sqlalchemy import *
 from dotenv import *
 from sqlalchemy import *
@@ -33,6 +34,7 @@ mypool = pool.QueuePool(getconn, max_overflow=10, pool_size=5)
 
 #apis
 @app.route("/api/attractions", methods=["GET"])
+@cross_origin()
 def attractionSearchApi():
 	
 	page = request.args.get("page")
@@ -138,6 +140,7 @@ def attractionSearchApi():
 			return r, 200
 
 @app.route("/api/attraction/<attractionId>", methods=["GET"])
+@cross_origin()
 def attractionIdApi(attractionId):
 
 	conn = mypool.connect()
