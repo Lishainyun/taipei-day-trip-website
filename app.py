@@ -1,4 +1,5 @@
 from flask import *
+from flask_cors import cross-origin
 from sqlalchemy import *
 from dotenv import *
 from sqlalchemy import *
@@ -33,6 +34,7 @@ mypool = pool.QueuePool(getconn, max_overflow=10, pool_size=5)
 
 #apis
 @app.route("/api/attractions", methods=["GET"])
+@cross_origin()
 def attractionSearchApi():
 	
 	page = request.args.get("page")
@@ -50,20 +52,30 @@ def attractionSearchApi():
 			"""
 			SELECT id, name, category, description, address, transport, mrt, latitude, longitude, images 
 			FROM attraction 
-			LIMIT 12 OFFSET %s
+			LIMIT 13 OFFSET %s
 			""", (offset,)
 		)		
 		result = cursor.fetchall()
 		resultLength = len(result)
 
-		for i in range(resultLength):
-			rowHeaders = [x[0] for x in cursor.description]
-			rowData = [x for x in list(result[i])]
-			data = dict(zip(rowHeaders,rowData))
-			finalData.append(data)
+		if resultLength >= 12:
+			for i in range(12):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
 
-		for i in range(resultLength):
-			finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
+			for i in range(12):
+				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
+		else:
+			for i in range(resultLength):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
+
+			for i in range(resultLength):
+				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
 
 		if result == []:
 			r = jsonify({"error":True,"message":"無此頁面"})
@@ -88,20 +100,30 @@ def attractionSearchApi():
 			SELECT id, name, category, description, address, transport, mrt, latitude, longitude, images 
 			FROM attraction 
 			WHERE name LIKE %s
-			LIMIT 12 OFFSET %s
+			LIMIT 13 OFFSET %s
 			""", ("%"+keyword+"%", offset,)
 		)
 		result = cursor.fetchall()
-		resultLength = len(result)
+		resultLength = len(result) 
 
-		for i in range(resultLength):
-			rowHeaders = [x[0] for x in cursor.description]
-			rowData = [x for x in list(result[i])]
-			data = dict(zip(rowHeaders,rowData))
-			finalData.append(data)
+		if resultLength >= 12:
+			for i in range(12):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
 
-		for i in range(resultLength):
-			finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
+			for i in range(12):
+				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
+		else:
+			for i in range(resultLength):
+				rowHeaders = [x[0] for x in cursor.description]
+				rowData = [x for x in list(result[i])]
+				data = dict(zip(rowHeaders,rowData))
+				finalData.append(data)
+
+			for i in range(resultLength):
+				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
 
 		if result == []:
 			r = jsonify({"error":True,"message":"無此頁面"})
@@ -116,11 +138,9 @@ def attractionSearchApi():
 			conn.close()
 			r = jsonify({"nextPage":nextPage, "data":finalData})
 			return r, 200
-	# else:
-	# 	r = jsonify({"error":True,"message":"請輸入page參數"})
-	# 	return r, 500
 
 @app.route("/api/attraction/<attractionId>", methods=["GET"])
+@cross_origin()
 def attractionIdApi(attractionId):
 
 	conn = mypool.connect()
@@ -132,8 +152,6 @@ def attractionIdApi(attractionId):
 	for i in range(len(result)):
 		idsList.append(result[i][0])
 
-	# finalData = []
-	
 	if int(attractionId) in idsList:
 		cursor.execute(
 				"""
@@ -148,7 +166,6 @@ def attractionIdApi(attractionId):
 		rowHeaders = [x[0] for x in cursor.description]
 		rowData = [x for x in result]
 		data = dict(zip(rowHeaders,rowData))
-		# finalData.append(data)
 
 		data['images'] = ImagesList[data['id']-1]
 
