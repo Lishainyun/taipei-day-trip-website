@@ -1,5 +1,5 @@
 from flask import *
-from flask_cors import cross-origin
+from flask_cors import cross_origin
 from sqlalchemy import *
 from dotenv import *
 from sqlalchemy import *
