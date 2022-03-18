@@ -17,10 +17,22 @@ function scroll(){
             }
     
             for(let i = 0; i < dataLength; i++){
+
+                if (!String.prototype.format) {
+                    String.prototype.format = function(dict) {
+                      return this.replace(/{(\w+)}/g, function(match, key) {
+                        return typeof dict[key] !== 'undefined'
+                          ? dict[key]
+                          : match
+                        ;
+                      });
+                    };
+                }
     
                 let attractionsPic = data[i]['images'][0];
                 let mrt = data[i]['mrt'];
                 let category = data[i]['category'];
+                let attractionId = data[i]['id'];
         
                 let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
@@ -33,7 +45,8 @@ function scroll(){
                 let mrtTextnode = document.createTextNode(mrt);
                 let catTextnode = document.createTextNode(category);
                 
-                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden');
+                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
                 picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
@@ -66,10 +79,22 @@ function scroll(){
             } 
 
             for(let i = 0; i < dataLength; i++){
+
+                if (!String.prototype.format) {
+                    String.prototype.format = function(dict) {
+                      return this.replace(/{(\w+)}/g, function(match, key) {
+                        return typeof dict[key] !== 'undefined'
+                          ? dict[key]
+                          : match
+                        ;
+                      });
+                    };
+                }
         
                 let attractionsPic = data[i]['images'][0];
                 let mrt = data[i]['mrt'];
                 let category = data[i]['category'];
+                let attractionId = data[i]['id'];
         
                 let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
@@ -82,7 +107,8 @@ function scroll(){
                 let mrtTextnode = document.createTextNode(mrt);
                 let catTextnode = document.createTextNode(category);
                 
-                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden');
+                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
                 picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');

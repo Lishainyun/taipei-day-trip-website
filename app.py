@@ -2,7 +2,6 @@ from flask import *
 from flask_cors import cross_origin
 from sqlalchemy import *
 from dotenv import *
-from sqlalchemy import *
 from process_images import ImagesList
 import sqlalchemy.pool as pool
 import os, json, mysql.connector
@@ -199,4 +198,4 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=5000)
