@@ -80,6 +80,7 @@ img[id^="pic"].fadeOut{
     border:0;
     padding:0;
     left:15;
+    background-color: #FFFFFF;
 }
 
 #charge{
@@ -206,8 +207,8 @@ input[id^="dot"]:after{
 }
 
 input[id^="dot"]:checked:after{
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 15px;
     top: 3px;
     position: relative;
@@ -229,7 +230,7 @@ input[id="forenoon"]:after, input[id="afternoon"]:after{
     width: 18px;
     height: 18px;
     border-radius: 15px;
-    top: 3px;
+    /* top: 3px; */
     position: relative;
     background-color: #FFFFFF;
     content: '';
@@ -243,7 +244,7 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     width: 18px;
     height: 18px;
     border-radius: 15px;
-    top: 3px;
+    /* top: 3px; */
     position: relative;
     background-color: #448899;
     content: '';
