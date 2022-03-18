@@ -226,8 +226,8 @@ input[id="forenoon"],input[id="afternoon"]{
 }
 
 input[id="forenoon"]:after, input[id="afternoon"]:after{
-    width: 12;
-    height: 12;
+    width: 20px;
+    height: 20px;
     border-radius: 40px;
     position: relative;
     background-color: #FFFFFF;
@@ -239,8 +239,8 @@ input[id="forenoon"]:after, input[id="afternoon"]:after{
 }
 
 input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
-    width: 12;
-    height: 12;
+    width: 12px;
+    height: 12px;
     border-radius: 40px;
     position: relative;
     background-color: #448899;
