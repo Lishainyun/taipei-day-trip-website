@@ -181,9 +181,9 @@ a, a:link, a:visited{
     text-decoration: none;
 }
 
-::-webkit-datetime-edit { margin:5px 34px 5px 10px; }
+/* ::-webkit-datetime-edit { margin:5px 34px 5px 10px; }
 ::-webkit-datetime-edit-text { font-size:16px;font-weight:400;line-height:13.3px;color: #000000}
-::-webkit-calendar-picker-indicator { width:24px;height:24px;margin:6px 10px 5px 0; }
+::-webkit-calendar-picker-indicator { width:24px;height:24px;margin:6px 10px 5px 0; } */
 
 input[id^="dot"]{
     -webkit-appearance: none;
