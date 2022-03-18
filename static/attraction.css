@@ -21,7 +21,7 @@ img[id^="pic"].fadeOut{
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 10px;
+    bottom: 12px;
     overflow: 0;
     z-index: 199;
     left: 50%;
@@ -232,6 +232,8 @@ input[id="forenoon"]:after, input[id="afternoon"]:after{
     border-radius: 15px;
     /* top: 3px; */
     position: relative;
+    top:-3px;
+    left:-3px;
     background-color: #FFFFFF;
     content: '';
     display: inline-block;
