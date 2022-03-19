@@ -80,8 +80,12 @@ img[id^="pic"].fadeOut{
     height:35px;
     border:0;
     padding:0;
-    left:15;
     background-color: #FFFFFF;
+    -webkit-width:193px;
+    -webkit-height:35px;
+    -webkit-border:0;
+    -webkit-padding:0;
+    -webkit-background-color: #FFFFFF;
 }
 
 #charge{
