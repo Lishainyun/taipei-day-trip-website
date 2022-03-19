@@ -230,24 +230,26 @@ input[id="forenoon"]:after, input[id="afternoon"]:after{
     height: 20px;
     border-radius: 40px;
     position: relative;
+    top:3px;
     background-color: #FFFFFF;
     content: '';
     display: inline-block;
     visibility: visible;
-    border: 1px solid white;
+    border: 2px solid white;
     cursor:pointer;
 }
 
 input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
     border-radius: 40px;
     position: relative;
+    top:3px;
     background-color: #448899;
     content: '';
     display: inline-block;
     visibility: visible;
-    border: 1px solid white;
+    border: 2px solid white;
     cursor:pointer;
 }
 
@@ -311,6 +313,7 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 }
 
 .selectTimeContainer{
+    position:relative;
     display:grid;
     grid-template-columns: 111px 26px 66px 26px 48px;
     align-items: center;
@@ -344,6 +347,8 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 
 .noonText{
     display: inline-block;
+    position:relative;
+    left:2px;
     width:48px;
     height:22px;
     font-weight:400;
@@ -485,16 +490,6 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 /*For pc*/
 @media screen and (min-width: 1201px){
 
-    img[id^="pic"]{
-        width:100%;
-        height:406px;
-        display: block;
-        object-fit: cover;
-        position:absolute;
-        left:0;
-        top:0;
-    }
-
     #attractionName{
         padding:0 0 15px 0;
         margin:0;
@@ -534,6 +529,88 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
         margin:0 0 20px 0;
         margin:0;
     }
+    
+    #picsArea{
+        display: inline-block;
+        position: relative;
+        width: 540px;
+        height:406px;
+        margin:37px auto 0 auto;
+        margin-left:15px;
+    }
+
+    #rightArrowBtn{
+        position: absolute;
+        top:185px;
+        right:10px;
+        cursor:pointer;
+        opacity:0.7;
+        z-index: 200;
+        transition: opacity 1s;
+    }
+
+    #rightArrowBtn:hover{
+        opacity:1;
+    }
+    
+    #leftArrowBtn{
+        position: absolute;
+        top:185px;
+        left:10px;
+        cursor:pointer;
+        opacity:0.7;
+        z-index: 200;
+        transition: opacity 1s;
+    }
+
+    #leftArrowBtn:hover{
+        opacity:1;
+    }
+    
+    img[id^="pic"]{
+        width:100%;
+        height:406px;
+        display: block;
+        object-fit: cover;
+        position:absolute;
+        left:0;
+        top:0;
+    }
+
+    input[id="forenoon"],input[id="afternoon"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    
+    input[id="forenoon"]:after, input[id="afternoon"]:after{
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        position: relative;
+        top:3px;
+        background-color: #FFFFFF;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        cursor:pointer;
+    }
+    
+    input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        position: relative;
+        top:3px;
+        background-color: #448899;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        cursor:pointer;
+    }
+
     .indexMenu{
 		float: right;
 		display: flex;
@@ -585,43 +662,6 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     .wrapper{
         width:1200px;
         margin:0 auto;
-    }
-
-    #picsArea{
-        display: inline-block;
-        position: relative;
-        width: 540px;
-        height:406px;
-        margin:37px auto 0 auto;
-        margin-left:15px;
-    }
-
-    #rightArrowBtn{
-        position: absolute;
-        top:185px;
-        right:10px;
-        cursor:pointer;
-        opacity:0.7;
-        z-index: 200;
-        transition: opacity 1s;
-    }
-
-    #rightArrowBtn:hover{
-        opacity:1;
-    }
-    
-    #leftArrowBtn{
-        position: absolute;
-        top:185px;
-        left:10px;
-        cursor:pointer;
-        opacity:0.7;
-        z-index: 200;
-        transition: opacity 1s;
-    }
-
-    #leftArrowBtn:hover{
-        opacity:1;
     }
 
     .bookingArea{
