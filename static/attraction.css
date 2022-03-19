@@ -81,11 +81,6 @@ img[id^="pic"].fadeOut{
     border:0;
     padding:0;
     background-color: #FFFFFF;
-    -webkit-width:193px;
-    -webkit-height:35px;
-    -webkit-border:0;
-    -webkit-padding:0;
-    -webkit-background-color: #FFFFFF;
 }
 
 #charge{
@@ -186,7 +181,7 @@ a, a:link, a:visited{
     text-decoration: none;
 }
 
-input::-webkit-datetime-edit { margin:5px 34px 5px 10px; }
+/* input::-webkit-datetime-edit { margin:5px 34px 5px 10px; } */
 input::-webkit-datetime-edit-text { font-size:16px;font-weight:400;line-height:13.3px;color: #000000}
 input::-webkit-calendar-picker-indicator { width:24px;height:24px;margin:6px 10px 5px 0; }
 
