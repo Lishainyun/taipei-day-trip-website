@@ -218,11 +218,11 @@ input[id^="dot"]:checked:after{
     opacity: 1;
 }
 
-input[id="forenoon"],input[id="afternoon"]{
+/* input[id="forenoon"],input[id="afternoon"]{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-}
+} */
 
 input[id="forenoon"]:after, input[id="afternoon"]:after{
     width: 20px;
