@@ -218,18 +218,18 @@ input[id^="dot"]:checked:after{
     opacity: 1;
 }
 
-/* input[id="forenoon"],input[id="afternoon"]{
+input[id="forenoon"],input[id="afternoon"]{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-} */
+}
 
 input[id="forenoon"]:after, input[id="afternoon"]:after{
     width: 20px;
     height: 20px;
     border-radius: 40px;
-    position: relative;
-    top:3px;
+    /* position: relative;
+    top:3px; */
     background-color: #FFFFFF;
     content: '';
     display: inline-block;
@@ -242,8 +242,8 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     width: 20px;
     height: 20px;
     border-radius: 40px;
-    position: relative;
-    top:3px;
+    /* position: relative;
+    top:3px; */
     background-color: #448899;
     content: '';
     display: inline-block;
