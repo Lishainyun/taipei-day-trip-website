@@ -39,13 +39,13 @@
                 <p class="formContent">以此景點為中心的一日行程，帶您探索城市角落故事</p>
                 <label for="bookingDate" class="formTitle">選擇日期：</label>
                 <input id="bookingDate" type="date" name="bookingDate" placeholder="yyyy/mm/dd" value="yyyy/mm/dd">
-                <div class="selectTimeContainer">
-                    <div class="formTitle">選擇時間：</div>
-                    <input id="forenoon" type="radio" name="radio" onclick="selectForenoon()" checked>
-                    <label for="forenoon" class="noonText">上半天</label>
-                    <input id="afternoon" type="radio" name="radio" onclick="selectAfternoon()">
-                    <label for="afternoon" class="noonText">下半天</label>
-                </div>
+                <!-- <div class="selectTimeContainer"> -->
+                <div class="formTitle">選擇時間：</div>
+                <input id="forenoon" type="radio" name="radio" onclick="selectForenoon()" checked>
+                <label for="forenoon" class="noonText">上半天</label>
+                <input id="afternoon" type="radio" name="radio" onclick="selectAfternoon()">
+                <label for="afternoon" class="noonText">下半天</label>
+                <!-- </div> -->
                 <p class="formTitle" style="margin-top: 0;">導覽費用：<span id="charge"></span></p>
                 <button id="bookingBtn">開始預訂行程</button>
             </form>
