@@ -370,7 +370,6 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     float: right;
     display: flex;
     padding: 0;
-    height:16px;
     align-items: center;
     flex-wrap: wrap;
     margin:20px 0;
@@ -431,7 +430,6 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 		float: right;
 		display: flex;
 		padding: 0;
-        height:16px;
 		align-items: center;
 		flex-wrap: wrap;
 		margin:20px 0;
@@ -609,7 +607,6 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 		float: right;
 		display: flex;
 		padding: 0;
-        height:16px;
 		align-items: center;
 		flex-wrap: wrap;
 		margin: 20px 0;
