@@ -17,7 +17,6 @@ img[id^="pic"].fadeOut{
 #slideDots{
     display: flex;
     width:80.26%;
-    height:25px;
     flex-direction:row;
     align-items: center;
     justify-content: center;
