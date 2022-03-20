@@ -75,13 +75,13 @@ img[id^="pic"].fadeOut{
     color:#666666;
 }
 
-/* #bookingDate{
+#bookingDate{
     width:193px;
     height:35px;
     border:0;
     padding:0;
     background-color: #FFFFFF;
-} */
+}
 
 #charge{
     font-weight:400;
