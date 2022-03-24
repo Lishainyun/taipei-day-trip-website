@@ -179,6 +179,12 @@ def attractionIdApi(attractionId):
 		r = jsonify({"error":True,"message":"查無此景點"})
 		return r, 400
 
+@app.route("/api/user", methods=["GET","POST","PATCH","DELETE"])
+@cross_origin()
+def userAPIs():
+	
+
+
 @app.errorhandler(500)
 def status500(error):
 	r = jsonify({"error":True,"message":"伺服器內部錯誤，請依照規格書指示"})
@@ -198,4 +204,4 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
-app.run(host='0.0.0.0', port=3000)
+app.run(host='0.0.0.0', port=5000)

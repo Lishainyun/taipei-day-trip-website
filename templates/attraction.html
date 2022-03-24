@@ -12,6 +12,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="overlay" onclick="closeForm()"></div>
+    <form id="loginForm">
+        <img src="/icon_close.png" onclick="closeForm()">
+        <div class="loginTopPadding"></div>
+        <div class="loginTitle">登入會員帳號</div>
+        <input id="loginEmail" type="email" name="loginEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="loginPassword" type="password" name="loginPassword" placeholder="輸入密碼" required>
+        <button id="loginBtn">登入帳戶</button>
+        <div id="loginMessage">登入失敗</div>
+        <div id="loginLogUpBlock" onclick="toLogupForm()">還沒有帳戶？點此註冊</div>
+    </form>
+    <form id="logupForm">
+        <img src="/icon_close.png" onclick="closeForm()">
+        <div class="logupTopPadding"></div>
+        <div class="logupTitle">註冊會員帳號</div>
+        <input id="logupName" type="email" name="logupName" placeholder="輸入姓名" required>
+        <input id="logupEmail" type="email" name="logupEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="logupPassword" type="password" name="logupPassword" placeholder="輸入密碼" required>
+        <button id="logupBtn">註冊新帳戶</button>
+        <div id="logupMessage">註冊失敗</div>
+        <div id="logupLogInBlock" onclick="toLoginForm()">已經有帳戶了？點此登入</div>
+    </form>
+
     <div style="height:54px"></div>
 
     <div class="nav">
@@ -19,7 +42,7 @@
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
 			    <li><a href="">預定行程</a></li>
-                <li><a href="">登入/註冊</a></li>
+                <li><a onclick="logInOrUp()">登入/註冊</a></li>
 		    </ul>
 	    </div>
     </div>
@@ -75,6 +98,8 @@
     <script src="/attractionSlider.js"></script>
     <script src="/attractionSlideBtn.js"></script>
     <script src="/attractionSelectTime.js"></script>
+    <script src="/logInAndUp.js"></script>
+
 
 </body>
 </html>
