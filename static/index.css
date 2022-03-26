@@ -26,6 +26,10 @@ a, a:link, a:visited{
 
 }
 
+a:hover{
+    color:#448899
+}
+
 img[src="/icon_close.png"]{
     position: absolute;
     top:27px;
@@ -44,7 +48,7 @@ img[src="/icon_close.png"]{
     z-index: 1000;
 }
 
-#loginForm{
+#loginDiv{
     display: block;
     position: fixed;
     left: 50%;
@@ -135,12 +139,12 @@ img[src="/icon_close.png"]{
     height:16px;
     font-weight:400;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 16px;
     text-align: center;
-    color:#f54033;
+    overflow: hidden;
 }
 
-#loginLogUpBlock{
+#loginSignupBlock{
     margin:0 15px 10px 15px;
     height:22px;
     font-weight:400;
@@ -151,11 +155,11 @@ img[src="/icon_close.png"]{
     cursor: pointer;
 }
 
-#loginLogUpBlock:hover,#loginLogUpBlock:active{
+#loginSignupBlock:hover,#loginSignupBlock:active{
     text-decoration: underline;
 }
 
-#logupForm{
+#signupDiv{
     display: block;
     position: fixed;
     left: 50%;
@@ -171,14 +175,14 @@ img[src="/icon_close.png"]{
     overflow: hidden;
 }
 
-.logupTopPadding{
+.signupTopPadding{
     width:100%;
     height: 10px;
     background:linear-gradient(270deg, #337788 0%, #66AABB 100%);
     border-radius: 6px 6px 0 0;
 }
 
-.logupTitle{
+.signupTitle{
     text-align: center;
     width:310px;
     height:27px;
@@ -192,7 +196,7 @@ img[src="/icon_close.png"]{
 
 }
 
-#logupName{
+#signupName{
     width:310px;
     height:47px;
     font-size: 16px;
@@ -203,13 +207,13 @@ img[src="/icon_close.png"]{
     border-radius: 5px;
 }
 
-#logupName::placeholder{
+#signupName::placeholder{
     font-weight: 400;
     font-size: 16px;
     line-height: 13.3px;
 }
 
-#logupEmail{
+#signupEmail{
     width:310px;
     height:47px;
     font-size: 16px;
@@ -220,13 +224,13 @@ img[src="/icon_close.png"]{
     border-radius: 5px;
 }
 
-#logupEmail::placeholder{
+#signupEmail::placeholder{
     font-weight: 400;
     font-size: 16px;
     line-height: 13.3px;
 }
 
-#logupPassword{
+#signupPassword{
     width:310px;
     height:47px;
     font-size: 16px;
@@ -237,13 +241,13 @@ img[src="/icon_close.png"]{
     border-radius: 5px;
 }
 
-#logupPassword::placeholder{
+#signupPassword::placeholder{
     font-weight: 400;
     font-size: 16px;
     line-height: 13.3px;
 }
 
-#logupBtn{
+#signupBtn{
     width:310px;
     height:47px;
     padding:0;
@@ -259,18 +263,18 @@ img[src="/icon_close.png"]{
     cursor: pointer;
 }
 
-#logupMessage{
+#signupMessage{
     display:none;
     margin:0 15px 10px 15px;
     height:16px;
     font-weight:400;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 16px;
     text-align: center;
-    color:#f54033;
+    overflow: hidden;
 }
 
-#logupLogInBlock{
+#signupLogInBlock{
     margin:0 15px 10px 15px;
     height:22px;
     font-weight:400;
@@ -281,7 +285,7 @@ img[src="/icon_close.png"]{
     cursor: pointer;
 }
 
-#logupLogInBlock:hover,#logupLogInBlock:active{
+#signupLogInBlock:hover,#signupLogInBlock:active{
     text-decoration: underline;
 }
 
@@ -508,7 +512,6 @@ input::placeholder{
 }
 
 .indexMenu li{
-
     position: relative;
     display: inline-block;
 	height:14px;
@@ -518,11 +521,12 @@ input::placeholder{
     font-size:16px;
     padding: 0 0 0 20px;
     cursor: pointer;
-
 }
 
-
-
+.indexMenu li:hover,.indexMenu li:active{
+    text-decoration: underline;
+    color:#337788
+}
 
 /*For tablets*/
 @media screen and (min-width: 501px){
@@ -592,9 +596,13 @@ input::placeholder{
         font-size:16px;
         padding: 0 0 0 20px;
         cursor: pointer;
-
 	}
-    
+
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
+
     .header{
     
         display:flex;
@@ -736,8 +744,12 @@ input::placeholder{
         font-size:16px;
         padding: 0 0 0 20px;
         cursor: pointer;
-
 	}
+
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
 
     .navBar{
 
