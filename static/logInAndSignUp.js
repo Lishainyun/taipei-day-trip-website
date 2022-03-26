@@ -1,6 +1,6 @@
 "use strict"
 
-const userApiUrl = 'http://172.28.135.230:5000/api/user'
+const userApiUrl = 'http://44.199.90.64:3000/api/user'
 
 let navInUp = document.getElementById('navInUp');
 let navOut = document.getElementById('navOut');
