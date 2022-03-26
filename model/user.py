@@ -1,7 +1,6 @@
 from sqlalchemy import *
 from dotenv import *
 from flask import jsonify
-from flask.ext.bcrypt import Bcrypt
 from process_images import ImagesList
 import sqlalchemy.pool as pool
 import os, json, mysql.connector
@@ -28,7 +27,6 @@ mypool = pool.QueuePool(getconn, max_overflow=10, pool_size=5)
 class UserModel:
     def logIn(data):
         email = data["loginEmail"]
-        password = data["loginPassword"]
 
         try:
             conn = mypool.connect()
@@ -40,28 +38,20 @@ class UserModel:
                 WHERE email = %s
                 """,(email,)
             )
-            result = cursor.fetchall()
+            result = cursor.fetchone()
 
-            emailList = []
-            passwordList = []
-            for i in range(len(result)):
-                emailList.append(result[i]["email"])
-                passwordList.append(result[i]["password"])
-            
-            if (email in emailList) and (emailList.index(email) == passwordList.index(password)):
-                return jsonify({"ok":True}), 200
-            else:
-                return jsonify({"error":True,"message":"登入失敗，帳號或密碼錯誤或其他原因"}), 400  
+            if result:
+                return result['password']
         except:
-            return jsonify({"error":True,"message":"伺服器內部錯誤"}), 500
+            return None
         finally:
             cursor.close()
             conn.close() 
 
-    def signUp(data,pw_hash):
+    def signUp(data,pwHash):
         name = data["signupName"]
         email = data["signupEmail"]
-        pw_hash = pw_hash
+        pwHash = pwHash
         
         try:
             conn = mypool.connect()
@@ -80,12 +70,12 @@ class UserModel:
                     """
                     INSERT INTO user (name, email, password)
                     VALUES (%s, %s, %s)
-                    """, (name, email, password)
+                    """, (name, email, pwHash)
                 )	
                 conn.commit()
                 return jsonify({"ok":True}), 200
             else:
-                return jsonify({"error":True,"message":"註冊失敗，重複的 Email 或其他原因"}), 400
+                return jsonify({"error":True,"message":"註冊失敗，重複的 Email "}), 400
         except:
             return jsonify({"error":True,"message":"伺服器內部錯誤"}), 500
         finally:

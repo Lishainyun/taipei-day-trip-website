@@ -1,6 +1,7 @@
 from flask import *
 from flask_cors import cross_origin
-from flask.ext.bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
+from datetime import timedelta
 from model.attraction import AttractionModel
 from model.user import UserModel
 import os
@@ -11,9 +12,9 @@ app.secret_key=os.getenv('SECRET_KEY')
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
+app.permanent_session_lifetime = timedelta(days=1)
 
-
-#apis
+#APIs
 @app.route("/api/attractions", methods=["GET"])
 @cross_origin()
 def attractionSearchApi():
@@ -49,23 +50,31 @@ def attractionIdApi(attractionId):
 @app.route("/api/user", methods=["GET","POST","PATCH","DELETE"])
 @cross_origin()
 def userAPIs():
-	
+
 	if request.method == 'POST':
 		data = request.json
-		pw = data['signupPassword']
-		pw_hash = bcrypt.generate_password_hash(pw).decode('utf-8')
-		result = UserModel.signUp(data,pw_hash)
+		pwHash = bcrypt.generate_password_hash(data['signupPassword']).decode('utf-8')
+		result = UserModel.signUp(data,pwHash)
 		return result
+	
 	elif request.method == 'PATCH':
 		data = request.json
 		result = UserModel.logIn(data)
-		if result[1] == 200:
+		
+		if result is None or bcrypt.check_password_hash(result, data['loginPassword']) == False: 
+			return jsonify({"error":True,"message":"登入失敗，帳號或密碼錯誤"}), 400  
+		elif bcrypt.check_password_hash(result, data['loginPassword']):
 			session['Email'] = data['loginEmail']
-		return result
+			session.permanent = True
+			return jsonify({"ok":True}), 200		
+		else:
+			return jsonify({"error":True,"message":"伺服器內部錯誤"}), 500
+
 	elif request.method == 'GET':
 		email = session['Email']
 		result = UserModel.getInfo(email)
 		return result
+	
 	else:
 		session.clear()
 		return jsonify({"ok":True})
@@ -89,4 +98,4 @@ def booking():
 def thankyou():
 	return render_template("thankyou.html")
 
-app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=3000)

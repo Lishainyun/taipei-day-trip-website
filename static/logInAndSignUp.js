@@ -12,6 +12,7 @@ let signupDiv = document.getElementById('signupDiv');
 let signupName = document.getElementById('signupName');
 let signupEmail = document.getElementById('signupEmail');
 let signupPassword = document.getElementById('signupPassword');
+let signupPasswordCheck = document.getElementById('signupPasswordCheck');
 let signupMessage = document.getElementById('signupMessage');
 
 let loginEmail = document.getElementById('loginEmail');
@@ -50,7 +51,7 @@ function logInOrSignUp(){
 function cancel(){
     overlay.style.display = 'none';
     loginDiv.setAttribute('style','transform: translate(-50%, -275px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
-    signupDiv.setAttribute('style','transform: translate(-50%, -332px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
+    signupDiv.setAttribute('style','transform: translate(-50%, -384px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
     signupMessage.style.display = 'none';
     loginMessage.style.display = 'none';
 }
@@ -79,6 +80,7 @@ function clearInput(){
     signupName.value="";
     signupEmail.value="";
     signupPassword.value="";
+    signupPasswordCheck.value="";
     loginEmail.value="";
     loginPassword.value="";
 }
@@ -89,6 +91,7 @@ function signup(){
     let name = signupName.value;
     let email = signupEmail.value;
     let password = signupPassword.value;
+    let passwordCheck = signupPasswordCheck.value;
     let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     let headers = {
         "Content-Type": "application/json",
@@ -108,7 +111,12 @@ function signup(){
         signupMessage.innerHTML="email格式錯誤，請重新輸入";
         signupMessage.style = "color:#f54033;display:block"
         clearInput();
-    } else{
+    } else if (password !== passwordCheck){
+        signupMessage.innerHTML="密碼錯誤，請重新輸入";
+        signupMessage.style = "color:#f54033;display:block"
+        signupPassword.value="";
+        signupPasswordCheck.value="";      
+    } else {
         fetch(userApiUrl,{
             method:'POST',
             headers: headers,
@@ -133,13 +141,12 @@ function signup(){
         });
     }
 }
-document.getElementById('signupBtn').addEventListener('click',debounce(signup,300))
+document.getElementById('signupBtn').addEventListener('click',debounce(signup,600))
 
 // 登入帳戶
 function login(){
     let email = loginEmail.value;
     let password = loginPassword.value;
-    let navOut = document.getElementById('navOut');
     let headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -180,7 +187,7 @@ function login(){
         });
     }
 }
-document.getElementById('loginBtn').addEventListener('click',debounce(login,300))
+document.getElementById('loginBtn').addEventListener('click',debounce(login,600))
 
 //登出帳戶
 function logout(){

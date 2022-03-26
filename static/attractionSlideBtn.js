@@ -42,7 +42,7 @@ function nextPic(){
 
 
 }
-document.getElementById('rightArrowBtn').addEventListener("click", debounce(nextPic,1000))
+document.getElementById('rightArrowBtn').addEventListener("click", debounce(nextPic,600))
 
 // 上一張
 function previousPic(){
@@ -71,4 +71,4 @@ function previousPic(){
     } ;
     
 }
-document.getElementById('leftArrowBtn').addEventListener("click", debounce(previousPic,1000))
+document.getElementById('leftArrowBtn').addEventListener("click", debounce(previousPic,600))
