@@ -32,7 +32,7 @@ checkUserStatus(userApiUrl)
     .then((response)=>{
         if (response.status == 200){
             navInUp.id="navOut"
-            navInUp.innerHTML="登出"
+            navInUp.innerHTML="登出系統"
         } 
     });
 
@@ -172,7 +172,7 @@ function login(){
                 loginMessage.style.color="#2245ba";
                 loginMessage.style.display="block";
                 navInUp.id="navOut";
-                navInUp.innerHTML="登出";
+                navInUp.innerHTML="登出系統";
                 clearInput();
                 cancel();
             } else if (res.status == 400){
