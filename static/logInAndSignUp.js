@@ -26,7 +26,7 @@ async function checkUserStatus(userApiUrl){
         method:"GET"
     })
     return response
-}
+};
 
 checkUserStatus(userApiUrl)
     .then((response)=>{
@@ -34,7 +34,7 @@ checkUserStatus(userApiUrl)
             navInUp.id="navOut"
             navInUp.innerHTML="登出"
         } 
-    })
+    });
 
 // 點擊登入/註冊
 function logInOrSignUp(){
@@ -45,7 +45,7 @@ function logInOrSignUp(){
     } else{
         logout();
     }
-}
+};
 
 // 關閉登入/註冊表單
 function cancel(){
@@ -54,7 +54,8 @@ function cancel(){
     signupDiv.setAttribute('style','transform: translate(-50%, -384px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
     signupMessage.style.display = 'none';
     loginMessage.style.display = 'none';
-}
+    clearInput();
+};
 
 
 // 切換登入/註冊表單
@@ -65,7 +66,7 @@ function toSignupDiv(){
         signupDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;');
         loginMessage.style.display = 'none';
     }
-}
+};
 
 function toLoginDiv(){
     if (loginDiv.style.display = 'none'){
@@ -73,7 +74,7 @@ function toLoginDiv(){
         signupDiv.style.display = 'none';
         signupMessage.style.display = 'none';
     }
-}
+};
 
 // 清空註冊/登入輸入框
 function clearInput(){
@@ -83,7 +84,7 @@ function clearInput(){
     signupPasswordCheck.value="";
     loginEmail.value="";
     loginPassword.value="";
-}
+};
 
 // 註冊新帳戶
 function signup(){
@@ -105,15 +106,15 @@ function signup(){
 
     if (name==='' || email==='' || password===''){
         signupMessage.innerHTML="請輸入完整資訊";
-        signupMessage.style = "color:#f54033;display:block"
+        signupMessage.style = "color:#f54033;display:block";
         clearInput();
     } else if (email.search(emailRule) === -1){
         signupMessage.innerHTML="email格式錯誤，請重新輸入";
-        signupMessage.style = "color:#f54033;display:block"
+        signupMessage.style = "color:#f54033;display:block";
         clearInput();
     } else if (password !== passwordCheck){
         signupMessage.innerHTML="密碼錯誤，請重新輸入";
-        signupMessage.style = "color:#f54033;display:block"
+        signupMessage.style = "color:#f54033;display:block";
         signupPassword.value="";
         signupPasswordCheck.value="";      
     } else {
@@ -130,18 +131,18 @@ function signup(){
                 clearInput();
             } else if (res.status == 400){
                 signupMessage.innerHTML="註冊失敗，重複的Email";
-                signupMessage.style = "color:#f54033;display:block"
+                signupMessage.style = "color:#f54033;display:block";
                 clearInput();
             }
         })
         .catch(res=>{
             signupMessage.innerHTML="伺服器內部錯誤，請稍後再試";
-            signupMessage.style = "color:#f54033;display:block"
+            signupMessage.style = "color:#f54033;display:block";
             clearInput();
         });
     }
 }
-document.getElementById('signupBtn').addEventListener('click',debounce(signup,600))
+document.getElementById('signupBtn').addEventListener('click',debounce(signup,600));
 
 // 登入帳戶
 function login(){
@@ -157,7 +158,7 @@ function login(){
     };
     if (email==='' || password===''){
         loginMessage.innerHTML="請輸入完整資訊";
-        loginMessage.style = "color:#f54033;display:block"
+        loginMessage.style = "color:#f54033;display:block";
         clearInput();
     } else {
         fetch(userApiUrl,{
@@ -170,24 +171,24 @@ function login(){
                 loginMessage.innerHTML="登入成功";
                 loginMessage.style.color="#2245ba";
                 loginMessage.style.display="block";
-                navInUp.id="navOut"
-                navInUp.innerHTML="登出"
+                navInUp.id="navOut";
+                navInUp.innerHTML="登出";
                 clearInput();
                 cancel();
             } else if (res.status == 400){
                 loginMessage.innerHTML="登入失敗，帳號或密碼錯誤";
-                loginMessage.style = "color:#f54033;display:block"
+                loginMessage.style = "color:#f54033;display:block";
                 clearInput();
             }
         })
         .catch(res=>{
             loginMessage.innerHTML="伺服器內部錯誤，請稍後再試";
-            loginMessage.style = "color:#f54033;display:block"
+            loginMessage.style = "color:#f54033;display:block";
             clearInput();
         });
     }
 }
-document.getElementById('loginBtn').addEventListener('click',debounce(login,600))
+document.getElementById('loginBtn').addEventListener('click',debounce(login,600));
 
 //登出帳戶
 function logout(){
