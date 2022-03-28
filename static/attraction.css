@@ -14,6 +14,282 @@ img[id^="pic"].fadeOut{
     opacity:1;
 }
 
+img[src="/icon_close.png"]{
+    position: absolute;
+    top:27px;
+    right:17px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+#overlay{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity:0.25;
+    z-index: 1000;
+}
+
+#loginDiv{
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -275px);
+    border-top:10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    background-color: #FFFFFF;
+    width:340px;
+    min-height:275px;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.loginTopPadding{
+    width:100%;
+    height: 10px;
+    background:linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0 0;
+}
+
+.loginTitle{
+    text-align: center;
+    width:310px;
+    height:27px;
+    font-weight:700;
+    font-size: 24px;
+    line-height: 24px;
+    color:#666666;
+    text-align: center;
+    margin:15px;
+    overflow: hidden;
+
+}
+
+#loginEmail{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#loginEmail::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#loginPassword{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#loginPassword::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#loginBtn{
+    width:310px;
+    height:47px;
+    padding:0;
+    background-color: #448899;
+    border:0;
+    border-radius: 5px;
+    margin:0 15px 10px 15px;
+    text-align: center;
+    font-size: 19px;
+    font-weight:400;
+    line-height: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#loginMessage{
+    display:none;
+    margin:0 15px 10px 15px;
+    height:16px;
+    font-weight:400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#loginSignupBlock{
+    margin:0 15px 10px 15px;
+    height:22px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
+}
+
+#loginSignupBlock:hover,#loginSignupBlock:active{
+    text-decoration: underline;
+}
+
+#signupDiv{
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -384px);
+    border-top:10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    background-color: #FFFFFF;
+    width:340px;
+    min-height:275px;
+    z-index: 1000;
+    opacity:1;
+    overflow: hidden;
+}
+
+.signupTopPadding{
+    width:100%;
+    height: 10px;
+    background:linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0 0;
+}
+
+.signupTitle{
+    text-align: center;
+    width:310px;
+    height:27px;
+    font-weight:700;
+    font-size: 24px;
+    line-height: 24px;
+    color:#666666;
+    text-align: center;
+    margin:15px;
+    overflow: hidden;
+}
+
+#signupName{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupName::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupEmail{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupEmail::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupPassword{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupPassword::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupPasswordCheck{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupPasswordCheck::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupBtn{
+    width:310px;
+    height:47px;
+    padding:0;
+    background-color: #448899;
+    border:0;
+    border-radius: 5px;
+    margin:0 15px 10px 15px;
+    text-align: center;
+    font-size: 19px;
+    font-weight:400;
+    line-height: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#signupMessage{
+    display:none;
+    margin:0 15px 10px 15px;
+    height:16px;
+    font-weight:400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#signupLogInBlock{
+    margin:0 15px 10px 15px;
+    height:22px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
+}
+
+#signupLogInBlock:hover,#signupLogInBlock:active{
+    text-decoration: underline;
+}
+
 #slideDots{
     display: flex;
     width:80.26%;
@@ -179,7 +455,9 @@ a, a:link, a:visited{
     color: #666666;
     text-decoration: none;
 }
-
+a:hover{
+    color:#448899
+}
 input::-webkit-datetime-edit { margin:5px 34px 5px 10px; }
 input::-webkit-datetime-edit-text { font-size:16px;font-weight:400;line-height:13.3px;color: #000000}
 input::-webkit-calendar-picker-indicator { width:24px;height:24px;margin:6px 10px 5px 0; }
@@ -387,6 +665,12 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     font-size:16px;
     padding: 0 0 0 20px;
     overflow-y: hidden;
+    cursor: pointer;
+}
+
+.indexMenu li:hover,.indexMenu li:active{
+    text-decoration: underline;
+    color:#337788
 }
 
 /*For tablets*/
@@ -446,8 +730,15 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
         font-weight:400;
         font-size:16px;
         padding: 0 0 0 20px;
-        overflow-y: hidden;    
+        overflow-y: hidden;  
+        cursor: pointer;  
 	}
+
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
+
     #picsArea{
         position: relative;
         width: 466px;
@@ -624,7 +915,13 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
         font-size:16px;
         padding: 0 0 0 20px;
         overflow-y: hidden;
+        cursor: pointer;
 	}
+    
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
 
     .navBar{
         position: fixed;

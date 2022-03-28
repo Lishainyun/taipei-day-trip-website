@@ -12,14 +12,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="overlay" onclick="cancel()"></div>
+    <div id="loginDiv">
+        <img src="/icon_close.png" onclick="cancel()">
+        <div class="loginTopPadding"></div>
+        <div class="loginTitle">登入會員帳號</div>
+        <input id="loginEmail" type="email" name="loginEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="loginPassword" type="password" name="loginPassword" placeholder="輸入密碼" required>
+        <button id="loginBtn">登入帳戶</button>
+        <div id="loginMessage"></div>
+        <div id="loginSignupBlock" onclick="toSignupDiv()">還沒有帳戶？點此註冊</div>
+    </div>
+    <div id="signupDiv">
+        <img src="/icon_close.png" onclick="cancel()">
+        <div class="signupTopPadding"></div>
+        <div class="signupTitle">註冊會員帳號</div>
+        <input id="signupName" type="text" name="signupName" placeholder="輸入姓名" required>
+        <input id="signupEmail" type="email" name="signupEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="signupPassword" type="password" name="signupPassword" placeholder="輸入密碼" required>
+        <input id="signupPasswordCheck" type="password" name="signupPasswordCheck" placeholder="確認密碼" required>
+        <button id="signupBtn">註冊新帳戶</button>
+        <div id="signupMessage"></div>
+        <div id="signupLogInBlock" onclick="toLoginDiv()">已經有帳戶了？點此登入</div>
+    </div>
+
     <div style="height:54px"></div>
 
     <div class="nav">
 	    <div class="navBar">
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
-			    <li><a href="">預定行程</a></li>
-                <li><a href="">登入/註冊</a></li>
+			    <li><a href="" id="navBooking">預定行程</a></li>
+                <li><a onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
 		    </ul>
 	    </div>
     </div>
@@ -47,6 +71,8 @@
     <script src="/indexOnload.js"></script>
     <script src="/indexScroll.js"></script>
     <script src="/indexSearch.js"></script>
+    <script src="/logInAndSignUp.js"></script>
+
 
 </body>
 </html>

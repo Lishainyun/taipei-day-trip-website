@@ -1,187 +1,87 @@
 from flask import *
 from flask_cors import cross_origin
-from sqlalchemy import *
-from dotenv import *
-from process_images import ImagesList
-import sqlalchemy.pool as pool
-import os, json, mysql.connector
+from flask_bcrypt import Bcrypt
+from datetime import timedelta
+from model.attraction import AttractionModel
+from model.user import UserModel
+import os
 
 app=Flask(__name__, static_folder="static", static_url_path="/")
+bcrypt = Bcrypt(app)
 app.secret_key=os.getenv('SECRET_KEY')
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config['JSON_SORT_KEYS'] = False
+app.permanent_session_lifetime = timedelta(days=1)
 
-load_dotenv("env.env")
-dbUsername = os.getenv('MYSQL_USERNAME')
-dbPassword = os.getenv('MYSQL_PASSWORD')
-
-def getconn():
-	
-	c = mysql.connector.connect(
-            
-        host="localhost",
-        user=dbUsername,
-        password=dbPassword,
-        database="taipei_day_trip_website"
-
-    )
-	return c
-
-mypool = pool.QueuePool(getconn, max_overflow=10, pool_size=5)
-
-
-#apis
+#APIs
 @app.route("/api/attractions", methods=["GET"])
 @cross_origin()
 def attractionSearchApi():
 	
 	page = request.args.get("page")
 	keyword = request.args.get("keyword")
-	finalData = []
-
-	conn = mypool.connect()
-	cursor = conn.cursor()
-
+	
 	if page and (keyword is None):
-		offset = int(page) * 12
-		nextPage = int(page) + 1
-
-		cursor.execute(
-			"""
-			SELECT id, name, category, description, address, transport, mrt, latitude, longitude, images 
-			FROM attraction 
-			LIMIT 13 OFFSET %s
-			""", (offset,)
-		)		
-		result = cursor.fetchall()
-		resultLength = len(result)
-
-		if resultLength >= 12:
-			for i in range(12):
-				rowHeaders = [x[0] for x in cursor.description]
-				rowData = [x for x in list(result[i])]
-				data = dict(zip(rowHeaders,rowData))
-				finalData.append(data)
-
-			for i in range(12):
-				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
-		else:
-			for i in range(resultLength):
-				rowHeaders = [x[0] for x in cursor.description]
-				rowData = [x for x in list(result[i])]
-				data = dict(zip(rowHeaders,rowData))
-				finalData.append(data)
-
-			for i in range(resultLength):
-				finalData[i]['images'] = ImagesList[i+finalData[0]['id']-1]
-
-		if result == []:
-			r = jsonify({"error":True,"message":"無此頁面"})
-			return r, 500
-		elif resultLength < 12:
-			cursor.close()
-			conn.close()
-			r = jsonify({"nextPage":None, "data":finalData})
-			return r, 200
-		else:
-			cursor.close()
-			conn.close()
-			r = jsonify({"nextPage":nextPage, "data":finalData})
-			return r, 200
+		p = page
+		k = keyword
+		result = AttractionModel.searchWithoutKeyword(p, k)
+		return result
 
 	elif page and keyword:
-		offset = int(page) * 12
-		nextPage = int(page) + 1
-
-		cursor.execute(
-			"""
-			SELECT id, name, category, description, address, transport, mrt, latitude, longitude, images 
-			FROM attraction 
-			WHERE name LIKE %s
-			LIMIT 13 OFFSET %s
-			""", ("%"+keyword+"%", offset,)
-		)
-		result = cursor.fetchall()
-		resultLength = len(result) 
-
-		if resultLength >= 12:
-			for i in range(12):
-				rowHeaders = [x[0] for x in cursor.description]
-				rowData = [x for x in list(result[i])]
-				data = dict(zip(rowHeaders,rowData))
-				finalData.append(data)
-
-			for i in range(12):
-				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
-		else:
-			for i in range(resultLength):
-				rowHeaders = [x[0] for x in cursor.description]
-				rowData = [x for x in list(result[i])]
-				data = dict(zip(rowHeaders,rowData))
-				finalData.append(data)
-
-			for i in range(resultLength):
-				finalData[i]['images'] = ImagesList[finalData[i]['id']-1]
-
-		if result == []:
-			r = jsonify({"error":True,"message":"無此頁面"})
-			return r, 500
-		elif resultLength < 12:
-			cursor.close()
-			conn.close()
-			r = jsonify({"nextPage":None, "data":finalData})
-			return r, 200
-		else:
-			cursor.close()
-			conn.close()
-			r = jsonify({"nextPage":nextPage, "data":finalData})
-			return r, 200
+		p = page
+		k = keyword
+		result = AttractionModel.searchWithKeyword(p, k)
+		return result
 
 @app.route("/api/attraction/<attractionId>", methods=["GET"])
 @cross_origin()
 def attractionIdApi(attractionId):
 
-	conn = mypool.connect()
-	cursor = conn.cursor()
-
-	cursor.execute("SELECT id FROM attraction")
-	result = cursor.fetchall()
-	idsList = []
-	for i in range(len(result)):
-		idsList.append(result[i][0])
+	idsList = AttractionModel.getIdsList()
 
 	if int(attractionId) in idsList:
-		cursor.execute(
-				"""
-				SELECT id, name, category, description, address, transport, mrt, latitude, longitude, images 
-				FROM attraction 
-				WHERE id = %s
-				""", (attractionId,)
-			)
-		result = cursor.fetchone()
-		resultLength = len(result)
-
-		rowHeaders = [x[0] for x in cursor.description]
-		rowData = [x for x in result]
-		data = dict(zip(rowHeaders,rowData))
-
-		data['images'] = ImagesList[data['id']-1]
-
-		conn = mypool.connect()
-		cursor = conn.cursor()
-		r = jsonify({"data":data})
-		return r, 200
-
+		result = AttractionModel.inIdsList(attractionId)
+		return result
 	else:
-		conn = mypool.connect()
-		cursor = conn.cursor()
-		r = jsonify({"error":True,"message":"查無此景點"})
-		return r, 400
+		result = jsonify({"error":True,"message":"查無此景點"})
+		return result, 400
+
+@app.route("/api/user", methods=["GET","POST","PATCH","DELETE"])
+@cross_origin()
+def userAPIs():
+
+	if request.method == 'POST':
+		data = request.json
+		pwHash = bcrypt.generate_password_hash(data['signupPassword']).decode('utf-8')
+		result = UserModel.signUp(data,pwHash)
+		return result
+	
+	elif request.method == 'PATCH':
+		data = request.json
+		result = UserModel.logIn(data)
+		
+		if result is None or bcrypt.check_password_hash(result, data['loginPassword']) == False: 
+			return jsonify({"error":True,"message":"登入失敗，帳號或密碼錯誤"}), 400  
+		elif bcrypt.check_password_hash(result, data['loginPassword']):
+			session['Email'] = data['loginEmail']
+			session.permanent = True
+			return jsonify({"ok":True}), 200		
+		else:
+			return jsonify({"error":True,"message":"伺服器內部錯誤"}), 500
+
+	elif request.method == 'GET':
+		email = session['Email']
+		result = UserModel.getInfo(email)
+		return result
+	
+	else:
+		session.clear()
+		return jsonify({"ok":True})
 
 @app.errorhandler(500)
 def status500(error):
-	r = jsonify({"error":True,"message":"伺服器內部錯誤，請依照規格書指示"})
+	r = jsonify({"error":True,"message":"伺服器內部錯誤"})
 	return r, 500
 
 # Pages
