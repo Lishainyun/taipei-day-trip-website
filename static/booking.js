@@ -1,6 +1,6 @@
 "use strict"
 
-const bookingApiUrl = 'http://44.199.90.64:3000/api/user';
+const bookingApiUrl = 'http://44.199.90.64:3000/api/booking';
 let bookingBtn = document.getElementById("bookingBtn");
 let bookingAttractionId = window.location.pathname.split('/')[2];
 let bookingDate = document.getElementById("bookingDate");
