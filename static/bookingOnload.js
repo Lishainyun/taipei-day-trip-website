@@ -10,7 +10,7 @@ let contactInfo = document.getElementById("contactInfo");
 let cardInfo = document.getElementById("cardInfo");
 let paymentInfo = document.getElementById("paymentInfo");
 let bookingDelete = document.querySelector(".delete");
-let hrLine = document.querySelector('.hr');
+let hrLine = document.getElementsByTagName('hr');
 
 let withoutBooking = document.getElementById("withoutBooking");
 
