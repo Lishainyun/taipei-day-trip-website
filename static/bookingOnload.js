@@ -10,6 +10,7 @@ let contactInfo = document.getElementById("contactInfo");
 let cardInfo = document.getElementById("cardInfo");
 let paymentInfo = document.getElementById("paymentInfo");
 let bookingDelete = document.querySelector(".delete");
+let hrLine = document.querySelector('.hr');
 
 let withoutBooking = document.getElementById("withoutBooking");
 
@@ -66,6 +67,7 @@ getBookingData(bookingApiUrl)
         cardInfo.style.display = "none";
         paymentInfo.style.display = "none";
         bookingDelete.style.display = "none";
+        hrLine.style.display = "none";
 
         withoutBooking.style.display = "block";
 
@@ -93,6 +95,7 @@ getBookingData(bookingApiUrl)
             cardInfo.style.display = "block";
             paymentInfo.style.display = "block";
             bookingDelete.style.display = "block";
+            hrLine.style.display = "block";
 
             withoutBooking.style.display = "none";
     
