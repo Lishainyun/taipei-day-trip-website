@@ -73,6 +73,7 @@ getBookingData(bookingApiUrl)
 
         let footerHeight = String(window.innerHeight - navHeight - document.querySelector('.wrapper').clientHeight) + "px"
         footer.style.height = footerHeight ;
+        footer.style.padding = "10px 0 0 0" ;
     }else if (response.data !== null){
         let name = response.data.attraction.name;
         let address = response.data.attraction.address;
