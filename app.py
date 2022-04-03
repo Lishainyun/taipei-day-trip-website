@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from datetime import timedelta
 from model.attraction import AttractionModel
 from model.user import UserModel
+from model.booking import BookingModel
 import os
 
 app=Flask(__name__, static_folder="static", static_url_path="/")
@@ -78,6 +79,22 @@ def userAPIs():
 	else:
 		session.clear()
 		return jsonify({"ok":True})
+
+@app.route("/api/booking", methods=["GET","POST","DELETE"])
+@cross_origin()
+def bookingAPIs():
+	if request.method == "POST":
+		data = request.json
+		result = BookingModel.postBooking(data)
+		return result
+	elif request.method == 'GET':
+		email = session['Email']
+		result = BookingModel.getBooking(email)
+		return result
+	else:
+		email = session['Email']
+		result = BookingModel.deleteBooking(email)
+		return result
 
 @app.errorhandler(500)
 def status500(error):

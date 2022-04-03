@@ -1,0 +1,760 @@
+*{
+
+	box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+
+    margin:0;
+    padding:0;
+
+}
+
+a[href="/"], a:link[href="/"], a:visited[href="/"]{
+
+    color: #448899;
+	text-decoration: none;
+
+}
+
+a, a:link, a:visited{
+
+    color: #666666;
+    text-decoration: none;
+
+}
+
+a:hover{
+    color:#448899
+}
+
+img[src="/icon_close.png"]{
+    position: absolute;
+    top:27px;
+    right:17px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+#overlay{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity:0.25;
+    z-index: 1000;
+}
+
+#loginDiv{
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -275px);
+    border-top:10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    background-color: #FFFFFF;
+    width:340px;
+    min-height:275px;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.loginTopPadding{
+    width:100%;
+    height: 10px;
+    background:linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0 0;
+}
+
+.loginTitle{
+    text-align: center;
+    width:310px;
+    height:27px;
+    font-weight:700;
+    font-size: 24px;
+    line-height: 24px;
+    color:#666666;
+    text-align: center;
+    margin:15px;
+    overflow: hidden;
+}
+
+#loginEmail{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#loginEmail::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#loginPassword{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#loginPassword::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#loginBtn{
+    width:310px;
+    height:47px;
+    padding:0;
+    background-color: #448899;
+    border:0;
+    border-radius: 5px;
+    margin:0 15px 10px 15px;
+    text-align: center;
+    font-size: 19px;
+    font-weight:400;
+    line-height: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#loginMessage{
+    display:none;
+    margin:0 15px 10px 15px;
+    height:16px;
+    font-weight:400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#loginSignupBlock{
+    margin:0 15px 10px 15px;
+    height:22px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
+}
+
+#loginSignupBlock:hover,#loginSignupBlock:active{
+    text-decoration: underline;
+}
+
+#signupDiv{
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -384px);
+    border-top:10px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    background-color: #FFFFFF;
+    width:340px;
+    min-height:275px;
+    z-index: 1000;
+    opacity:1;
+    overflow: hidden;
+}
+
+.signupTopPadding{
+    width:100%;
+    height: 10px;
+    background:linear-gradient(270deg, #337788 0%, #66AABB 100%);
+    border-radius: 6px 6px 0 0;
+}
+
+.signupTitle{
+    text-align: center;
+    width:310px;
+    height:27px;
+    font-weight:700;
+    font-size: 24px;
+    line-height: 24px;
+    color:#666666;
+    text-align: center;
+    margin:15px;
+    overflow: hidden;
+
+}
+
+#signupName{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupName::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupEmail{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupEmail::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupPassword{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupPassword::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupPasswordCheck{
+    width:310px;
+    height:47px;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 15px;
+    margin:0 15px 10px 15px;
+    border:1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#signupPasswordCheck::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13.3px;
+}
+
+#signupBtn{
+    width:310px;
+    height:47px;
+    padding:0;
+    background-color: #448899;
+    border:0;
+    border-radius: 5px;
+    margin:0 15px 10px 15px;
+    text-align: center;
+    font-size: 19px;
+    font-weight:400;
+    line-height: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#signupMessage{
+    display:none;
+    margin:0 15px 10px 15px;
+    height:16px;
+    font-weight:400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#signupLogInBlock{
+    margin:0 15px 10px 15px;
+    height:22px;
+    font-weight:400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
+}
+
+#signupLogInBlock:hover,#signupLogInBlock:active{
+    text-decoration: underline;
+}
+
+.nav{
+
+    position: fixed;
+    width:100%;
+    height:54px;
+    margin:0px;
+    background-color: #FFFFFF;
+    top:0px;
+    z-index: 2;
+
+}
+
+.navBar{
+
+	position: fixed;
+	width: 95%;
+    height:54px;
+    margin:0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+	background-color: #FFFFFF;
+	top: 0px;
+	z-index: 2;
+
+}
+
+.navText{
+
+	font-weight:700;
+    font-size:30px;
+    line-height:34px;
+    padding-top:10px;
+	display: inline-block;
+	margin:0 auto;
+    text-decoration: none;
+
+}
+
+.wrapper{
+    
+    display:grid;
+    justify-content: center;
+    grid-template-columns: 94.4%;
+    align-items: center;
+    justify-items: flex-start;
+    overflow: hidden;
+    min-height: 100%;
+    border:0;
+
+}
+
+.greetings{
+
+    width:94.44%;
+    height:16px;
+    margin:46px 0 7px 0;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+    color: #666666;
+
+}
+
+#withoutBooking{
+    width:94.44%;
+    height:24px;
+    margin:28px 0 40px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666666;
+}
+
+#bookingInfo{
+    display:none;
+    width:100%;
+}
+
+.subHeading input{
+    height:38px;
+    padding:10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+
+input[id="contactName"],input[id="contactEmail"]{
+    color:#000000;
+}
+
+#attractionPicDiv{
+    width:100%;
+    height:100%;
+    vertical-align: middle;
+}
+
+#attractionPic{
+    width:100%;
+    height:78.12%;
+    aspect-ratio:16/9;
+    margin-top:28px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.heading{
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+    color: #666666;
+}
+
+.subHeading{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 13px;
+    color: #666666;
+}
+
+#paymentInfo{
+    margin:43px 0 127px 0;
+    width:94.44%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#confirmBtn{
+    width: 173px;
+    height: 36px;
+    background: #448899;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 16px;
+    color: #FFFFFF;
+    border:0;
+    padding:0;
+}
+
+.delete{
+    margin-top: 5px;
+    margin-left: 94%;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+}
+
+.hr{
+    margin:0;
+    border: 1px solid #E8E8E8;
+    width:100%
+}
+
+#footer{
+    position:relative;
+    background-color: #757575;
+    height:100%;
+    width:100%;
+    bottom:0;
+    overflow: hidden;
+}
+
+#footerText{
+    width:234px;
+    height:104px;
+    margin:auto;
+    font-size:16px;
+    line-height: 104px;
+    color:#FFFFFF;
+    text-align: center;
+}
+
+
+
+/*For mobile phones*/
+
+.indexMenu{
+
+    float: right;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:20px 0;
+    list-style-type: none;	
+
+}
+
+.indexMenu li{
+    position: relative;
+    display: inline-block;
+	height:14px;
+    margin:0px;
+    line-height: 13.3px;
+    font-weight:400;
+    font-size:16px;
+    padding: 0 0 0 20px;
+    cursor: pointer;
+}
+
+.indexMenu li:hover,.indexMenu li:active{
+    text-decoration: underline;
+    color:#337788
+}
+
+/*For tablets*/
+@media screen and (min-width: 501px){
+    .navBar{
+
+        position: fixed;
+        width: 95%;
+        height:54px;
+        margin:0 auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #FFFFFF;
+        top: 0px;
+        z-index: 2;
+    
+    }
+
+    .navText{
+
+        font-weight:700;
+        font-size:30px;
+        line-height:34px;
+        padding-top:10px;
+        display: inline-block;
+        margin:0 auto;
+        text-decoration: none;
+    
+    }
+
+    
+	.indexMenu{
+
+		float: right;
+		display: flex;
+		padding: 0;
+		align-items: center;
+		flex-wrap: wrap;
+		margin:20px 0;
+		list-style-type: none;	
+
+	}
+
+	.indexMenu li{
+
+		position: relative;
+        display: inline-block;
+		height:14px;
+        margin:0px;
+        line-height: 13.3px;
+        font-weight:400;
+        font-size:16px;
+        padding: 0 0 0 20px;
+        cursor: pointer;
+	}
+
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
+
+    #attractionPicDiv{
+        width:100%;
+        height:100%;
+        vertical-align: middle;
+    }
+    
+    #attractionPic{
+        width:100%;
+        height:78.12%;
+        aspect-ratio:16/9;
+        margin-top:28px;
+        object-fit: cover;
+    }
+}
+
+/*For pc*/
+@media screen and (min-width: 1201px){
+    .indexMenu{
+
+		float: right;
+		display: flex;
+		padding: 0;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 20px 0;
+		list-style-type: none;
+        text-decoration: none;
+
+	}
+
+	.indexMenu li{
+
+		display: inline-block;
+		height:14px;
+        margin:0px;
+        line-height: 13.3px;
+        font-weight:400;
+        font-size:16px;
+        padding: 0 0 0 20px;
+        cursor: pointer;
+	}
+
+    .indexMenu li:hover,.indexMenu li:active{
+        text-decoration: underline;
+        color:#337788
+    }
+
+    .navBar{
+
+        position: fixed;
+        width: 1200px;
+        height:54px;
+        margin:0 auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #FFFFFF;
+        top: 0px;
+        z-index: 2;
+    
+    }
+    
+    .navText{
+    
+        font-weight:700;
+        font-size:30px;
+        line-height:34px;
+        padding-top:10px;
+        display: inline-block;
+        margin:0 auto;
+        text-decoration: none;
+    
+    }
+
+    .wrapper{
+        position:relative;
+        display:grid;
+        grid-template-columns: 105px 266px 724px 105px;
+        justify-content: center;
+        justify-items: flex-start;
+        align-items: center;
+        overflow: hidden;
+        min-height: 100%;
+        border:0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .greetings{
+
+        grid-column-start: 2;
+        grid-column-end: 5;
+        height:16px;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 16px;
+        color: #666666;
+    
+    }
+
+    #bookingInfo{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        display:none;
+        width:100%;
+        padding-bottom: 40px;
+        padding-top:35px;
+    }
+
+    #attractionInfo{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        margin-left: 22px;
+        margin-bottom:35px;
+
+    }
+
+    #contactInfo, #cardInfo{
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    #paymentInfo{
+        margin:43px 0 127px 0;
+        width:990px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #withoutBooking{
+        grid-column-start: 2;
+        grid-column-end: 5;
+        height:24px;
+        margin:28px 0 40px 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #666666;
+    }
+
+    #footer{
+        position:relative;
+        background-color: #757575;
+        height:100%;
+        width:100%;
+        bottom:0;
+        overflow: hidden;
+    }
+    
+    #footerText{
+        width:234px;
+        height:104px;
+        margin:auto;
+        font-size:16px;
+        line-height: 104px;
+        color:#FFFFFF;
+        text-align: center;
+    }
+
+    #attractionPicDiv{
+        width:266px;
+        height:200px;
+        vertical-align: middle;
+    }
+    
+    #attractionPic{
+        object-fit: cover;
+        width: 266px;
+        height:200px;
+        margin:0;
+    }
+
+    .hr{
+        margin:0;
+        border: 1px solid #E8E8E8;
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+
+    .delete{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        margin:0 0 180px 0;
+        display: none;
+        cursor: pointer;
+        
+    }
+    
+}

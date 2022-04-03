@@ -1,7 +1,6 @@
 from sqlalchemy import *
 from dotenv import *
 from flask import jsonify
-from process_images import ImagesList
 import sqlalchemy.pool as pool
 import os, json, mysql.connector
 # DB

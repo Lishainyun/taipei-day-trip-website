@@ -42,7 +42,7 @@
 	    <div class="navBar">
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
-			    <li><a href="" id="navBooking">預定行程</a></li>
+			    <li><a id="navBooking">預定行程</a></li>
                 <li><a onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
 		    </ul>
 	    </div>
@@ -58,21 +58,21 @@
         <div class="bookingArea">
             <div><p id="attractionName"></p></div>
             <div style="margin:0 0 20px 0;"><span id="attractionCat"></span>&nbsp; at &nbsp;<span id="attractionMRT"></span></div>
-            <form class="bookingStyle">
+            <div class="bookingStyle">
                 <p class="formTitle">訂購導覽行程</p>
                 <p class="formContent">以此景點為中心的一日行程，帶您探索城市角落故事</p>
                 <label for="bookingDate" class="formTitle">選擇日期：</label>
                 <input id="bookingDate" type="date" name="bookingDate" placeholder="yyyy/mm/dd">
                 <div class="selectTimeContainer">
                     <div class="formTitle">選擇時間：</div>
-                    <input id="forenoon" type="radio" name="radio" onclick="selectForenoon()" checked>
+                    <input id="forenoon" type="radio" name="radio" onclick="selectForenoon()" value="上半天" checked>
                     <label for="forenoon" class="noonText">上半天</label>
-                    <input id="afternoon" type="radio" name="radio" onclick="selectAfternoon()">
+                    <input id="afternoon" type="radio" name="radio" onclick="selectAfternoon()" value="下半天">
                     <label for="afternoon" class="noonText">下半天</label>
                 </div>
                 <p class="formTitle" style="margin-top: 0;">導覽費用：<span id="charge"></span></p>
                 <button id="bookingBtn">開始預訂行程</button>
-            </form>
+            </div>
         </div>
 
         <hr class="seperator"/>
@@ -100,7 +100,8 @@
     <script src="/attractionSlideBtn.js"></script>
     <script src="/attractionSelectTime.js"></script>
     <script src="/logInAndSignUp.js"></script>
-
+    <script src="/booking.js"></script>
+    <script src="/bookingSchedule.js"></script>
 
 </body>
 </html>
