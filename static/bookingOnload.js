@@ -98,7 +98,9 @@ getBookingData(bookingApiUrl)
             cardInfo.style.display = "block";
             paymentInfo.style.display = "block";
             bookingDelete.style.display = "block";
-            hrLine.style.display = "block";
+            hrLine['0'].style.display = "block";
+            hrLine['1'].style.display = "block";
+            hrLine['2'].style.display = "block";
 
             withoutBooking.style.display = "none";
     
