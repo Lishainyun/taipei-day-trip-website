@@ -29,7 +29,7 @@ let footer = document.getElementById("footer");
 
 // 載入頁面get booking data
 async function getUser(){
-    const response = await fetch('http://172.23.237.226:5000/api/user',{
+    const response = await fetch('http://44.199.90.64:3000/api/user',{
         method:"GET",
     })
     return await response.json()
