@@ -469,7 +469,7 @@ input[id="contactName"],input[id="contactEmail"]{
 }
 
 #footerText{
-    width:234px;
+    width:100%;
     height:104px;
     margin:auto;
     font-size:16px;
@@ -712,14 +712,13 @@ input[id="contactName"],input[id="contactEmail"]{
     #footer{
         position:relative;
         background-color: #757575;
-        height:100%;
         width:100%;
         bottom:0;
         overflow: hidden;
     }
     
     #footerText{
-        width:234px;
+        width:100%;
         height:104px;
         margin:auto;
         font-size:16px;
