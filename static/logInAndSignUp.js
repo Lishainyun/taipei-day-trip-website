@@ -19,22 +19,24 @@ let loginEmail = document.getElementById('loginEmail');
 let loginPassword = document.getElementById('loginPassword');
 let loginMessage = document.getElementById('loginMessage');
 
+let userId;
 
 // 載入頁面確認登入狀態
 async function checkUserStatus(userApiUrl){
     const response = await fetch(userApiUrl,{
         method:"GET"
     })
-    return response
+    return await response.json()
 };
 
 checkUserStatus(userApiUrl)
-    .then((response)=>{
-        if (response.status == 200){
-            navInUp.id="navOut"
-            navInUp.innerHTML="登出系統"
-        } 
-    });
+.then((response)=>{
+    userId = response.data.id
+    if (userId){
+        navInUp.id="navOut"
+        navInUp.innerHTML="登出系統"
+    }
+});
 
 // 點擊登入/註冊
 function logInOrSignUp(){
@@ -49,6 +51,11 @@ function logInOrSignUp(){
 
 // 關閉登入/註冊表單
 function cancel(){
+    fetch(userApiUrl)
+    .then(response => response.json())
+    .then((res)=>{
+        userId = res.data.id
+    })
     overlay.style.display = 'none';
     loginDiv.setAttribute('style','transform: translate(-50%, -275px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
     signupDiv.setAttribute('style','transform: translate(-50%, -384px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
@@ -66,6 +73,7 @@ function toSignupDiv(){
         signupDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;');
         loginMessage.style.display = 'none';
     }
+    clearInput()
 };
 
 function toLoginDiv(){
@@ -74,6 +82,7 @@ function toLoginDiv(){
         signupDiv.style.display = 'none';
         signupMessage.style.display = 'none';
     }
+    clearInput()
 };
 
 // 清空註冊/登入輸入框
@@ -173,7 +182,6 @@ function login(){
                 loginMessage.style.display="block";
                 navInUp.id="navOut";
                 navInUp.innerHTML="登出系統";
-                clearInput();
                 cancel();
             } else if (res.status == 400){
                 loginMessage.innerHTML="登入失敗，帳號或密碼錯誤";
@@ -198,6 +206,8 @@ function logout(){
     .then(res=>{
         let navOut = document.getElementById('navOut');
         navOut.id="navInUp";
-        navOut.innerHTML="登入/註冊";   
+        navOut.innerHTML="登入/註冊"; 
+        userId = "";  
+        window.location.href = "";
     })
 }

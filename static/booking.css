@@ -306,73 +306,6 @@ img[src="/icon_close.png"]{
     text-decoration: underline;
 }
 
-#searchInput{
-
-    position:relative;
-    display:flex;
-    border:0;
-    height:46px;
-    width:230px;
-    margin-top:25px;
-    border-radius:5px 0 0 5px;
-    font-size:16px;
-    font-weight:700;
-    color:#757575;
-    line-height:13px;
-    padding : 0 0 0 15px;
-
-}
-
-#searchBtnBackground{
-
-    position: absolute;
-    bottom: 0px;
-    left:230px;
-
-}
-
-#searchBtnIcon{
-
-    position: absolute;
-    bottom: 8px;
-    left:245px;
-
-}
-
-#errorMessage{
-
-    color:#757575;
-    font-weight:700;
-    font-size:32px;
-    line-height:13.3px;
-    text-align: center;
-    margin: 0;
-
-}
-
-#footer{
-
-    position:relative;
-    background-color: #757575;
-    height:104px;
-    width:100%;
-    bottom:0;
-    overflow: hidden;
-
-}
-
-#footerText{
-
-    width:100%;
-    height:104px;
-    margin:auto;
-    font-size:16px;
-    line-height: 104px;
-    color:#FFFFFF;
-    text-align: center;
-
-}
-
 .nav{
 
     position: fixed;
@@ -411,110 +344,143 @@ img[src="/icon_close.png"]{
 
 }
 
-.header{
-
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
+.wrapper{
+    
+    display:grid;
+    justify-content: center;
+    grid-template-columns: 94.4%;
     align-items: center;
-    background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
+    justify-items: flex-start;
+    overflow: hidden;
+    min-height: 100%;
     border:0;
-	height:280px;
-    width: 100%; 
-    text-align: center;
-    overflow:hidden;
 
 }
 
-.headerContainer{
+.greetings{
 
-    width:320px;
-    height:211x;
-    position: relative;
-    z-index: 1;
-
-}
-
-.headerText1{
-
-    top:139px;
+    width:94.44%;
+    height:16px;
+    margin:46px 0 7px 0;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 24px;
-    margin:0px;
-    display: flex;
-    align-items: center;
-    max-width: 320px;
-    color: #F8F8F8;
-    height:41px;
-    text-shadow: 0px 0px 30px #AABBCC;
+    font-size: 19px;
+    line-height: 16px;
+    color: #666666;
 
 }
 
-.headerText2{
-
+#withoutBooking{
+    width:94.44%;
+    height:24px;
+    margin:28px 0 40px 0;
     font-weight: 400;
     font-size: 16px;
-    line-height: 13px;
-    max-width: 320px;
-    margin-top:15px;
-    height:22px;
-    display: flex;
-    align-items: center;
-    color: #F8F8F8;
-
+    line-height: 24px;
+    color: #666666;
 }
 
-input::placeholder{
+#bookingInfo{
+    display:none;
+    width:100%;
+}
 
-    position: relative;
+.subHeading input{
+    height:38px;
+    padding:10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+
+input[id="contactName"],input[id="contactEmail"]{
+    color:#000000;
+}
+
+#attractionPicDiv{
+    width:100%;
+    height:100%;
+    vertical-align: middle;
+}
+
+#attractionPic{
+    width:100%;
+    height:78.12%;
+    aspect-ratio:16/9;
+    margin-top:28px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.heading{
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+    color: #666666;
+}
+
+.subHeading{
     font-weight: 700;
     font-size: 16px;
-    line-height: 13.3px;
-    width:200px;
-    height:16px;
-    color:#757575;
+    line-height: 13px;
+    color: #666666;
+}
+
+#paymentInfo{
+    margin:43px 0 127px 0;
+    width:94.44%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#confirmBtn{
+    width: 173px;
+    height: 36px;
+    background: #448899;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 16px;
+    color: #FFFFFF;
+    border:0;
+    padding:0;
+}
+
+.delete{
+    margin-top: 5px;
+    margin-left: 94%;
+    margin-bottom: 30px;
+    cursor: pointer;
 
 }
 
+.hr{
+    margin:0;
+    border: 1px solid #E8E8E8;
+    width:100%
+}
 
-.welcomePic{
-
-    width:276px;
-    height:148px;
-    position: absolute;
-    top:67px;
-    left:128px;
+#footer{
+    position:relative;
+    background-color: #757575;
+    height:100%;
+    width:100%;
+    bottom:0;
     overflow: hidden;
-    z-index: -1;
-
 }
 
-.wrapper{
-
-    display:grid;
-    justify-items: center;
-    overflow:hidden;
-    min-height: 100%;
-
+#footerText{
+    width:100%;
+    height:104px;
+    margin:auto;
+    font-size:16px;
+    line-height: 104px;
+    color:#FFFFFF;
+    text-align: center;
 }
 
 
 
 /*For mobile phones*/
-
-#attractionsContainer{
-
-	display: grid;
-	max-width: 86%;
-	position:relative;
-	grid-template-columns: 100%;
-	grid-template-rows: auto;
-	grid-gap: 30px 30px;
-    padding:55px 0;
-    overflow: hidden;
-
-}
 
 .indexMenu{
 
@@ -547,22 +513,6 @@ input::placeholder{
 
 /*For tablets*/
 @media screen and (min-width: 501px){
-    
-	#attractionsContainer{
-
-		display: grid;
-		max-width: 86%;
-		grid-template-columns: 48% 48%;
-		grid-template-rows: auto;
-		grid-gap:30px 30px;
-		justify-content: space-evenly;
-		margin:0px;
-        position:relative;
-        padding:55px 0;
-        overflow: hidden;
-
-	}
-
     .navBar{
 
         position: fixed;
@@ -620,125 +570,24 @@ input::placeholder{
         color:#337788
     }
 
-    .header{
-    
-        display:flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-        background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
-        border:0;
-        height:320px;
-        width: 100%; 
-        text-align: center;
-        overflow:hidden;
-    
+    #attractionPicDiv{
+        width:100%;
+        height:100%;
+        vertical-align: middle;
     }
     
-    .headerContainer{
-    
-        width:90%;
-        height:149px;
-        position: relative;
-        z-index: 1;
-    
+    #attractionPic{
+        width:100%;
+        height:78.12%;
+        aspect-ratio:16/9;
+        margin-top:28px;
+        object-fit: cover;
     }
-    
-    .headerText1{
-    
-        top:139px;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 24px;
-        margin:0px;
-        display: flex;
-        align-items: center;
-        max-width: 90%;
-        color: #F8F8F8;
-        height:41px;
-        text-shadow: 0px 0px 30px #AABBCC;
-    
-    }
-    
-    .headerText2{
-    
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 13px;
-        max-width: 90%;
-        margin-top:15px;
-        height:22px;
-        display: flex;
-        align-items: center;
-        color: #F8F8F8;
-    
-    }
-
-    .welcomePic{
-
-        width:650px;
-        height:320px;
-        position: absolute;
-        top:-85px;
-        left:52%;
-        overflow: hidden;
-        z-index: -1;
-    
-    }
-
 }
 
 /*For pc*/
 @media screen and (min-width: 1201px){
-
-    
-    #searchInput{
-
-        position: relative;
-        display:flex;
-        border:0;
-        height:46px;
-        width:400px;
-        margin-top:25px;
-        border-radius:5px 0 0 5px;
-        font-size:16px;
-        font-weight:700;
-        color:#757575;
-        line-height:13.3px;
-        padding : 0 0 0 15px;
-
-    }
-
-    #searchBtnBackground{
-
-        position: absolute;
-        bottom: 0px;
-        left:400px;
-
-    }
-
-    #searchBtnIcon{
-
-        position: absolute;
-        bottom: 8px;
-        left:415px;
-
-    }
-
-    
-	#attractionsContainer{
-
-		display: grid;
-        max-width: 1170px;
-		grid-template-columns: 23% 23% 23% 23%;
-		grid-template-rows: auto;
-        position: relative;
-        padding:55px 0;
-        overflow: hidden;
-
-	}
-
-	.indexMenu{
+    .indexMenu{
 
 		float: right;
 		display: flex;
@@ -793,93 +642,118 @@ input::placeholder{
         text-decoration: none;
     
     }
-    
-    .header{
-    
-        display:flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-        background:linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
-        border:0;
-        height:320px;
-        width: 100%; 
-        text-align: center;
-        overflow:hidden;
-    
-    }
-    
-    .headerContainer{
-    
-        width:1180px;
-        height:149px;
-        position: relative;
-        z-index: 1;
-    
-    }
-    
-    .headerText1{
-    
-        top:139px;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 24px;
-        margin:0px;
-        display: flex;
-        align-items: center;
-        max-width: 1180px;
-        color: #F8F8F8;
-        height:41px;
-        text-shadow: 0px 0px 30px #AABBCC;
-    
-    }
-    
-    .headerText2{
-    
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 13px;
-        max-width: 1180px;
-        margin-top:15px;
-        height:22px;
-        display: flex;
-        align-items: center;
-        color: #F8F8F8;
-    
-    }
-    
-    input::placeholder{
-    
-        position: relative;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 13.3px;
-        width:370px;
-        height:16px;
-        color:#757575;
-    
-    }
-    
-    
-    .welcomePic{
-    
-        width:650px;
-        height:320px;
-        position: absolute;
-        top:-85px;
-        left:608px;
-        overflow: hidden;
-        z-index: -1;
-    
-    }
-    
+
     .wrapper{
-    
+        position:relative;
         display:grid;
-        justify-items: center;
+        grid-template-columns: 105px 266px 724px 105px;
+        justify-content: center;
+        justify-items: flex-start;
+        align-items: center;
         overflow: hidden;
         min-height: 100%;
+        border:0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .greetings{
+
+        grid-column-start: 2;
+        grid-column-end: 5;
+        height:16px;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 16px;
+        color: #666666;
     
     }
 
+    #bookingInfo{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        display:none;
+        width:100%;
+        padding-bottom: 40px;
+        padding-top:35px;
+    }
+
+    #attractionInfo{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        margin-left: 22px;
+        margin-bottom:35px;
+
+    }
+
+    #contactInfo, #cardInfo{
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    #paymentInfo{
+        margin:43px 0 127px 0;
+        width:990px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #withoutBooking{
+        grid-column-start: 2;
+        grid-column-end: 5;
+        height:24px;
+        margin:28px 0 40px 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #666666;
+    }
+
+    #footer{
+        position:relative;
+        background-color: #757575;
+        width:100%;
+        bottom:0;
+        overflow: hidden;
+    }
+    
+    #footerText{
+        width:100%;
+        height:104px;
+        margin:auto;
+        font-size:16px;
+        line-height: 104px;
+        color:#FFFFFF;
+        text-align: center;
+    }
+
+    #attractionPicDiv{
+        width:266px;
+        height:200px;
+        vertical-align: middle;
+    }
+    
+    #attractionPic{
+        object-fit: cover;
+        width: 266px;
+        height:200px;
+        margin:0;
+    }
+
+    .hr{
+        margin:0;
+        border: 1px solid #E8E8E8;
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+
+    .delete{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        margin:0 0 180px 0;
+        display: none;
+        cursor: pointer;
+        
+    }
+    
 }
