@@ -10,6 +10,15 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .tpfield {
+            height: 40px;
+            width: 300px;
+            border: 1px solid gray;
+            margin: 5px 0;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <div id="overlay" onclick="cancel()"></div>
@@ -83,7 +92,10 @@
         <hr class="hr"/> 
         <div id="cardInfo" style="width:100%">
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
-            <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
+            <div class="tpfield" id="card-number"></div>
+            <div class="tpfield" id="card-expiration-date"></div>
+            <div class="tpfield" id="card-ccv"></div>
+            <!-- <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
                 <input class="cardNumsGroup" id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
             </div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">過期時間：
@@ -91,8 +103,7 @@
             </div>
             <div class="subHeading" style="margin-bottom:47px;font-weight: 400;">驗證密碼：
                 <input class="validationGroup" id="validation" type="text" name="validation" placeholder="CVV">
-            </div>
-             
+            </div> -->
         </div>
         <hr class="hr"/>   
     </div>
@@ -110,8 +121,9 @@
     <script src="/logInAndSignUp.js"></script>
     <script src="/bookingOnload.js"></script>
     <script src="/bookingDelete.js"></script>
-    <script src="https://js.tappaysdk.com/tpdirect/v5.8.0"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v5.9.0"></script>
     <script src="/tpSetup.js"></script>
-    <script src="/order.js"></script>
+    <!-- <script src="/order.js"></script> -->
 </body>
 </html>
