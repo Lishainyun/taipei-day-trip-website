@@ -5,10 +5,9 @@ let contactNameValue = document.getElementById('contactName').value
 let contactEmailValue = document.getElementById('contactEmail').value
 let phoneNums = document.getElementById('phoneNums').value
 let confirmOrder = document.getElementById('confirmOrder')
-let primeCode;
 
 
-訂購
+// post data
 function postOrderData(){
     let headers = {
         "Content-Type": "application/json",
