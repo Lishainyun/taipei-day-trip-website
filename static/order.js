@@ -4,6 +4,7 @@ const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
 let contactNameValue = document.getElementById('contactName').value
 let contactEmailValue = document.getElementById('contactEmail').value
 let phoneNums = document.getElementById('phoneNums').value
+let confirmOrder = document.getElementById('confirmOrder')
 let primeCode;
 
 
