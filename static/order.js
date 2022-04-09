@@ -1,8 +1,8 @@
 "use strict"
 
 const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
-let contactName = document.getElementById('contactName').value
-let contactEmail = document.getElementById('contactEmail').value
+let contactNameValue = document.getElementById('contactName').value
+let contactEmailValue = document.getElementById('contactEmail').value
 let phoneNums = document.getElementById('phoneNums').value
 let primeCode;
 
@@ -30,8 +30,8 @@ function postOrderData(){
                 "time":attrResTime
             },
             "contact":{
-                "name":contactName,
-                "email":contactEmail,
+                "name":contactNameValue,
+                "email":contactEmailValue,
                 "phone":phoneNums
             }
         }
