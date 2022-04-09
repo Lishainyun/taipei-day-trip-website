@@ -53,4 +53,4 @@ function postOrderData(){
     }
 }
 
-confirmOrder.addEventListener("click", debounce(postBookingData,500));
+confirmOrder.addEventListener("click", debounce(postOrderData,500));
