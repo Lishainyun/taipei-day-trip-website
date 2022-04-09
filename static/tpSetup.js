@@ -1,8 +1,5 @@
 "use strict"
-const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
-let contactNameValue = document.getElementById('contactName').value
-let contactEmailValue = document.getElementById('contactEmail').value
-let phoneNums = document.getElementById('phoneNums').value
+
 let primeCode;
 
 // SetupSDK
@@ -125,43 +122,6 @@ $('form').on('submit', function (event) {
         primeCode = result.card.prime
         alert('get prime 成功，prime: ' + result.card.prime)
     })
-
-    // Post data
-    let headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-    };
-    let body = {
-        "prime" : primeCode,
-        "order" : {
-            "price":attrResPrice,
-            "trip":{
-                "attraction":{
-                    "id":attrResId,
-                    "name":attrResName,
-                    "address":attrResAddress,
-                    "image":attrResImage
-                },
-                "date":attrResDate,
-                "time":attrResTime
-            },
-            "contact":{
-                "name":contactNameValue,
-                "email":contactEmailValue,
-                "phone":phoneNums
-            }
-        }
-    };
-    fetch(orderApiUrl,{
-        method:"POST",
-        headers:headers,
-        body: JSON.stringify(body)
-    })
-    .then(res=>{
-        window.location.href = "/thankyou.html";
-    })
-    .catch(console.log("postOrder failed"))
-
 })
 
 function setNumberFormGroupToError(selector) {
