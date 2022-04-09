@@ -10,7 +10,28 @@ let primeCode;
 
 // 訂購
 function postOrderData(){
-    getPrimeFunc()
+    // fix keyboard issue in iOS device
+    forceBlurIos()
+            
+    const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+    console.log(tappayStatus)
+
+    // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
+    if (tappayStatus.canGetPrime === false) {
+        alert('can not get prime')
+        return
+    }
+
+    // Get prime
+    TPDirect.card.getPrime(function (result) {
+        if (result.status !== 0) {
+            alert('get prime error ' + result.msg)
+            return
+        } else{
+            primeCode = result.card.prime
+            alert('get prime 成功，prime: ' + result.card.prime)
+        }
+    })
 
     let headers = {
         "Content-Type": "application/json",
