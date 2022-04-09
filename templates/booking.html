@@ -92,9 +92,25 @@
         <hr class="hr"/> 
         <div id="cardInfo" style="width:100%">
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
-            <div class="tpfield" id="card-number"></div>
-            <div class="tpfield" id="card-expiration-date"></div>
-            <div class="tpfield" id="card-ccv"></div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group card-number-group">
+                    <label for="card-number" class="control-label"><span id="cardtype"></span>卡號</label>
+                    <div class="form-control card-number"></div>
+                </div>
+                <div class="form-group expiration-date-group">
+                    <label for="expiration-date" class="control-label">卡片到期日</label>
+                    <div class="form-control expiration-date" id="tappay-expiration-date"></div>
+                </div>
+                <div class="form-group cvc-group">
+                    <label for="cvc" class="control-label">卡片後三碼</label>
+                    <div class="form-control cvc"></div>
+                </div>
+    
+            </form>
             <!-- <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
                 <input class="cardNumsGroup" id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
             </div>
