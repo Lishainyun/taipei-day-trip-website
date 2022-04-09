@@ -28,6 +28,15 @@ let navHeight = document.querySelector('.nav').clientHeight;
 let wrapperHeight = document.querySelector('.wrapper').clientHeight;
 let footer = document.getElementById("footer");
 
+let attrResId;
+let attrResName;
+let attrResAddress;
+let attrResImage;
+let attrResDate;
+let attrResTime;
+let attrResPrice;
+let attrResConvertTime;
+
 // 載入頁面get booking data
 async function getUser(){
     const response = await fetch('http://44.199.90.64:3000/api/user',{
@@ -77,18 +86,18 @@ getBookingData(bookingApiUrl)
         footer.style.height = footerHeight ;
         footer.style.padding = "10px 0 0 0" ;
     }else if (response.data !== null){
-        let name = response.data.attraction.name;
-        let address = response.data.attraction.address;
-        let image = response.data.attraction.image;
-        let date = response.date;
-        let time = response.time;
-        let price = response.price;
-        let convertTime;
+        attrResId = response.data.attraction.id
+        attrResName = response.data.attraction.name;
+        attrResAddress = response.data.attraction.address;
+        attrResImage = response.data.attraction.image;
+        attrResDate = response.date;
+        attrResTime = response.time;
+        attrResPrice = response.price;
     
-        if (time === "forenoon"){
-            convertTime = "上午 9 點到下午 4 點";
+        if (attrResTime === "forenoon"){
+            attrResConvertTime = "上午 9 點到下午 4 點";
         } else{
-            convertTime = "下午 4 點到下午 11 點";
+            attrResConvertTime = "下午 4 點到下午 11 點";
         };
     
         if (response.data){
@@ -104,13 +113,13 @@ getBookingData(bookingApiUrl)
 
             withoutBooking.style.display = "none";
     
-            attractionPic.src = image;
-            attractionName.innerHTML = name;
-            attractionDate.innerHTML = date;
-            attractionTime.innerHTML = convertTime;
-            attractionPrice.innerHTML = price;
-            attractionAddress.innerHTML = address;
-            totalPrice.innerHTML = price;
+            attractionPic.src = attrResImage;
+            attractionName.innerHTML = attrResName;
+            attractionDate.innerHTML = attrResDate;
+            attractionTime.innerHTML = attrResConvertTime;
+            attractionPrice.innerHTML = attrResPrice;
+            attractionAddress.innerHTML = attrResAddress;
+            totalPrice.innerHTML = attrResPrice;
         }
     }else{
         window.location.href = "/";

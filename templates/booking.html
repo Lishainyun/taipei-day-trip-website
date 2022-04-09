@@ -84,13 +84,13 @@
         <div id="cardInfo" style="width:100%">
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
-                <input id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
+                <input class="cardNumsGroup" id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
             </div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">過期時間：
-                <input id="expDate" type="text" name="expDate" placeholder="MM/YY">
+                <input class="expDateGroup" id="expDate" type="text" name="expDate" placeholder="MM/YY">
             </div>
             <div class="subHeading" style="margin-bottom:47px;font-weight: 400;">驗證密碼：
-                <input id="validation" type="text" name="validation" placeholder="CVV">
+                <input class="validationGroup" id="validation" type="text" name="validation" placeholder="CVV">
             </div>
              
         </div>
@@ -99,7 +99,7 @@
 
     <div id="paymentInfo" class="subHeading">
         <div style="float:right">總價：新台幣<span id="totalPrice"></span><span>元</span></div><br/>
-        <button id="confirmBtn" style="margin-top:25px;float:right">確認訂購並付款</button>
+        <button class="submitBtn" style="margin-top:25px;float:right">確認訂購並付款</button>
     </div>
 
     <div id="footer">
@@ -110,5 +110,8 @@
     <script src="/logInAndSignUp.js"></script>
     <script src="/bookingOnload.js"></script>
     <script src="/bookingDelete.js"></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v5.8.0"></script>
+    <script src="/tpSetup.js"></script>
+    <script src="/order.js"></script>
 </body>
 </html>

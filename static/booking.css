@@ -432,7 +432,7 @@ input[id="contactName"],input[id="contactEmail"]{
     margin-right: auto;
 }
 
-#confirmBtn{
+.submitBtn{
     width: 173px;
     height: 36px;
     background: #448899;
@@ -443,6 +443,7 @@ input[id="contactName"],input[id="contactEmail"]{
     color: #FFFFFF;
     border:0;
     padding:0;
+    cursor: pointer;
 }
 
 .delete{

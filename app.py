@@ -5,6 +5,7 @@ from datetime import timedelta
 from model.attraction import AttractionModel
 from model.user import UserModel
 from model.booking import BookingModel
+from model.order import OrderModel
 import os
 
 app=Flask(__name__, static_folder="static", static_url_path="/")
@@ -96,6 +97,19 @@ def bookingAPIs():
 		result = BookingModel.deleteBooking(email)
 		return result
 
+@app.route("/api/orders", methods=["POST"])
+@cross_origin()
+def postOrder():
+	data = request.json
+	email = session['email']
+	result = OrderModel.postOrder(data,email)
+	return result
+
+# @app.route("/api/order/{orderNumber}", methods=["GET"])
+# @cross_origin()
+# def getOrder():
+# 	return jsonify({"test":"test"})
+		
 @app.errorhandler(500)
 def status500(error):
 	r = jsonify({"error":True,"message":"伺服器內部錯誤"})
