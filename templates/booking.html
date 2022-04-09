@@ -11,17 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <style>
-        .tpfield {
-            height: 40px;
-            width: 300px;
-            border: 1px solid gray;
-            margin: 5px 0;
-            padding: 5px;
-        }
-        form {
-            padding: 40px;
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-        }
         .tappay-field-focus {
             border-color: #66afe9;
             outline: 0;
@@ -113,20 +102,16 @@
         <div id="cardInfo" style="width:100%">
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
             <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
                 <div class="form-group card-number-group">
-                    <label for="card-number" class="control-label"><span id="cardtype"></span>卡號</label>
+                    <label for="card-number" class="control-label"><span id="cardtype"></span>卡片號碼：</label>
                     <div class="form-control card-number"></div>
                 </div>
                 <div class="form-group expiration-date-group">
-                    <label for="expiration-date" class="control-label">卡片到期日</label>
+                    <label for="expiration-date" class="control-label">過期時間：</label>
                     <div class="form-control expiration-date" id="tappay-expiration-date"></div>
                 </div>
                 <div class="form-group cvc-group">
-                    <label for="cvc" class="control-label">卡片後三碼</label>
+                    <label for="cvc" class="control-label">驗證密碼：</label>
                     <div class="form-control cvc"></div>
                 </div>
                 <hr class="hr"/>   
@@ -182,15 +167,18 @@
                 },
                 ccv: {
                     element: $('.form-control.cvc')[0],
-                    placeholder: '後三碼'
+                    placeholder: 'CVV'
                 }
             },
             styles: {
                 'input': {
-                    'color': 'gray'
-                },
-                'input.ccv': {
-                    // 'font-size': '16px'
+                    'color': '#757575',
+                    'height': '38px',
+                    'width': '200px',
+                    'border': '1px solid #E8E8E8',
+                    'border-radius': '5px',
+                    'display': 'inline-block',
+                    'font-size': '16px'
                 },
                 ':focus': {
                     'color': 'black'
@@ -201,11 +189,6 @@
                 '.invalid': {
                     'color': 'red'
                 },
-                '@media screen and (max-width: 400px)': {
-                    'input': {
-                        'color': 'orange'
-                    }
-                }
             }
         })
 
