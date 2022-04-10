@@ -1,7 +1,5 @@
 "use strict"
 
-let primeCode;
-
 // SetupSDK
 TPDirect.setupSDK(124101, 'app_eb3EyBJM1eSr5JGWJ7PgmGxEWZ34ZVWyhfsnN24D2Dcvn9pnOz2PUEvD2uan', 'sandbox');
 
@@ -97,40 +95,13 @@ TPDirect.card.onUpdate(function (update) {
     }
 })
 
-// get prime
-// function getPrimeCode(event){
-
-//     event.preventDefault()
-
-//     // fix keyboard issue in iOS device
-//     forceBlurIos()
-    
-//     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
-//     console.log(tappayStatus)
-
-//     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
-//     if (tappayStatus.canGetPrime === false) {
-//         alert('can not get prime')
-//         return
-//     }
-
-//     // Get prime
-//     TPDirect.card.getPrime(function (result) {
-//         if (result.status !== 0) {
-//             alert('get prime error ' + result.msg)
-//             return
-//         }
-//         primeCode = result.card.prime
-//         alert('get prime 成功，prime: ' + result.card.prime)
-//     })    
-// }
-
 $('form').on('submit', function (event) {
     event.preventDefault()
     
     // fix keyboard issue in iOS device
     forceBlurIos()
-    
+
+    let primeCode;
     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
     console.log(tappayStatus)
 
@@ -149,10 +120,11 @@ $('form').on('submit', function (event) {
         primeCode = result.card.prime
         console.log('get prime 成功，prime: ' + result.card.prime)
         
+        // post data
+        postOrderData()
     })
 
-    // post data
-    postOrderData()
+
 })
 
 function setNumberFormGroupToError(selector) {
