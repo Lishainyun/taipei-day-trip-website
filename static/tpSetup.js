@@ -136,24 +136,23 @@ $('form').on('submit', function (event) {
 
     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
     if (tappayStatus.canGetPrime === false) {
-        alert('can not get prime')
+        console.log('can not get prime')
         return
     }
 
     // Get prime
     TPDirect.card.getPrime(function (result) {
         if (result.status !== 0) {
-            alert('get prime error ' + result.msg)
+            console.log('get prime error ' + result.msg)
             return
         }
         primeCode = result.card.prime
-        // alert('get prime 成功，prime: ' + result.card.prime)
+        console.log('get prime 成功，prime: ' + result.card.prime)
         
-        // post data
-        postOrderData()
     })
 
-
+    // post data
+    postOrderData()
 })
 
 function setNumberFormGroupToError(selector) {
