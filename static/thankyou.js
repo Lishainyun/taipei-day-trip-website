@@ -9,6 +9,13 @@ let orderNums = document.getElementById('orderNums')
 async function getOrder(){
     const response = await fetch(getOrderUrl+paramNums,{
         method:"GET",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body:{
+            "paramNums":paramNums,
+        }
     })
     return await response.json()
 };

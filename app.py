@@ -107,8 +107,10 @@ def postOrder():
 
 @app.route("/api/order/{orderNumber}", methods=["GET"])
 @cross_origin()
-def getOrder(orderNumber):
+def getOrder():
 	email = session['Email']
+	data = request.json
+	orderNumber = data['paramNums']
 	result = OrderModel.getOrder(orderNumber,email)
 	return result
 		
