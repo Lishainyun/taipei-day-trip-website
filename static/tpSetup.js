@@ -147,11 +147,13 @@ $('form').on('submit', function (event) {
             return
         }
         primeCode = result.card.prime
-        alert('get prime 成功，prime: ' + result.card.prime)
+        // alert('get prime 成功，prime: ' + result.card.prime)
+        
+        // post data
+        postOrderData()
     })
 
-    // post data
-    postOrderData()
+
 })
 
 function setNumberFormGroupToError(selector) {
