@@ -54,12 +54,12 @@ TPDirect.card.onUpdate(function (update) {
     if (update.canGetPrime) {
         // submitButton.removeAttribute('disabled')
         // $('button[type="submit"]').removeAttr('disabled')
-        $('#confirmOrder').click(true);
+        $('#confirmOrder').attr("id","canClick");
     } else {
         // submitButton.setAttribute('disabled', true)
         // $('button[type="submit"]').attr('disabled', true)
-        $('#confirmOrder').click(false);
-    }
+        $('#confirmOrder').attr("id","notClick");
+    // }
 
     /* Change card type display when card type change */
     /* ============================================== */
