@@ -13,9 +13,6 @@ async function getOrder(){
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
-        body:{
-            "paramNums":paramNums,
-        }
     })
     return await response.json()
 };
