@@ -75,11 +75,11 @@ class OrderModel:
         }
 
         response = requests.post(payByPrimeUrl, data=body, headers=headers)
-        print(response)        
-        paySuccessStatus = response.content.status
-        print(paySuccessStatus)
+        # print(response)        
+        # paySuccessStatus = response.content.status
+        # print(paySuccessStatus)
 
-        if paySuccessStatus == 0:
+        if response.status_code == 200:
             conn = mypool.connect()
             cursor = conn.cursor(dictionary=True)
             cursor.execute(
@@ -87,7 +87,7 @@ class OrderModel:
                 UPDATE orders
                 SET status = %s
                 WHERE contact_name = %s
-                """, (paySuccessStatus,contactName,)
+                """, ('0',contactName,)
             )	
 
             cursor.execute(
