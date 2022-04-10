@@ -75,7 +75,7 @@ class OrderModel:
         }
 
         response = requests.post(payByPrimeUrl, data=body, headers=headers)
-        # print(response)        
+        print(response.json())        
         # paySuccessStatus = response.content.status
         # print(paySuccessStatus)
 
