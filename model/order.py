@@ -115,7 +115,7 @@ class OrderModel:
                 "data":{
                     "number":orderId,
                     "payment":{
-                        "status":paySuccessStatus,
+                        "status":0,
                         "message":"付款成功"
                     }
                 }
