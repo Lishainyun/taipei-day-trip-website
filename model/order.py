@@ -38,94 +38,155 @@ class OrderModel:
         contactName = data["order"]["contact"]["name"]
         contactEmail = data["order"]["contact"]["email"]
         phoneNums = data["order"]["contact"]["phone"]
-        try:
-            conn = mypool.connect()
-            cursor = conn.cursor(dictionary=True)
-            cursor.execute(
-                """
-                INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums)
-            )	
-            conn.commit()
-        except:
-            print('insertion failed')
-        finally:
-            cursor.close()
-            conn.close() 
+        attractionId = data["order"]["trip"]["attraction"]["id"]
 
-        payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
-        prime = data["prime"]
-        headers = {
-            "Content-Type": "application/json",
-            "x-api-key": "partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
-        }
-        body = {
-            "prime":prime,
-            "partner_key":"partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
-            "merchant_id":"yunnie123_TAISHIN",
-            "details":"tapPay Test",
-            "amount":attrPrice,
-            "cardholder":{
-                "phone_number":phoneNums,
-                "name":contactName,
-                "email":contactEmail,
-            },
-        }
-        print(headers)
-        print(body)
-        response = requests.post(payByPrimeUrl, json=body, headers=headers, timeout=30)
-        print(response.json())        
+        if sessionEmail:
+            try:
+                conn = mypool.connect()
+                cursor = conn.cursor(dictionary=True)
+                cursor.execute(
+                    """
+                    INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone, attraction_id)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,attractionId)
+                )	
+                conn.commit()
+            except:
+                return jsonify({
+                    "error":True,
+                    "message":"訂單建立失敗，輸入不正確或其他原因"
+                }), 400 
+            finally:
+                cursor.close()
+                conn.close() 
 
+            payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+            prime = data["prime"]
+            headers = {
+                "Content-Type": "application/json",
+                "x-api-key": "partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
+            }
+            body = {
+                "prime":prime,
+                "partner_key":"partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
+                "merchant_id":"yunnie123_TAISHIN",
+                "details":"tapPay Test",
+                "amount":attrPrice,
+                "cardholder":{
+                    "phone_number":phoneNums,
+                    "name":contactName,
+                    "email":contactEmail,
+                },
+            }
 
-        if response.status_code == 200:
-            conn = mypool.connect()
-            cursor = conn.cursor(dictionary=True)
-            cursor.execute(
-                """
-                UPDATE orders
-                SET status = %s
-                WHERE contact_name = %s
-                """, ('0',contactName,)
-            )	
+            response = requests.post(payByPrimeUrl, json=body, headers=headers, timeout=30)
+            print(response.json())
 
-            cursor.execute(
-                """
-                SELECT id 
-                FROM user
-                WHERE email = %s
-                """, (sessionEmail,)
-            )	
-            result = cursor.fetchone()
-            userId = result['id']
+            if response.json()['status'] == 0:
+                conn = mypool.connect()
+                cursor = conn.cursor(dictionary=True)
+                cursor.execute(
+                    """
+                    UPDATE orders
+                    SET status = %s
+                    WHERE contact_name = %s
+                    """, ('0',contactName,)
+                )	
 
-            cursor.execute(
-                """
-                DELETE FROM booking
-                WHERE user_id = %s
-                """, (userId,)
-            )	
+                cursor.execute(
+                    """
+                    SELECT id 
+                    FROM user
+                    WHERE email = %s
+                    """, (sessionEmail,)
+                )	
+                result = cursor.fetchone()
+                userId = result['id']
 
-            conn.commit()
-            cursor.close()
-            conn.close()  
+                cursor.execute(
+                    """
+                    DELETE FROM booking
+                    WHERE user_id = %s
+                    """, (userId,)
+                )	
 
-            return jsonify({
-                "data":{
-                    "number":orderId,
-                    "payment":{
-                        "status":0,
-                        "message":"付款成功"
+                conn.commit()
+                cursor.close()
+                conn.close()  
+
+                return jsonify({
+                    "data":{
+                        "number":orderId,
+                        "payment":{
+                            "status":0,
+                            "message":"付款成功"
+                        }
                     }
-                }
-            }), 200
-        elif not sessionEmail:
-            return jsonify({
-                "error":True,
-                "message":"未登入系統，拒絕存取"
-            }), 403       
+                }), 200
+            else:
+                return jsonify({
+                    "data":{
+                        "number":orderId,
+                        "payment":{
+                            "status":1,
+                            "message":"付款失敗"
+                        }
+                    }
+                }), 200 
         else:
             return jsonify({
                 "error":True,
-                "message":"訂單建立失敗，輸入不正確或其他原因"
-            }), 400          
+                "message":"未登入系統，拒絕存取"
+            }), 403
+
+    def getOrder(orderNumber,email):
+        orderNumber = orderNumber
+        sessionEmail = email
+
+        if sessionEmail:
+            try:
+                conn = mypool.connect()
+                cursor = conn.cursor(dictionary=True)
+                cursor.execute(
+                    """
+                    SELECT o.order_id, o.price, o.date, o.time, o.contact_name, o.contact_email, o.contact_phone, o.status, a.id, a.name, a.address FROM orders o
+                    JOIN attraction a ON o.attraction_id = a.id
+                    WHERE o.order_id = %s
+                    """, (orderNumber,)
+                )
+                result = cursor.fetchone()
+                attractionImage = ImagesList[result['id']-1][0]
+                return jsonify({
+                    "data":{
+                        "number":result['order_id'],
+                        "price":result['price'],
+                        "trip":{
+                            "attraction":{
+                                "id":result['id'],
+                                "name":result['name'],
+                                "address":result['address'],
+                                "image":attractionImage
+                            },
+                            "date":result['date'],
+                            "time":result['time']
+                        },
+                        "contact":{
+                            "name":result['contact_name'],
+                            "email":result['contact_email'],
+                            "phone":result['contact_phone']
+                        },
+                        "status":result['status']
+                    }
+                })
+            except:
+                return None
+            finally:
+                cursor.close()
+                conn.close()
+        else:
+            return jsonify({
+                "error":True,
+                "message":"未登入系統，拒絕存取"
+            }), 403
+
+

@@ -1,8 +1,6 @@
 "use strict"
 
 const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
-let confirmOrder = document.getElementById('confirmOrder')
-
 
 // post data
 function postOrderData(){
@@ -38,13 +36,15 @@ function postOrderData(){
             headers:headers,
             body: JSON.stringify(body)
         })
-        .then(res=>{
-            window.location.href = "/thankyou.html";
+        .then((response)=>{
+            return response.json()
+        })
+        .then((res)=>{
+            orderNums = res['data']['number']
+            window.location.href = "/thankyou?number="+orderNums;
         })
         .catch(console.log("postOrder failed"))
     } else{
         console.log("No primeCode be found")
     }
 }
-
-// confirmOrder.addEventListener("click", debounce(postOrderData,500));

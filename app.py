@@ -105,10 +105,12 @@ def postOrder():
 	result = OrderModel.postOrder(data,email)
 	return result
 
-# @app.route("/api/order/{orderNumber}", methods=["GET"])
-# @cross_origin()
-# def getOrder():
-# 	return jsonify({"test":"test"})
+@app.route("/api/order/{orderNumber}", methods=["GET"])
+@cross_origin()
+def getOrder(orderNumber):
+	email = session['Email']
+	result = OrderModel.getOrder(orderNumber,email)
+	return result
 		
 @app.errorhandler(500)
 def status500(error):
