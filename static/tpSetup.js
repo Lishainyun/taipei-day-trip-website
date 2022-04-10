@@ -59,7 +59,7 @@ TPDirect.card.onUpdate(function (update) {
         // submitButton.setAttribute('disabled', true)
         // $('button[type="submit"]').attr('disabled', true)
         $('#confirmOrder').attr("id","notClick");
-    // }
+    }
 
     /* Change card type display when card type change */
     /* ============================================== */
