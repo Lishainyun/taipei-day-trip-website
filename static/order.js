@@ -40,7 +40,7 @@ function postOrderData(){
             return response.json()
         })
         .then((res)=>{
-            orderNums = res['data']['number']
+            let orderNums = res['data']['number']
             window.location.href = "/thankyou?number="+orderNums;
         })
         .catch(console.log("postOrder failed"))
