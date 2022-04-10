@@ -57,7 +57,7 @@ class OrderModel:
         payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
         prime = data["prime"]
         headers = {
-            "Content-Type": "application/json";
+            "Content-Type": "application/json",
             "x-api-key": "partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
         }
         body = {
