@@ -38,7 +38,7 @@ class OrderModel:
         contactName = data["order"]["contact"]["name"]
         contactEmail = data["order"]["contact"]["email"]
         phoneNums = data["order"]["contact"]["phone"]
-        print(orderTime,orderId,attrPrice,attrName,date,time,contactName,contactEmail,phoneNums)
+        print(data,orderTime,orderId,attrPrice,attrName,date,time,contactName,contactEmail,phoneNums)
         try:
             conn = mypool.connect()
             cursor = conn.cursor(dictionary=True)
