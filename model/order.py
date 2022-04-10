@@ -45,8 +45,8 @@ class OrderModel:
             cursor.execute(
                 """
                 INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)
-                """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums)
             )	
             conn.commit()
         except:
