@@ -1,6 +1,6 @@
 "use strict"
 
-const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
+const orderApiUrl = 'http://172.23.230.87:5000/api/orders';
 let contactNameValue = document.getElementById('contactName').value
 let contactEmailValue = document.getElementById('contactEmail').value
 let phoneNums = document.getElementById('phoneNums').value
@@ -9,7 +9,6 @@ let confirmOrder = document.getElementById('confirmOrder')
 
 // post data
 function postOrderData(){
-    getPrimeCode()
     let headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -51,4 +50,4 @@ function postOrderData(){
     }
 }
 
-confirmOrder.addEventListener("click", debounce(postOrderData,500));
+// confirmOrder.addEventListener("click", debounce(postOrderData,500));
