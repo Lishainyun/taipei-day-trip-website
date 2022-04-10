@@ -1,9 +1,9 @@
 "use strict"
 
 const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
-let contactNameValue = document.getElementById('contactName').value
-let contactEmailValue = document.getElementById('contactEmail').value
-let phoneNums = document.getElementById('phoneNums').value
+let contactName = document.getElementById('contactName')
+let contactEmail = document.getElementById('contactEmail')
+let phoneNums = document.getElementById('phoneNums')
 let confirmOrder = document.getElementById('confirmOrder')
 
 
@@ -28,9 +28,9 @@ function postOrderData(){
                 "time":attrResTime
             },
             "contact":{
-                "name":contactNameValue,
-                "email":contactEmailValue,
-                "phone":phoneNums
+                "name":contactName.value,
+                "email":contactEmail.value,
+                "phone":phoneNums.value
             }
         }
     };
