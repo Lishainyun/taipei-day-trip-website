@@ -9,6 +9,7 @@ let confirmOrder = document.getElementById('confirmOrder')
 
 // post data
 function postOrderData(){
+    getPrimeCode()
     let headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",

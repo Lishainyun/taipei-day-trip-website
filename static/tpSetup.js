@@ -18,15 +18,18 @@ TPDirect.card.setup({
         },
         ccv: {
             element: $('.form-control.cvc')[0],
-            placeholder: '後三碼'
+            placeholder: 'CVV'
         }
     },
     styles: {
         'input': {
-            'color': 'gray'
-        },
-        'input.ccv': {
-            // 'font-size': '16px'
+            'color': '#757575',
+            'height': '38px',
+            'width': '200px',
+            'border': '1px solid #E8E8E8',
+            'border-radius': '5px',
+            'display': 'inline-block',
+            'font-size': '16px'
         },
         ':focus': {
             'color': 'black'
@@ -37,11 +40,6 @@ TPDirect.card.setup({
         '.invalid': {
             'color': 'red'
         },
-        '@media screen and (max-width: 400px)': {
-            'input': {
-                'color': 'orange'
-            }
-        }
     }
 })
 
@@ -55,10 +53,12 @@ TPDirect.card.onUpdate(function (update) {
     // const submitButton = document.querySelector('button[type="submit"]')
     if (update.canGetPrime) {
         // submitButton.removeAttribute('disabled')
-        $('button[type="submit"]').removeAttr('disabled')
+        // $('button[type="submit"]').removeAttr('disabled')
+        $('#confirmOrder').click(true);
     } else {
         // submitButton.setAttribute('disabled', true)
-        $('button[type="submit"]').attr('disabled', true)
+        // $('button[type="submit"]').attr('disabled', true)
+        $('#confirmOrder').click(false);
     }
 
     /* Change card type display when card type change */
@@ -97,10 +97,8 @@ TPDirect.card.onUpdate(function (update) {
     }
 })
 
-// get prime and post data to server
-$('form').on('submit', function (event) {
-    event.preventDefault()
-    
+// get prime
+function getPrimeCode(){
     // fix keyboard issue in iOS device
     forceBlurIos()
     
@@ -121,8 +119,34 @@ $('form').on('submit', function (event) {
         }
         primeCode = result.card.prime
         alert('get prime 成功，prime: ' + result.card.prime)
-    })
-})
+    })    
+}
+
+// $('form').on('submit', function (event) {
+//     event.preventDefault()
+    
+//     // fix keyboard issue in iOS device
+//     forceBlurIos()
+    
+//     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+//     console.log(tappayStatus)
+
+//     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
+//     if (tappayStatus.canGetPrime === false) {
+//         alert('can not get prime')
+//         return
+//     }
+
+//     // Get prime
+//     TPDirect.card.getPrime(function (result) {
+//         if (result.status !== 0) {
+//             alert('get prime error ' + result.msg)
+//             return
+//         }
+//         primeCode = result.card.prime
+//         alert('get prime 成功，prime: ' + result.card.prime)
+//     })
+// })
 
 function setNumberFormGroupToError(selector) {
     $(selector).addClass('has-error')
@@ -154,28 +178,3 @@ function forceBlurIos() {
 function isIos() {
     return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 }
-
-// function getPrimeFunc(){
-//     // fix keyboard issue in iOS device
-//     forceBlurIos()
-            
-//     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
-//     console.log(tappayStatus)
-
-//     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
-//     if (tappayStatus.canGetPrime === false) {
-//         alert('can not get prime')
-//         return
-//     }
-
-//     // Get prime
-//     TPDirect.card.getPrime(function (result) {
-//         if (result.status !== 0) {
-//             alert('get prime error ' + result.msg)
-//             return
-//         } else{
-//             primeCode = result.card.prime
-//             alert('get prime 成功，prime: ' + result.card.prime)
-//         }
-//     })
-// }

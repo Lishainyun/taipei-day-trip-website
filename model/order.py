@@ -132,7 +132,7 @@ class OrderModel:
             return jsonify({
                 "error":True,
                 "message":"伺服器內部錯誤"
-            }), 400
+            }), 500
 
         finally:
             cursor.close()
