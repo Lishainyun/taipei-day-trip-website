@@ -4,6 +4,7 @@ const getOrderUrl = 'http://44.199.90.64:3000/api/order/';
 let paramNums = new URLSearchParams(window.location.search).get('number')
 let orderStatus = document.getElementById('orderStatus')
 let orderNums = document.getElementById('orderNums')
+let navHeight = document.querySelector('.nav').clientHeight;
 let footer = document.getElementById("footer");
 
 // 載入頁面get order data
