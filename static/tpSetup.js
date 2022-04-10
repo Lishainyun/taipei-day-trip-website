@@ -1,5 +1,7 @@
 "use strict"
 
+let primeCode;
+
 // SetupSDK
 TPDirect.setupSDK(124101, 'app_eb3EyBJM1eSr5JGWJ7PgmGxEWZ34ZVWyhfsnN24D2Dcvn9pnOz2PUEvD2uan', 'sandbox');
 
@@ -101,7 +103,6 @@ $('form').on('submit', function (event) {
     // fix keyboard issue in iOS device
     forceBlurIos()
 
-    let primeCode;
     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
     console.log(tappayStatus)
 
