@@ -101,7 +101,7 @@ def bookingAPIs():
 @cross_origin()
 def postOrder():
 	data = request.json
-	email = session['email']
+	email = session['Email']
 	result = OrderModel.postOrder(data,email)
 	return result
 
