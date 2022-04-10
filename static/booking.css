@@ -387,6 +387,7 @@ img[src="/icon_close.png"]{
 .subHeading input{
     height:38px;
     padding:10px;
+    width:200px;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
     border-radius: 5px;
@@ -756,5 +757,9 @@ input[id="contactName"],input[id="contactEmail"]{
         cursor: pointer;
         
     }
-    
+    #hr3{
+        margin:40px 0 43px 0;
+        width:1200px;
+        transform:translateX(-105px)
+    }
 }

@@ -62,7 +62,7 @@
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
 			    <li><a href="" id="navBooking">預定行程</a></li>
-                <li><a onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
+                <li><a style="color:#666666" onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
 		    </ul>
 	    </div>
     </div>
@@ -104,18 +104,18 @@
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
             <form>
                 <div class="form-group card-number-group">
-                    <label for="card-number" class="control-label" style="font-size:16px;color:#666666"><span id="cardtype" style="font-size:16px;color:#666666"></span>卡片號碼：</label>
-                    <div class="form-control card-number"></div>
+                    <label for="card-number" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;"><span id="cardtype" style="font-size:16px;color:#666666;font-weight: 400;"></span>卡片號碼：</label>
+                    <div class="form-control card-number" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);"></div>
                 </div>
                 <div class="form-group expiration-date-group">
-                    <label for="expiration-date" class="control-label" style="font-size:16px;color:#666666">過期時間：</label>
-                    <div class="form-control expiration-date" id="tappay-expiration-date"></div>
+                    <label for="expiration-date" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;">過期時間：</label>
+                    <div class="form-control expiration-date" id="tappay-expiration-date" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);"></div>
                 </div>
                 <div class="form-group cvc-group">
-                    <label for="cvc" class="control-label" style="font-size:16px;color:#666666">驗證密碼：</label>
-                    <div class="form-control cvc"></div>
+                    <label for="cvc" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;">驗證密碼：</label>
+                    <div class="form-control cvc" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);"></div>
                 </div>
-                <hr class="hr"/>   
+                <hr class="hr" id="hr3"/>   
                 <div id="paymentInfo" class="subHeading">
                     <div style="float:right">總價：新台幣<span id="totalPrice"></span><span>元</span></div><br/>
                     <button type="submit" class="submitBtn" id="confirmOrder" style="margin-top:25px;float:right">確認訂購並付款</button>
