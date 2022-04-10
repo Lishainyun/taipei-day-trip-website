@@ -53,12 +53,12 @@ TPDirect.card.onUpdate(function (update) {
     // const submitButton = document.querySelector('button[type="submit"]')
     if (update.canGetPrime) {
         // submitButton.removeAttribute('disabled')
-        // $('button[type="submit"]').removeAttr('disabled')
-        $('#confirmOrder').attr("id","canClick");
+        $('button[type="submit"]').removeAttr('disabled')
+        // $('#confirmOrder').attr("id","canClick");
     } else {
         // submitButton.setAttribute('disabled', true)
-        // $('button[type="submit"]').attr('disabled', true)
-        $('#confirmOrder').attr("id","notClick");
+        $('button[type="submit"]').attr('disabled', true)
+        // $('#confirmOrder').attr("id","notClick");
     }
 
     /* Change card type display when card type change */
@@ -98,7 +98,10 @@ TPDirect.card.onUpdate(function (update) {
 })
 
 // get prime
-function getPrimeCode(){
+function getPrimeCode(event){
+
+    event.preventDefault()
+    
     // fix keyboard issue in iOS device
     forceBlurIos()
     

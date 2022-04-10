@@ -4,7 +4,7 @@ const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
 let contactNameValue = document.getElementById('contactName').value
 let contactEmailValue = document.getElementById('contactEmail').value
 let phoneNums = document.getElementById('phoneNums').value
-let canClick = document.getElementById('canClick')
+let confirmOrder = document.getElementById('confirmOrder')
 
 
 // post data
@@ -51,4 +51,4 @@ function postOrderData(){
     }
 }
 
-canClick.addEventListener("click", debounce(postOrderData,500));
+confirmOrder.addEventListener("click", debounce(postOrderData,500));
