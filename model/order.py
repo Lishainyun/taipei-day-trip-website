@@ -38,7 +38,6 @@ class OrderModel:
         contactName = data["order"]["contact"]["name"]
         contactEmail = data["order"]["contact"]["email"]
         phoneNums = data["order"]["contact"]["phone"]
-        print(data,orderTime,orderId,attrPrice,attrName,date,time,contactName,contactEmail,phoneNums)
         try:
             conn = mypool.connect()
             cursor = conn.cursor(dictionary=True)
@@ -58,7 +57,7 @@ class OrderModel:
         payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
         prime = data["prime"]
         headers = {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json";
             "x-api-key": "partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
         }
         body = {
@@ -70,14 +69,14 @@ class OrderModel:
             "cardholder":{
                 "phone_number":phoneNums,
                 "name":contactName,
-                "email":contactEmail
-            }
+                "email":contactEmail,
+            },
         }
-
+        print(headers)
+        print(body)
         response = requests.post(payByPrimeUrl, json=body, headers=headers, timeout=30)
         print(response.json())        
-        # paySuccessStatus = response.content.status
-        # print(paySuccessStatus)
+
 
         if response.status_code == 200:
             conn = mypool.connect()
