@@ -1,9 +1,6 @@
 "use strict"
 
 const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
-let contactName = document.getElementById('contactName')
-let contactEmail = document.getElementById('contactEmail')
-let phoneNums = document.getElementById('phoneNums')
 let confirmOrder = document.getElementById('confirmOrder')
 
 

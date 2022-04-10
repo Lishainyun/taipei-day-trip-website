@@ -22,6 +22,7 @@ let attractionPrice = document.getElementById("price");
 let attractionAddress = document.getElementById("address");
 let contactName = document.getElementById("contactName");
 let contactEmail = document.getElementById("contactEmail");
+let phoneNums = document.getElementById('phoneNums')
 let totalPrice = document.getElementById("totalPrice");
 
 let navHeight = document.querySelector('.nav').clientHeight;
