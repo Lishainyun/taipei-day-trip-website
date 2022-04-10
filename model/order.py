@@ -39,6 +39,22 @@ class OrderModel:
         contactEmail = data["order"]["contact"]["email"]
         phoneNums = data["order"]["contact"]["phone"]
 
+        try:
+            conn = mypool.connect()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute(
+                """
+                INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)
+                """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,)
+            )	
+            conn.commit()
+        except:
+            print('insertion failed')
+        finally:
+            cursor.close()
+            conn.close() 
+
         payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
         prime = data["prime"]
         headers = {
@@ -58,26 +74,11 @@ class OrderModel:
             }
         }
 
-        try:
-            conn = mypool.connect()
-            cursor = conn.cursor(dictionary=True)
-            cursor.execute(
-                """
-                INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)
-                """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,)
-            )	
-            conn.commit()
-        except:
-            print('insertion failed')
-        finally:
-            cursor.close()
-            conn.close() 
+        response = requests.post(payByPrimeUrl, data=body, headers=headers)
+        paySuccessStatus = response.status
+        print(paySuccessStatus)
 
-        try:
-            response = requests.post(payByPrimeUrl, data=body, headers=headers)
-            paySuccessStatus = response.status
-
+        if paySuccessStatus == 0:
             conn = mypool.connect()
             cursor = conn.cursor(dictionary=True)
             cursor.execute(
@@ -106,34 +107,25 @@ class OrderModel:
             )	
 
             conn.commit()
+            cursor.close()
+            conn.close()  
 
-            if paySuccessStatus == 0:
-                return jsonify({
-                    "data":{
-                        "number":orderId,
-                        "payment":{
-                            "status":paySuccessStatus,
-                            "message":"付款成功"
-                        }
+            return jsonify({
+                "data":{
+                    "number":orderId,
+                    "payment":{
+                        "status":paySuccessStatus,
+                        "message":"付款成功"
                     }
-                }), 200
-            elif not sessionEmail:
-                return jsonify({
-                    "error":True,
-                    "message":"未登入系統，拒絕存取"
-                }), 403       
-            else:
-                return jsonify({
-                    "error":True,
-                    "message":"訂單建立失敗，輸入不正確或其他原因"
-                }), 400          
-        except:
-            print('update status failed')
+                }
+            }), 200
+        elif not sessionEmail:
             return jsonify({
                 "error":True,
-                "message":"伺服器內部錯誤"
-            }), 500
-
-        finally:
-            cursor.close()
-            conn.close()         
+                "message":"未登入系統，拒絕存取"
+            }), 403       
+        else:
+            return jsonify({
+                "error":True,
+                "message":"訂單建立失敗，輸入不正確或其他原因"
+            }), 400          
