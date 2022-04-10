@@ -33,8 +33,8 @@ class OrderModel:
         orderId = "O" + orderTime
         attrPrice = data["order"]["price"]
         attrName = data["order"]["trip"]["attraction"]["name"]
-        date = data["order"]["date"]
-        time = data["order"]["time"]
+        date = data["order"]["trip"]["date"]
+        time = data["order"]["trip"]["time"]
         contactName = data["order"]["contact"]["name"]
         contactEmail = data["order"]["contact"]["email"]
         phoneNums = data["order"]["contact"]["phone"]
