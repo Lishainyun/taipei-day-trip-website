@@ -4,7 +4,7 @@ from flask import jsonify
 from process_images import ImagesList
 from datetime import *
 import sqlalchemy.pool as pool
-import os, json, mysql.connector
+import os, json, mysql.connector, requests
 # DB
 
 load_dotenv("env.env")
