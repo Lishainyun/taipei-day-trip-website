@@ -29,8 +29,8 @@ class OrderModel:
     def postOrder(data,email):
         sessionEmail = email
 
-        orderTime = datetime.now().strftime("%Y%m%d%H%M%S")
-        orderId = "O" + orderTime
+        orderTime = datetime.now()
+        orderId = "O" + orderTime.strftime("%Y%m%d%H%M%S")
         attrPrice = data["order"]["price"]
         attrName = data["order"]["trip"]["attraction"]["name"]
         date = data["order"]["trip"]["date"]
