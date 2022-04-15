@@ -64,6 +64,14 @@ function scroll(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
+
+            setTimeout(()=>{
+                attractionsContainer.getElementsByTagName('div')
+                attractionsContainer.removeChild(loader)
+                picDivTag.setAttribute('style', 'display:block;');
+            }, 3000)  
+
+
         });
     }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
@@ -124,12 +132,14 @@ function scroll(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
+            }
 
-                setTimeout(()=>{
-                    attractionsContainer.removeChild(loader)
-                    picDivTag.setAttribute('style', 'display:block;');
-                }, 3000)
-            }  
+            setTimeout(()=>{
+                attractionsContainer.getElementsByTagName('div')
+                attractionsContainer.removeChild(loader)
+                picDivTag.setAttribute('style', 'display:block;');
+            }, 3000)  
+
         });
     }
 };

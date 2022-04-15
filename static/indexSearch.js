@@ -97,12 +97,14 @@ function search(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
-
-                setTimeout(()=>{
-                    attractionsContainer.removeChild(loader)
-                    picDivTag.setAttribute('style', 'display:block;');
-                }, 3000)
             }
+            
+            setTimeout(()=>{
+                attractionsContainer.getElementsByTagName('div')
+                attractionsContainer.removeChild(loader)
+                picDivTag.setAttribute('style', 'display:block;');
+            }, 3000)  
+
         }
     })
 }
