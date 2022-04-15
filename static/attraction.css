@@ -526,6 +526,7 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 }
 
 .nav{
+    display: none;
     position: fixed;
     width:100%;
     height:54px;

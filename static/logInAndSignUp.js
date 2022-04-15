@@ -23,7 +23,6 @@ let userId;
 
 // 載入頁面確認登入狀態
 async function checkUserStatus(userApiUrl){
-    document.querySelector('.nav').style.display = 'none'
     const response = await fetch(userApiUrl,{
         method:"GET"
     })
@@ -37,12 +36,10 @@ checkUserStatus(userApiUrl)
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'
-        onload();
     } else{
         navInUp.id="navInUp"
         navInUp.innerHTML="登入/註冊"
         document.querySelector('.nav').style.display = 'block'
-        onload();
     }
 });
 

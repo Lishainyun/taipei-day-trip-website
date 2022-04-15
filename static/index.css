@@ -378,7 +378,7 @@ img[src="/icon_close.png"]{
 }
 
 .nav{
-
+    display: none;
     position: fixed;
     width:100%;
     height:54px;
