@@ -30,7 +30,6 @@ function search(){
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
             let messageTextnode = document.createTextNode("查無景點")
-            errorMessageDiv.setAttribute('display', 'none')
             errorMessageDiv.setAttribute('style', 'margin:40px')      
             errorMessageDiv.appendChild(messageTextnode)
             // footer 置底
@@ -84,10 +83,10 @@ function search(){
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
-                picImgTag.setAttribute('style','display:none;width:100%;aspect-ratio:16/9');
-                namePTag.setAttribute('style','display:none;color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
-                mrtPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
-                catPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
+                picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
+                namePTag.setAttribute('style','color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
+                mrtPTag.setAttribute('style','color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
+                catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
             
                 attractionsContainer.appendChild(picDivTag);
                 picDivTag.appendChild(picImgTag);
@@ -103,13 +102,10 @@ function search(){
     })
 
     setTimeout(() => {
+
         attractionsContainer.removeChild(loader)
-        errorMessageDiv.setAttribute('display', 'block')
-        picDivTag.setAttribute('style', 'display:block;');
-        picImgTag.setAttribute('style','display:block;');
-        namePTag.setAttribute('style','display:block;');
-        mrtPTag.setAttribute('style','display:block;');
-        catPTag.setAttribute('style','display:inline-block;');
+        showResult()
+
     }, 3000);
 }
 

@@ -517,10 +517,11 @@ input::placeholder{
 }
 
 #loader {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    width: 14px;
-    height: 14px;
+    position:absolute;
+    top:10px;
+    left:50%;
+    width: 20px;
+    height: 20px;
     border: 8px solid #f3f3f3;
     border-radius: 50%;
     border-top: 8px solid #337788;
@@ -587,10 +588,11 @@ input::placeholder{
 	}
 
     #loader {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        width: 14px;
-        height: 14px;
+        position:absolute;
+        top:10px;
+        left:50%;
+        width: 20px;
+        height: 20px;
         border: 8px solid #f3f3f3;
         border-radius: 50%;
         border-top: 8px solid #337788;
@@ -784,10 +786,11 @@ input::placeholder{
 	}
 
     #loader {
-        grid-column-start: 1;
-        grid-column-end: 2;
-        width: 14px;
-        height: 14px;
+        position:absolute;
+        top:10px;
+        left:50%;
+        width: 20px;
+        height: 20px;
         border: 8px solid #f3f3f3;
         border-radius: 50%;
         border-top: 8px solid #337788;

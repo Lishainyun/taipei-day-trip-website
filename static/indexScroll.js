@@ -50,10 +50,10 @@ function scroll(){
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
-                picImgTag.setAttribute('style','display:none;width:100%;aspect-ratio:16/9');
-                namePTag.setAttribute('style','display:none;color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
-                mrtPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
-                catPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
+                picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
+                namePTag.setAttribute('style','color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
+                mrtPTag.setAttribute('style','color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
+                catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
                     
                 attractionsContainer.appendChild(picDivTag);
                 picDivTag.appendChild(picImgTag);
@@ -111,10 +111,10 @@ function scroll(){
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
-                picImgTag.setAttribute('style','display:none;width:100%;aspect-ratio:16/9');
-                namePTag.setAttribute('style','display:none;color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
-                mrtPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
-                catPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
+                picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
+                namePTag.setAttribute('style','color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
+                mrtPTag.setAttribute('style','color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
+                catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
                     
                 attractionsContainer.appendChild(picDivTag);
                 picDivTag.appendChild(picImgTag);
@@ -129,6 +129,13 @@ function scroll(){
     }
 };
 
+function showResult(){
+
+    attractionsContainer.removeChild(loader)
+    picDivTag = attractionsContainer.getElementsByTagName("div");
+    picDivTag.setAttribute('style', 'display:block;');
+}
+
 function scrollToBot(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         if (nextPage !== null){
@@ -142,12 +149,7 @@ function scrollToBot(){
             scroll()
 
             setTimeout(()=>{
-                attractionsContainer.removeChild(loader)
-                picDivTag.setAttribute('style', 'display:block;');
-                picImgTag.setAttribute('style','display:block;');
-                namePTag.setAttribute('style','display:block;');
-                mrtPTag.setAttribute('style','display:block;');
-                catPTag.setAttribute('style','display:inline-block;');
+                showResult()
             }, 3000)
         }
     };
