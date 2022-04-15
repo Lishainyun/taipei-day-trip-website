@@ -98,10 +98,11 @@ function search(){
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
             }
-            
+
             setTimeout(()=>{
+                let loader = document.getElementById('loader')
                 attractionsContainer.getElementsByTagName('div')
-                attractionsContainer.removeChild(loader)
+                loader.setAttribute('display', 'none')
                 picDivTag.setAttribute('style', 'display:block;');
             }, 3000)  
 
