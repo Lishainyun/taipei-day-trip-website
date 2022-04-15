@@ -66,10 +66,11 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
 
-            // setTimeout(()=>{
+        // setTimeout(()=>{
             let loader = document.getElementById('loader')
-            loader.setAttribute('style', 'display:none')
-            this.document.querySelectorAll('.result').style.display = 'block';
+            let result = document.querySelectorAll('.result')
+            attractionsContainer.removeChild(loader)
+            attractionsContainer.firstChild.style.display = 'block'
             // }, 2000)  
         });
     }else {
@@ -136,8 +137,9 @@ function scroll(){
         })
         // setTimeout(()=>{
         let loader = document.getElementById('loader')
-        loader.setAttribute('style', 'display:none')
-        this.document.querySelectorAll('.result').style.display = 'block';
+        let result = document.querySelectorAll('.result')
+        attractionsContainer.removeChild(loader)
+        attractionsContainer.firstChild.style.display = 'block'
         // }, 2000)  
     }
 };

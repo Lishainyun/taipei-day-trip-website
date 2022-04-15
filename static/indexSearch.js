@@ -7,7 +7,6 @@ function search(){
     document.getElementById('errorMessage').style.margin = "0"
     
     let page = 0;
-    let loader = document.createElement('div');
 
     attractionsContainer.appendChild(loader)
     loader.setAttribute('id', 'loader')            
@@ -103,9 +102,9 @@ function search(){
     })
 
     // setTimeout(()=>{
-    // let loader = document.getElementById('loader')
-    loader.setAttribute('style', 'display:none')
-    this.document.querySelectorAll('.result').style.display = 'block';
+    let loader = document.getElementById('loader')
+    attractionsContainer.removeChild(loader)
+    attractionsContainer.firstChild.style.display = 'block'
     // }, 2000)  
 }
 
