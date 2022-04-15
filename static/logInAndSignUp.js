@@ -23,7 +23,7 @@ let userId;
 
 // 載入頁面確認登入狀態
 async function checkUserStatus(userApiUrl){
-    document.querySelector('.nav').style.display = 'block'
+    document.querySelector('.nav').style.display = 'none'
     const response = await fetch(userApiUrl,{
         method:"GET"
     })
