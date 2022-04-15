@@ -68,10 +68,9 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let result = document.querySelectorAll('.result')
                 loader.setAttribute('style', 'display:none')
-                result.style.display = 'block';
-            }, 2000)    
+                document.querySelectorAll('.result').style.display = 'block';
+            }, 2000)  
 
 
         });
@@ -139,9 +138,8 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let result = document.querySelectorAll('.result')
                 loader.setAttribute('style', 'display:none')
-                result.style.display = 'block';
+                document.querySelectorAll('.result').style.display = 'block';
             }, 2000)  
 
         });
