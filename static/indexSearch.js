@@ -7,12 +7,6 @@ function search(){
     document.getElementById('errorMessage').style.margin = "0"
     
     let page = 0;
-    let loader = document.createElement('div');
-
-    attractionsContainer.appendChild(loader)
-    loader.setAttribute('id', 'loader')            
-    loader.setAttribute('display', 'block')
-
 
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
@@ -36,9 +30,6 @@ function search(){
             // footer 置底
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
-            // loader
-            let loader = document.getElementById('loader')
-            attractionsContainer.removeChild(loader)
 
         } else if(response['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
@@ -102,15 +93,6 @@ function search(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
-            }
-            // loader
-            let loader = document.getElementById('loader')
-            attractionsContainer.removeChild(loader)
-            
-            for (let i = 0; i < attractionsContainer.children.length; i++){
-                if (attractionsContainer.children[i].tagName == "DIV"){
-                    attractionsContainer.children[i].style.display = 'block'
-                }
             }
         }
     })
