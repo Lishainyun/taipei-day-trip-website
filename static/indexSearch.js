@@ -8,10 +8,6 @@ function search(){
     
     let page = 0;
 
-    attractionsContainer.appendChild(loader)
-    loader.setAttribute('id', 'loader')            
-    loader.setAttribute('display', 'block')
-
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
     }else{
@@ -100,17 +96,17 @@ function search(){
             }
         }
     })
-
-        // setTimeout(()=>{
+    // loader
+    debounce(()=>{
         let loader = document.getElementById('loader')
         attractionsContainer.removeChild(loader)
-
+    
         for (let i = 0; i < attractionsContainer.children.length; i++){
             if (attractionsContainer.children[i].tagName == "DIV"){
                 attractionsContainer.children[i].style.display = 'block'
             }
         }
-            // }, 2000)    
+    }, 500)  
 }
 
 selectElement.addEventListener('change', debounce(search,500))

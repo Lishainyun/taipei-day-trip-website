@@ -65,17 +65,17 @@ function scroll(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
-
-        // setTimeout(()=>{
-            let loader = document.getElementById('loader')
-            attractionsContainer.removeChild(loader)
-
-            for (let i = 0; i < attractionsContainer.children.length; i++){
-                if (attractionsContainer.children[i].tagName == "DIV"){
-                    attractionsContainer.children[i].style.display = 'block'
+            // loader
+            debounce(()=>{
+                let loader = document.getElementById('loader')
+                attractionsContainer.removeChild(loader)
+    
+                for (let i = 0; i < attractionsContainer.children.length; i++){
+                    if (attractionsContainer.children[i].tagName == "DIV"){
+                        attractionsContainer.children[i].style.display = 'block'
+                    }
                 }
-            }
-            // }, 2000)  
+            }, 500)
         });
     }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
@@ -139,16 +139,17 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
         })
-        // setTimeout(()=>{
+        // loader
+        debounce(()=>{
             let loader = document.getElementById('loader')
             attractionsContainer.removeChild(loader)
-
+    
             for (let i = 0; i < attractionsContainer.children.length; i++){
                 if (attractionsContainer.children[i].tagName == "DIV"){
                     attractionsContainer.children[i].style.display = 'block'
                 }
             }
-            // }, 2000)  
+        }, 500)
     }
 };
 
