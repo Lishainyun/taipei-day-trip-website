@@ -66,11 +66,11 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
 
-            this.setTimeout(()=>{
+            // setTimeout(()=>{
             let loader = document.getElementById('loader')
             loader.setAttribute('style', 'display:none')
             document.querySelectorAll('.result').style.display = 'block';
-            }, 2000)  
+            // }, 2000)  
         });
     }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
@@ -134,11 +134,11 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
         })
-        this.setTimeout(()=>{
+        // setTimeout(()=>{
         let loader = document.getElementById('loader')
         loader.setAttribute('style', 'display:none')
         document.querySelectorAll('.result').style.display = 'block';
-        }, 2000)  
+        // }, 2000)  
     }
 };
 

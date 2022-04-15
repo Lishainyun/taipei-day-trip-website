@@ -102,11 +102,11 @@ function search(){
         }
     })
 
-    this.setTimeout(()=>{
-    let loader = document.getElementById('loader')
+    // setTimeout(()=>{
+    // let loader = document.getElementById('loader')
     loader.setAttribute('style', 'display:none')
     document.querySelectorAll('.result').style.display = 'block';
-    }, 2000)  
+    // }, 2000)  
 }
 
 selectElement.addEventListener('change', debounce(search,500))
