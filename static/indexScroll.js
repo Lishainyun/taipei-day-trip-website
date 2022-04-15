@@ -129,13 +129,6 @@ function scroll(){
     }
 };
 
-function showResult(){
-
-    attractionsContainer.removeChild(loader)
-    picDivTag = attractionsContainer.getElementsByTagName("div");
-    picDivTag.setAttribute('style', 'display:block;');
-}
-
 function scrollToBot(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
         if (nextPage !== null){
@@ -149,7 +142,9 @@ function scrollToBot(){
             scroll()
 
             setTimeout(()=>{
-                showResult()
+                attractionsContainer.removeChild(loader)
+                picDivTag = attractionsContainer.getElementsByTagName("div");
+                picDivTag.setAttribute('style', 'display:block;');
             }, 3000)
         }
     };

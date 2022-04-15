@@ -104,7 +104,8 @@ function search(){
     setTimeout(() => {
 
         attractionsContainer.removeChild(loader)
-        showResult()
+        picDivTag = attractionsContainer.getElementsByTagName("div");
+        picDivTag.setAttribute('style', 'display:block;');
 
     }, 3000);
 }
