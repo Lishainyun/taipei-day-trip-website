@@ -94,6 +94,12 @@ function search(){
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
             }
+            
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }
         }
     })
 }
