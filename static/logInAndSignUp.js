@@ -33,7 +33,7 @@ async function checkUserStatus(userApiUrl){
 checkUserStatus(userApiUrl)
 .then((response)=>{
     res = response.error
-    if (res){
+    if (res === true){
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'
