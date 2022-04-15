@@ -97,7 +97,9 @@ function search(){
         }
     })
     // loader
-    debounce(()=>{
+    let timer;
+    clearTimeout(timer)
+    timer = setTimeout(() => {
         let loader = document.getElementById('loader')
         attractionsContainer.removeChild(loader)
     
@@ -105,8 +107,8 @@ function search(){
             if (attractionsContainer.children[i].tagName == "DIV"){
                 attractionsContainer.children[i].style.display = 'block'
             }
-        }
-    }, 500)  
+        }        
+    }, 500); 
 }
 
 selectElement.addEventListener('change', debounce(search,500))
