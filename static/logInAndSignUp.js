@@ -35,6 +35,9 @@ checkUserStatus(userApiUrl)
     if (userId){
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
+    } else{
+        navInUp.id="navInUp"
+        navInUp.innerHTML="登入/註冊"
     }
 });
 
