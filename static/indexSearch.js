@@ -116,6 +116,6 @@ function search(){
     })
 }
 
-selectElement.addEventListener('change', debounce(search,200))
+selectElement.addEventListener('change', debounce(search,500))
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,200))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,500))

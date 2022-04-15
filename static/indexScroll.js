@@ -164,4 +164,4 @@ function scrollToBot(){
     };
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,200))
+window.addEventListener('scroll', debounce(scrollToBot,500))
