@@ -104,8 +104,10 @@ function search(){
                 let loader = document.getElementById('loader')
                 let result = document.querySelector('.result')
                 loader.setAttribute('style', 'display:none')
-                result.style.display = 'block';
-            }, 3000)  
+                for (let i = 0; i < result.length; i++){
+                    result.style.display = 'block';
+                }
+            }, 2000)  
         }
     })
 }
