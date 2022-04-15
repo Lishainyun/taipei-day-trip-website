@@ -10,6 +10,7 @@ import os, json, mysql.connector, requests
 load_dotenv("env.env")
 dbUsername = os.getenv('MYSQL_USERNAME')
 dbPassword = os.getenv('MYSQL_PASSWORD')
+partnerKey = os.getenv('PARTNER_KEY')
 
 def getconn():
 	
@@ -64,11 +65,11 @@ class OrderModel:
             prime = data["prime"]
             headers = {
                 "Content-Type": "application/json",
-                "x-api-key": "partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
+                "x-api-key": partnerKey,
             }
             body = {
                 "prime":prime,
-                "partner_key":"partner_A3eYphu549gxbOFvO8GBkD8R5xi7B43k9EQtRrQe8ZTEOlzOPYk8JibK",
+                "partner_key":partnerKey,
                 "merchant_id":"yunnie123_TAISHIN",
                 "details":"tapPay Test",
                 "amount":attrPrice,
