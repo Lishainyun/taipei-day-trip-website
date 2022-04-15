@@ -46,7 +46,7 @@ function scroll(){
                 let mrtTextnode = document.createTextNode(mrt);
                 let catTextnode = document.createTextNode(category);
                 
-                picDivTag.setAttribute('style', 'display:none;width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
                 picDivTag.setAttribute('class', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
@@ -116,7 +116,7 @@ function scroll(){
                 let mrtTextnode = document.createTextNode(mrt);
                 let catTextnode = document.createTextNode(category);
                 
-                picDivTag.setAttribute('style', 'display:none;width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
                 picDivTag.setAttribute('id', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
