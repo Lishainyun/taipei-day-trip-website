@@ -68,12 +68,11 @@ function scroll(){
 
         // setTimeout(()=>{
             let loader = document.getElementById('loader')
-            let childrenAttractionsContainer = attractionsContainer.children
             attractionsContainer.removeChild(loader)
 
-            for (let i = 0; i < childrenAttractionsContainer.length; i++){
-                if (childrenAttractionsContainer[i].tagName == "div"){
-                    childrenAttractionsContainer[i].style.display = 'block'
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "div"){
+                    attractionsContainer.children[i].style.display = 'block'
                 }
             }
             // }, 2000)  
@@ -142,12 +141,11 @@ function scroll(){
         })
         // setTimeout(()=>{
             let loader = document.getElementById('loader')
-            let childrenAttractionsContainer = attractionsContainer.children
             attractionsContainer.removeChild(loader)
 
-            for (let i = 0; i < childrenAttractionsContainer.length; i++){
-                if (childrenAttractionsContainer[i].tagName == "div"){
-                    childrenAttractionsContainer[i].style.display = 'block'
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "div"){
+                    attractionsContainer.children[i].style.display = 'block'
                 }
             }
             // }, 2000)  
