@@ -10,6 +10,25 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+    <style>
+        .tappay-field-focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        }
+        .has-error .tappay-field-focus {
+            border-color: #843534;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+        }
+        .has-success .tappay-field-focus {
+            border-color: #2b542c;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+        }
+    </style>
 </head>
 <body>
     <div id="overlay" onclick="cancel()"></div>
@@ -43,7 +62,7 @@
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
 			    <li><a href="" id="navBooking">預定行程</a></li>
-                <li><a onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
+                <li><a style="color:#666666" onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
 		    </ul>
 	    </div>
     </div>
@@ -83,24 +102,42 @@
         <hr class="hr"/> 
         <div id="cardInfo" style="width:100%">
             <div class="heading" style="margin:44px 0 31px 0">信用卡付款資訊</div>
-            <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
-                <input id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
+            <form>
+                <div class="form-group card-number-group">
+                    <label for="card-number" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;"><span id="cardtype" style="font-size:16px;color:#666666;font-weight: 400;"></span>卡片號碼：</label>
+                    <div class="form-control card-number" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);border:1px solid #E8E8E8"></div>
+                </div>
+                <div class="form-group expiration-date-group">
+                    <label for="expiration-date" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;">過期時間：</label>
+                    <div class="form-control expiration-date" id="tappay-expiration-date" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);border:1px solid #E8E8E8"></div>
+                </div>
+                <div class="form-group cvc-group">
+                    <label for="cvc" class="control-label" style="font-size:16px;color:#666666;font-weight: 400;">驗證密碼：</label>
+                    <div class="form-control cvc" style="width:200px;height:38px;display:inline-block;transform:translateY(12px);border:1px solid #E8E8E8"></div>
+                </div>
+                <hr class="hr" id="hr3"/>   
+                <div id="paymentInfo" class="subHeading">
+                    <div style="float:right">總價：新台幣<span id="totalPrice"></span><span>元</span></div><br/>
+                    <button class="submitBtn" id="confirmOrder" style="margin-top:25px;float:right">確認訂購並付款</button>
+                </div>
+            </form>
+            <!-- <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
+                <input class="cardNumsGroup" id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
             </div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">過期時間：
-                <input id="expDate" type="text" name="expDate" placeholder="MM/YY">
+                <input class="expDateGroup" id="expDate" type="text" name="expDate" placeholder="MM/YY">
             </div>
             <div class="subHeading" style="margin-bottom:47px;font-weight: 400;">驗證密碼：
-                <input id="validation" type="text" name="validation" placeholder="CVV">
-            </div>
-             
+                <input class="validationGroup" id="validation" type="text" name="validation" placeholder="CVV">
+            </div> -->
         </div>
-        <hr class="hr"/>   
+        <!-- <hr class="hr"/>    -->
     </div>
 
-    <div id="paymentInfo" class="subHeading">
+    <!-- <div id="paymentInfo" class="subHeading">
         <div style="float:right">總價：新台幣<span id="totalPrice"></span><span>元</span></div><br/>
-        <button id="confirmBtn" style="margin-top:25px;float:right">確認訂購並付款</button>
-    </div>
+        <button type="submit" class="submitBtn" id="confirmOrder" style="margin-top:25px;float:right">確認訂購並付款</button>
+    </div> -->
 
     <div id="footer">
         <p id="footerText"><b>COPYRIGHT@2021台北一日遊</b></p>
@@ -110,5 +147,10 @@
     <script src="/logInAndSignUp.js"></script>
     <script src="/bookingOnload.js"></script>
     <script src="/bookingDelete.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v5.9.0"></script>
+    <script src="/order.js"></script>    
+    <script src="/tpSetup.js"></script>
+
 </body>
 </html>
