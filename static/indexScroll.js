@@ -124,6 +124,11 @@ function scroll(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
+
+                setTimeout(()=>{
+                    attractionsContainer.removeChild(loader)
+                    picDivTag.setAttribute('style', 'display:block;');
+                }, 3000)
             }  
         });
     }
@@ -140,12 +145,6 @@ function scrollToBot(){
             loader.setAttribute('display', 'block')
 
             scroll()
-
-            setTimeout(()=>{
-                attractionsContainer.removeChild(loader)
-                picDivTag = attractionsContainer.getElementsByTagName("div");
-                picDivTag.setAttribute('style', 'display:block;');
-            }, 3000)
         }
     };
 }
