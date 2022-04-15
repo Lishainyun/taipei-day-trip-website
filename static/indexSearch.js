@@ -101,23 +101,15 @@ function search(){
             }
         }
     })
+    // .then(()=>{
+    //     setTimeout(()=>{
+        // let loader = document.getElementById('loader')
+        loader.setAttribute('style', 'display:none')
+        document.querySelectorAll('.result').style.display = 'block';
+    //     }, 2000)  
+    // })
 }
 
-async function showResult(){
+selectElement.addEventListener('change', debounce(search,500))
 
-    let loader = document.createElement('div');
-
-    attractionsContainer.appendChild(loader)
-    loader.setAttribute('id', 'loader')            
-    loader.setAttribute('display', 'block')
-
-    await search();
-
-    // let loader = document.getElementById('loader')
-    loader.setAttribute('style', 'display:none')
-    document.querySelectorAll('.result').style.display = 'block';
-}
-
-selectElement.addEventListener('change', debounce(showResult,500))
-
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(showResult,500))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,500))

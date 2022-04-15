@@ -65,7 +65,15 @@ function scroll(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
-        })
+
+            // setTimeout(()=>{
+            let loader = document.getElementById('loader')
+            loader.setAttribute('style', 'display:none')
+            document.querySelectorAll('.result').style.display = 'block';
+            // }, 2000)  
+
+
+        });
     }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
             method:'get'
@@ -128,13 +136,18 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
         })
+        // .then(()=>{
+        //     setTimeout(()=>{
+            let loader = document.getElementById('loader')
+            loader.setAttribute('style', 'display:none')
+            document.querySelectorAll('.result').style.display = 'block';
+            // }, 2000)  
+        // })
     }
 };
 
-async function scrollToBot(){
-    
+function scrollToBot(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
-        
         if (nextPage !== null){
 
             let loader = document.createElement('div');
@@ -143,14 +156,7 @@ async function scrollToBot(){
             loader.setAttribute('id', 'loader')            
             loader.setAttribute('display', 'block')
 
-            await scroll();
-
-            // setTimeout(()=>{
-            // let loader = document.getElementById('loader')
-            loader.setAttribute('style', 'display:none')
-            document.querySelectorAll('.result').style.display = 'block';
-            // }, 2000)  
-            
+            scroll()
         }
     };
 }
