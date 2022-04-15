@@ -67,7 +67,7 @@ function scroll(){
             }
             // loader
             let loader = document.getElementById('loader')
-            // attractionsContainer.removeChild(loader)
+            attractionsContainer.removeChild(loader)
             
             for (let i = 0; i < attractionsContainer.children.length; i++){
                 if (attractionsContainer.children[i].tagName == "DIV"){
