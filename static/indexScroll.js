@@ -67,9 +67,9 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let picDivTag = attractionsContainer.getElementsByTagName('div')
+                let result = document.querySelector('.result')
                 loader.setAttribute('style', 'display:none')
-                picDivTag.style.display = 'block';
+                result.style.display = 'block';
             }, 3000)  
 
 
@@ -137,9 +137,9 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let picDivTag = attractionsContainer.getElementsByTagName('div')
+                let result = document.querySelector('.result')
                 loader.setAttribute('style', 'display:none')
-                picDivTag.style.display = 'block';
+                result.style.display = 'block';
             }, 3000)  
 
         });
