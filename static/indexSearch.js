@@ -102,10 +102,9 @@ function search(){
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
                 let picDivTag = attractionsContainer.getElementsByTagName('div')
-                loader.setAttribute('display', 'none')
-                picDivTag.setAttribute('style', 'display:block;');
+                loader.setAttribute('style', 'display:none')
+                picDivTag.style.display = 'block';
             }, 3000)  
-
         }
     })
 }
