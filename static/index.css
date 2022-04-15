@@ -522,7 +522,7 @@ input::placeholder{
 
 #loader {
     position:relative;
-    left:50%;
+    left:45%;
     width: 30px;
     height: 30px;
     border: 8px solid #f3f3f3;
@@ -592,7 +592,8 @@ input::placeholder{
 
     #loader {
         position:relative;
-        right:-200%;
+        right:-100%;
+        left:100%;
         width: 30px;
         height: 30px;
         border: 8px solid #f3f3f3;
