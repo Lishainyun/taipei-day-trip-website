@@ -33,12 +33,12 @@ checkUserStatus(userApiUrl)
 .then((response)=>{
     let res = response.error
     if (res === true){
-        navInUp.id="navOut"
-        navInUp.innerHTML="登出系統"
-        document.querySelector('.nav').style.display = 'block'
-    } else{
         navInUp.id="navInUp"
         navInUp.innerHTML="登入/註冊"
+        document.querySelector('.nav').style.display = 'block'
+    } else{
+        navInUp.id="navOut"
+        navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'
     }
 });
