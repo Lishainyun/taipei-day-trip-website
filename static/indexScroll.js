@@ -66,7 +66,7 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
 
-            setTimeout(()=>{
+            this.setTimeout(()=>{
             let loader = document.getElementById('loader')
             loader.setAttribute('style', 'display:none')
             document.querySelectorAll('.result').style.display = 'block';
@@ -134,7 +134,7 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
         })
-        setTimeout(()=>{
+        this.setTimeout(()=>{
         let loader = document.getElementById('loader')
         loader.setAttribute('style', 'display:none')
         document.querySelectorAll('.result').style.display = 'block';
