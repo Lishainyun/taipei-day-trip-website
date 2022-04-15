@@ -7,7 +7,11 @@ function search(){
     document.getElementById('errorMessage').style.margin = "0"
     
     let page = 0;
+    let loader = document.createElement('div');
 
+    attractionsContainer.appendChild(loader)
+    loader.setAttribute('id', 'loader')            
+    loader.setAttribute('display', 'block')
 
 
     if(document.getElementById('searchInput').value === null){
@@ -32,6 +36,9 @@ function search(){
             // footer 置底
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
+            // loader
+            let loader = document.getElementById('loader')
+            attractionsContainer.removeChild(loader)
 
         } else if(response['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
