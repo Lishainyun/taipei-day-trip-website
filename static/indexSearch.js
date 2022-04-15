@@ -7,6 +7,11 @@ function search(){
     document.getElementById('errorMessage').style.margin = "0"
     
     let page = 0;
+    let loader = document.createElement('div');
+
+    attractionsContainer.appendChild(loader)
+    loader.setAttribute('id', 'loader')            
+    loader.setAttribute('display', 'block')
 
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
@@ -24,9 +29,10 @@ function search(){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
-            let messageTextnode = document.createTextNode("查無景點")    
+            let messageTextnode = document.createTextNode("查無景點")
+            errorMessageDiv.setAttribute('display', 'none')
+            errorMessageDiv.setAttribute('style', 'margin:40px')      
             errorMessageDiv.appendChild(messageTextnode)
-            document.getElementById('errorMessage').style.margin = "40px"
             // footer 置底
             let footer = document.getElementById('footer')
             footer.style.position = "absolute";
@@ -64,7 +70,6 @@ function search(){
                 let category = data[i]['category'];
                 let attractionId = data[i]['id'];
 
-                let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
                 let picImgTag = document.createElement('img');
                 let namePTag = document.createElement('p');
@@ -75,14 +80,14 @@ function search(){
                 let mrtTextnode = document.createTextNode(mrt);
                 let catTextnode = document.createTextNode(category);
         
-                picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('style', 'display:none;width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
-                picImgTag.setAttribute('style','width:100%;aspect-ratio:16/9');
-                namePTag.setAttribute('style','color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
-                mrtPTag.setAttribute('style','color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
-                catPTag.setAttribute('style','display:inline-block;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
+                picImgTag.setAttribute('style','display:none;width:100%;aspect-ratio:16/9');
+                namePTag.setAttribute('style','display:none;color:#757575;font-weight:700;font-size:16px;line-height:13.3px;padding:10px 7px 10px 10px;margin:0;overflow:hidden;');
+                mrtPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;display:inline-block;padding-left:10px');
+                catPTag.setAttribute('style','display:none;color:#757575;font-weight:400;font-size:16px;line-height:40px;width:50%;height:40px;margin:0;text-align:right;float:right;padding-right:10px');
             
                 attractionsContainer.appendChild(picDivTag);
                 picDivTag.appendChild(picImgTag);
@@ -96,8 +101,18 @@ function search(){
             }
         }
     })
+
+    setTimeout(() => {
+        attractionsContainer.removeChild(loader)
+        errorMessageDiv.setAttribute('display', 'block')
+        picDivTag.setAttribute('style', 'display:block;');
+        picImgTag.setAttribute('style','display:block;');
+        namePTag.setAttribute('style','display:block;');
+        mrtPTag.setAttribute('style','display:block;');
+        catPTag.setAttribute('style','display:inline-block;');
+    }, 3000);
 }
 
-selectElement.addEventListener('change', debounce(search,600))
+selectElement.addEventListener('change', debounce(search,300))
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,600))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,300))

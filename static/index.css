@@ -516,6 +516,29 @@ input::placeholder{
 
 }
 
+#loader {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 14px;
+    height: 14px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #337788;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  
+
 .indexMenu{
 
     float: right;
@@ -562,6 +585,28 @@ input::placeholder{
         overflow: hidden;
 
 	}
+
+    #loader {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width: 14px;
+        height: 14px;
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #337788;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+      
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 
     .navBar{
 
@@ -737,6 +782,29 @@ input::placeholder{
         overflow: hidden;
 
 	}
+
+    #loader {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width: 14px;
+        height: 14px;
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #337788;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+      
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+      
 
 	.indexMenu{
 
