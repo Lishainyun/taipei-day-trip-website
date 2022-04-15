@@ -99,13 +99,14 @@ function search(){
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
             }
-
-            setTimeout(()=>{
-                let loader = document.getElementById('loader')
-                loader.setAttribute('style', 'display:none')
-                document.querySelectorAll('.result').style.display = 'block';
-            }, 2000)  
         }
+    })
+    .then(()=>{
+        setTimeout(()=>{
+            let loader = document.getElementById('loader')
+            loader.setAttribute('style', 'display:none')
+            document.querySelectorAll('.result').style.display = 'block';
+        }, 2000)  
     })
 }
 
