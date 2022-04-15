@@ -592,7 +592,7 @@ input::placeholder{
 
     #loader {
         position:relative;
-        right:-100%;
+        right:-200%;
         width: 30px;
         height: 30px;
         border: 8px solid #f3f3f3;
