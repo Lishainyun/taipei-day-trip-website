@@ -101,7 +101,7 @@ function search(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                attractionsContainer.getElementsByTagName('div')
+                let picDivTag = attractionsContainer.getElementsByTagName('div')
                 loader.setAttribute('display', 'none')
                 picDivTag.setAttribute('style', 'display:block;');
             }, 3000)  
