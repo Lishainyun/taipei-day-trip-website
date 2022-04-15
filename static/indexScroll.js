@@ -69,7 +69,7 @@ function scroll(){
             // setTimeout(()=>{
             let loader = document.getElementById('loader')
             loader.setAttribute('style', 'display:none')
-            document.querySelectorAll('.result').style.display = 'block';
+            this.document.querySelectorAll('.result').style.display = 'block';
             // }, 2000)  
         });
     }else {
@@ -137,7 +137,7 @@ function scroll(){
         // setTimeout(()=>{
         let loader = document.getElementById('loader')
         loader.setAttribute('style', 'display:none')
-        document.querySelectorAll('.result').style.display = 'block';
+        this.document.querySelectorAll('.result').style.display = 'block';
         // }, 2000)  
     }
 };
