@@ -68,11 +68,9 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let result = document.querySelector('.result')
+                let result = document.querySelectorAll('.result')
                 loader.setAttribute('style', 'display:none')
-                for (let i = 0; i < result.length; i++){
-                    result.style.display = 'block';
-                }
+                result.style.display = 'block';
             }, 2000)    
 
 
@@ -120,7 +118,7 @@ function scroll(){
                 let catTextnode = document.createTextNode(category);
                 
                 picDivTag.setAttribute('style', 'display:none;width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
-                picDivTag.setAttribute('class', 'result');
+                picDivTag.setAttribute('id', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
@@ -141,11 +139,9 @@ function scroll(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let result = document.querySelector('.result')
+                let result = document.querySelectorAll('.result')
                 loader.setAttribute('style', 'display:none')
-                for (let i = 0; i < result.length; i++){
-                    result.style.display = 'block';
-                }
+                result.style.display = 'block';
             }, 2000)  
 
         });
@@ -167,4 +163,4 @@ function scrollToBot(){
     };
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,300))
+window.addEventListener('scroll', debounce(scrollToBot,500))

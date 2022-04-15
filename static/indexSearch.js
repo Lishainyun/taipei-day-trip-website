@@ -102,16 +102,14 @@ function search(){
 
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
-                let result = document.querySelector('.result')
+                let result = document.querySelectorAll('.result')
                 loader.setAttribute('style', 'display:none')
-                for (let i = 0; i < result.length; i++){
-                    result.style.display = 'block';
-                }
+                result.style.display = 'block';
             }, 2000)  
         }
     })
 }
 
-selectElement.addEventListener('change', debounce(search,300))
+selectElement.addEventListener('change', debounce(search,500))
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,300))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,500))
