@@ -8,6 +8,8 @@ function search(){
     
     let page = 0;
 
+
+
     if(document.getElementById('searchInput').value === null){
         searchInput = ""
     }else{
@@ -94,23 +96,19 @@ function search(){
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
             }
+            // loader
+            let loader = document.getElementById('loader')
+            attractionsContainer.removeChild(loader)
+            
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }
         }
     })
-    // loader
-    let timer;
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-        let loader = document.getElementById('loader')
-        attractionsContainer.removeChild(loader)
-    
-        for (let i = 0; i < attractionsContainer.children.length; i++){
-            if (attractionsContainer.children[i].tagName == "DIV"){
-                attractionsContainer.children[i].style.display = 'block'
-            }
-        }        
-    }, 500); 
 }
 
-selectElement.addEventListener('change', debounce(search,500))
+selectElement.addEventListener('change', debounce(search,1000))
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,500))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,1000))

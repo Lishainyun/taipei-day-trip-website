@@ -66,18 +66,14 @@ function scroll(){
                 catPTag.appendChild(catTextnode);
             }
             // loader
-            let timer;
-            clearTimeout(timer)
-            timer = setTimeout(() => {
-                let loader = document.getElementById('loader')
-                attractionsContainer.removeChild(loader)
+            let loader = document.getElementById('loader')
+            attractionsContainer.removeChild(loader)
             
-                for (let i = 0; i < attractionsContainer.children.length; i++){
-                    if (attractionsContainer.children[i].tagName == "DIV"){
-                        attractionsContainer.children[i].style.display = 'block'
-                    }
-                }        
-            }, 500); 
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }
         });
     }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
@@ -140,20 +136,16 @@ function scroll(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
-        })
-        // loader
-        let timer;
-        clearTimeout(timer)
-        timer = setTimeout(() => {
+            // loader
             let loader = document.getElementById('loader')
             attractionsContainer.removeChild(loader)
-        
+            
             for (let i = 0; i < attractionsContainer.children.length; i++){
                 if (attractionsContainer.children[i].tagName == "DIV"){
                     attractionsContainer.children[i].style.display = 'block'
                 }
-            }        
-        }, 500); 
+            }      
+        })  
     }
 };
 
@@ -172,4 +164,4 @@ function scrollToBot(){
     };
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,500))
+window.addEventListener('scroll', debounce(scrollToBot,1000))
