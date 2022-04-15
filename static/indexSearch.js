@@ -103,7 +103,7 @@ function search(){
             setTimeout(()=>{
                 let loader = document.getElementById('loader')
                 loader.setAttribute('style', 'display:none')
-                document.querySelectorAll('.result').style.display = 'block';
+                // document.querySelectorAll('.result').style.display = 'block';
             }, 2000)  
         }
     })
