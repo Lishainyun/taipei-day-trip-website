@@ -101,11 +101,17 @@ function search(){
         }
     })
 
-    // setTimeout(()=>{
-    let loader = document.getElementById('loader')
-    attractionsContainer.removeChild(loader)
-    attractionsContainer.firstChild.style.display = 'block'
-    // }, 2000)  
+        // setTimeout(()=>{
+        let loader = document.getElementById('loader')
+        let childrenAttractionsContainer = attractionsContainer.children
+        attractionsContainer.removeChild(loader)
+
+        for (let i = 0; i < childrenAttractionsContainer.length; i++){
+            if (childrenAttractionsContainer[i].tagName == "div"){
+                childrenAttractionsContainer[i].style.display = 'block'
+            }
+        }
+            // }, 2000)    
 }
 
 selectElement.addEventListener('change', debounce(search,500))

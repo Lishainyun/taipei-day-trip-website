@@ -68,9 +68,14 @@ function scroll(){
 
         // setTimeout(()=>{
             let loader = document.getElementById('loader')
-            let result = document.querySelectorAll('.result')
+            let childrenAttractionsContainer = attractionsContainer.children
             attractionsContainer.removeChild(loader)
-            attractionsContainer.firstChild.style.display = 'block'
+
+            for (let i = 0; i < childrenAttractionsContainer.length; i++){
+                if (childrenAttractionsContainer[i].tagName == "div"){
+                    childrenAttractionsContainer[i].style.display = 'block'
+                }
+            }
             // }, 2000)  
         });
     }else {
@@ -136,11 +141,16 @@ function scroll(){
             }
         })
         // setTimeout(()=>{
-        let loader = document.getElementById('loader')
-        let result = document.querySelectorAll('.result')
-        attractionsContainer.removeChild(loader)
-        attractionsContainer.firstChild.style.display = 'block'
-        // }, 2000)  
+            let loader = document.getElementById('loader')
+            let childrenAttractionsContainer = attractionsContainer.children
+            attractionsContainer.removeChild(loader)
+
+            for (let i = 0; i < childrenAttractionsContainer.length; i++){
+                if (childrenAttractionsContainer[i].tagName == "div"){
+                    childrenAttractionsContainer[i].style.display = 'block'
+                }
+            }
+            // }, 2000)  
     }
 };
 
