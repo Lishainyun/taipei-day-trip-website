@@ -10,7 +10,6 @@ let paymentInfo = document.getElementById("paymentInfo");
 let bookingDelete = document.querySelector(".delete");
 let hrLine = document.getElementsByTagName('hr');
 
-let wrapper = document.querySelector('.wrapper')
 let withoutBooking = document.getElementById("withoutBooking");
 
 let attractionPic = document.getElementById("attractionPic");
@@ -26,6 +25,7 @@ let totalPrice = document.getElementById("totalPrice");
 
 let navHeight = document.querySelector('.nav').clientHeight;
 let wrapperHeight = document.querySelector('.wrapper').clientHeight;
+let wrapper = document.querySelector('.wrapper')
 let footer = document.getElementById("footer");
 
 let attrResId;
@@ -59,11 +59,12 @@ getBookingData(bookingApiUrl)
         hrLine['2'].style.display = "none";
 
         withoutBooking.style.display = "block";
-        wrapper.style.display = "grid";
-
+        
         let footerHeight = String(window.innerHeight - navHeight - document.querySelector('.wrapper').clientHeight) + "px"
         footer.style.height = footerHeight ;
         footer.style.padding = "10px 0 0 0" ;
+        wrapper.style.display = "grid";
+        footer.style.display = "block";
     }else{
         
         attrResId = response.data.attraction.id
@@ -93,7 +94,6 @@ getBookingData(bookingApiUrl)
         hrLine['2'].style.display = "block";
 
         withoutBooking.style.display = "none";
-        wrapper.style.display = "grid";
     
         attractionPic.src = attrResImage;
         attractionName.innerHTML = attrResName;
@@ -102,5 +102,8 @@ getBookingData(bookingApiUrl)
         attractionPrice.innerHTML = attrResPrice;
         attractionAddress.innerHTML = attrResAddress;
         totalPrice.innerHTML = attrResPrice;
+
+        wrapper.style.display = "grid";
+        footer.style.display = "block";
     }
 });

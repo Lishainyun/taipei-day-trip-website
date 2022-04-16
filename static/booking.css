@@ -462,6 +462,7 @@ input[id="contactName"],input[id="contactEmail"]{
 }
 
 #footer{
+    display:none;
     position:relative;
     background-color: #757575;
     height:100%;
@@ -712,6 +713,7 @@ input[id="contactName"],input[id="contactEmail"]{
     }
 
     #footer{
+        display:none;
         position:relative;
         background-color: #757575;
         width:100%;
