@@ -12,6 +12,7 @@ let paymentInfo = document.getElementById("paymentInfo");
 let bookingDelete = document.querySelector(".delete");
 let hrLine = document.getElementsByTagName('hr');
 
+let wrapper = document.querySelector('.wrapper')
 let withoutBooking = document.getElementById("withoutBooking");
 
 let attractionPic = document.getElementById("attractionPic");
@@ -82,6 +83,7 @@ getBookingData(bookingApiUrl)
         hrLine['2'].style.display = "none";
 
         withoutBooking.style.display = "block";
+        wrapper.style.display = "grid";
 
         let footerHeight = String(window.innerHeight - navHeight - document.querySelector('.wrapper').clientHeight) + "px"
         footer.style.height = footerHeight ;
@@ -113,6 +115,7 @@ getBookingData(bookingApiUrl)
             hrLine['2'].style.display = "block";
 
             withoutBooking.style.display = "none";
+            wrapper.style.display = "grid";
     
             attractionPic.src = attrResImage;
             attractionName.innerHTML = attrResName;
