@@ -290,6 +290,10 @@ img[src="/icon_close.png"]{
     text-decoration: underline;
 }
 
+.wrapper{
+    display: none;
+}
+
 #slideDots{
     display: flex;
     width:80.26%;
