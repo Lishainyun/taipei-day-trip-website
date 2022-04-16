@@ -60,13 +60,14 @@ function cancel(){
     .then(response => response.json())
     .then((res)=>{
         userId = res.data.id
+        overlay.style.display = 'none';
+        loginDiv.setAttribute('style','transform: translate(-50%, -275px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
+        signupDiv.setAttribute('style','transform: translate(-50%, -384px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
+        signupMessage.style.display = 'none';
+        loginMessage.style.display = 'none';
+        clearInput();
     })
-    overlay.style.display = 'none';
-    loginDiv.setAttribute('style','transform: translate(-50%, -275px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
-    signupDiv.setAttribute('style','transform: translate(-50%, -384px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
-    signupMessage.style.display = 'none';
-    loginMessage.style.display = 'none';
-    clearInput();
+
 };
 
 
