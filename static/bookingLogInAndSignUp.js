@@ -36,9 +36,7 @@ checkUserStatus(userApiUrl)
 .then((response)=>{
     let res = response.error
     if (res === true){
-        navInUp.id="navInUp"
-        navInUp.innerHTML="登入/註冊"
-        document.querySelector('.nav').style.display = 'block'
+        window.location.href = "/";
     } else{
         userId = response.data.id
         username = response.data.name

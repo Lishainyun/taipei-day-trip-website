@@ -40,18 +40,6 @@ let attrResTime;
 let attrResPrice;
 let attrResConvertTime;
 
-// 確認登入狀態
-function checkLogin(){
-    if (!userId){
-        window.location.href = "/";
-    } else{
-        contactName.value = username;
-        contactEmail.value = userEmail;
-    };
-};
-
-checkLogin();
-
 async function getBookingData(bookingApiUrl){
     const response = await fetch(bookingApiUrl,{
         method:"GET",
@@ -99,6 +87,8 @@ getBookingData(bookingApiUrl)
         greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
         bookingInfo.style.display = "block";
         attractionInfo.style.display = "block";
+        contactName.value = username;
+        contactEmail.value = userEmail;
         contactInfo.style.display = "block";
         cardInfo.style.display = "block";
         paymentInfo.style.display = "block";
