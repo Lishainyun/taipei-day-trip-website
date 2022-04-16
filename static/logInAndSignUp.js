@@ -37,7 +37,7 @@ checkUserStatus(userApiUrl)
         navInUp.innerHTML="登入/註冊"
         document.querySelector('.nav').style.display = 'block'
     } else{
-        userId = res.data.id
+        userId = response.data.id
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'
