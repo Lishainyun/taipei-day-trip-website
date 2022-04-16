@@ -2,8 +2,6 @@
 
 const bookingApiUrl = 'http://44.199.90.64:3000/api/booking';
 
-let greetings = document.querySelector(".greetings");
-
 let bookingInfo = document.getElementById("bookingInfo");
 let attractionInfo = document.getElementById("attractionInfo");
 let contactInfo = document.getElementById("contactInfo");
@@ -50,7 +48,6 @@ getBookingData(bookingApiUrl)
 .then((response)=>{
 
     if (response.data === null){
-        greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
         bookingInfo.style.display = "none";
         attractionInfo.style.display = "none";
         contactInfo.style.display = "none";
@@ -83,7 +80,6 @@ getBookingData(bookingApiUrl)
             attrResConvertTime = "下午 4 點到下午 11 點";
         };
     
-        greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
         bookingInfo.style.display = "block";
         attractionInfo.style.display = "block";
         contactName.value = username;
