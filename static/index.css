@@ -355,7 +355,7 @@ img[src="/icon_close.png"]{
 }
 
 #footer{
-
+    display: none;
     position:relative;
     background-color: #757575;
     height:104px;
@@ -366,7 +366,6 @@ img[src="/icon_close.png"]{
 }
 
 #footerText{
-
     width:100%;
     height:104px;
     margin:auto;

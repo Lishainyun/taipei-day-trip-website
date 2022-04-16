@@ -5,6 +5,8 @@ function search(){
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
     document.getElementById('errorMessage').style.margin = "0"
+    footer.style.display = "none";
+
     
     let page = 0;
 
@@ -28,13 +30,13 @@ function search(){
             errorMessageDiv.setAttribute('style', 'margin:40px')      
             errorMessageDiv.appendChild(messageTextnode)
             // footer 置底
-            let footer = document.getElementById('footer')
             footer.style.position = "absolute";
+            footer.style.display = "block";
 
         } else if(response['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
-            let footer = document.getElementById('footer');
             footer.style.position = "relative";
+            footer.style.display = "block";
             onload()
         } else{
                 
@@ -100,6 +102,9 @@ function search(){
                     attractionsContainer.children[i].style.display = 'block'
                 }
             }
+
+            footer.style.display = "block";
+
         }
     })
 }

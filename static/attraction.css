@@ -416,6 +416,7 @@ img[src="/icon_close.png"]{
 }
 
 #footer{
+    display:none;
     position:relative;
     background-color: #757575;
     height:104px;
@@ -949,6 +950,7 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
     }
 
     .wrapper{
+        display: none;
         width:1200px;
         margin:0 auto;
     }
