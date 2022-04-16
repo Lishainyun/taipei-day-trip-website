@@ -33,8 +33,10 @@ checkUserStatus(userApiUrl)
 .then((response)=>{
     userId = response.data.id
     if (userId){
-        navInUp.id="navOut"
-        navInUp.innerHTML="登出系統"
+        navInUp.id="navOut";
+        navInUp.innerHTML="登出系統";
+        document.querySelector('.nav').style.display = 'block';
+
     }
 });
 
