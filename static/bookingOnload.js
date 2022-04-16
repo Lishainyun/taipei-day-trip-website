@@ -80,7 +80,7 @@ getBookingData(bookingApiUrl)
         let footerHeight = String(window.innerHeight - navHeight - document.querySelector('.wrapper').clientHeight) + "px"
         footer.style.height = footerHeight ;
         footer.style.padding = "10px 0 0 0" ;
-    }else if (response.data !== null){
+    }else{
         
         attrResId = response.data.attraction.id
         attrResName = response.data.attraction.name;
@@ -96,30 +96,26 @@ getBookingData(bookingApiUrl)
             attrResConvertTime = "下午 4 點到下午 11 點";
         };
     
-        if (response.data){
-            greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
-            bookingInfo.style.display = "block";
-            attractionInfo.style.display = "block";
-            contactInfo.style.display = "block";
-            cardInfo.style.display = "block";
-            paymentInfo.style.display = "block";
-            bookingDelete.style.display = "block";
-            hrLine['0'].style.display = "block";
-            hrLine['1'].style.display = "block";
-            hrLine['2'].style.display = "block";
+        greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
+        bookingInfo.style.display = "block";
+        attractionInfo.style.display = "block";
+        contactInfo.style.display = "block";
+        cardInfo.style.display = "block";
+        paymentInfo.style.display = "block";
+        bookingDelete.style.display = "block";
+        hrLine['0'].style.display = "block";
+        hrLine['1'].style.display = "block";
+        hrLine['2'].style.display = "block";
 
-            withoutBooking.style.display = "none";
-            wrapper.style.display = "grid";
+        withoutBooking.style.display = "none";
+        wrapper.style.display = "grid";
     
-            attractionPic.src = attrResImage;
-            attractionName.innerHTML = attrResName;
-            attractionDate.innerHTML = attrResDate;
-            attractionTime.innerHTML = attrResConvertTime;
-            attractionPrice.innerHTML = attrResPrice;
-            attractionAddress.innerHTML = attrResAddress;
-            totalPrice.innerHTML = attrResPrice;
-        }
-    }else{
-        window.location.href = "/";
+        attractionPic.src = attrResImage;
+        attractionName.innerHTML = attrResName;
+        attractionDate.innerHTML = attrResDate;
+        attractionTime.innerHTML = attrResConvertTime;
+        attractionPrice.innerHTML = attrResPrice;
+        attractionAddress.innerHTML = attrResAddress;
+        totalPrice.innerHTML = attrResPrice;
     }
 });
