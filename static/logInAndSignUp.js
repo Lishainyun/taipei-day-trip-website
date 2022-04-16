@@ -20,6 +20,8 @@ let loginPassword = document.getElementById('loginPassword');
 let loginMessage = document.getElementById('loginMessage');
 
 let userId;
+let username;
+let userEmail;
 
 // 載入頁面確認登入狀態
 async function checkUserStatus(userApiUrl){
@@ -38,6 +40,8 @@ checkUserStatus(userApiUrl)
         document.querySelector('.nav').style.display = 'block'
     } else{
         userId = response.data.id
+        username = response.data.name
+        userEmail = response.data.email
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'

@@ -40,27 +40,17 @@ let attrResTime;
 let attrResPrice;
 let attrResConvertTime;
 
-// 載入頁面get booking data
-async function getUser(){
-    const response = await fetch('http://44.199.90.64:3000/api/user',{
-        method:"GET",
-    })
-    return await response.json()
-};
-
-getUser()
-.then((response)=>{
-    let error = response.error
-    if (error){
+// 確認登入狀態
+function checkLogin(){
+    if (!userId){
         window.location.href = "/";
     } else{
-        let name = response.data.name;
-        let email = response.data.email;
-        greetingsUsername = name;
-        contactName.value = name;
-        contactEmail.value = email;
+        contactName.value = username;
+        contactEmail.value = userEmail;
     };
-});
+};
+
+checkLogin();
 
 async function getBookingData(bookingApiUrl){
     const response = await fetch(bookingApiUrl,{
@@ -73,7 +63,7 @@ getBookingData(bookingApiUrl)
 .then((response)=>{
 
     if (response.data === null){
-        greetings.innerHTML = "您好，"+ greetingsUsername +"，待預定的行程如下：";
+        greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
         bookingInfo.style.display = "none";
         attractionInfo.style.display = "none";
         contactInfo.style.display = "none";
@@ -107,7 +97,7 @@ getBookingData(bookingApiUrl)
         };
     
         if (response.data){
-            greetings.innerHTML = "您好，"+ greetingsUsername +"，待預定的行程如下：";
+            greetings.innerHTML = "您好，"+ username +"，待預定的行程如下：";
             bookingInfo.style.display = "block";
             attractionInfo.style.display = "block";
             contactInfo.style.display = "block";
