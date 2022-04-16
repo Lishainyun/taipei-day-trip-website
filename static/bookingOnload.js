@@ -30,7 +30,6 @@ let navHeight = document.querySelector('.nav').clientHeight;
 let wrapperHeight = document.querySelector('.wrapper').clientHeight;
 let footer = document.getElementById("footer");
 
-let greetingsUsername;
 let attrResId;
 let attrResName;
 let attrResAddress;
