@@ -30,7 +30,7 @@ let navHeight = document.querySelector('.nav').clientHeight;
 let wrapperHeight = document.querySelector('.wrapper').clientHeight;
 let footer = document.getElementById("footer");
 
-let username;
+let greetingsUsername;
 let attrResId;
 let attrResName;
 let attrResAddress;
@@ -56,7 +56,7 @@ getUser()
     } else{
         let name = response.data.name;
         let email = response.data.email;
-        username = name;
+        greetingsUsername = name;
         contactName.value = name;
         contactEmail.value = email;
     };
@@ -73,7 +73,7 @@ getBookingData(bookingApiUrl)
 .then((response)=>{
 
     if (response.data === null){
-        greetings.innerHTML = "您好，"+username+"，待預定的行程如下：";
+        greetings.innerHTML = "您好，"+ greetingsUsername +"，待預定的行程如下：";
         bookingInfo.style.display = "none";
         attractionInfo.style.display = "none";
         contactInfo.style.display = "none";
@@ -107,7 +107,7 @@ getBookingData(bookingApiUrl)
         };
     
         if (response.data){
-            greetings.innerHTML = "您好，"+username+"，待預定的行程如下：";
+            greetings.innerHTML = "您好，"+ greetingsUsername +"，待預定的行程如下：";
             bookingInfo.style.display = "block";
             attractionInfo.style.display = "block";
             contactInfo.style.display = "block";
