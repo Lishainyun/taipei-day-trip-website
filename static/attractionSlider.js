@@ -3,7 +3,7 @@
 const url = 'http://44.199.90.64:3000/api';
 const attractionPath = window.location.pathname;
 
-let wrapper = document.getElementById('wrapper');
+let wrapper = document.querySelector('.wrapper')
 let footer = document.getElementById('footer');
 
 let fetchPicsLength;

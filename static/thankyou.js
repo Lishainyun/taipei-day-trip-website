@@ -5,7 +5,7 @@ let paramNums = new URLSearchParams(window.location.search).get('number')
 let orderStatus = document.getElementById('orderStatus')
 let orderNums = document.getElementById('orderNums')
 let navHeight = document.querySelector('.nav').clientHeight;
-let wrapper = document.getElementById("wrapper");
+let wrapper = document.querySelector('.wrapper')
 let footer = document.getElementById("footer");
 
 // 載入頁面get order data
