@@ -156,7 +156,7 @@ function signup(){
         });
     }
 }
-document.getElementById('signupBtn').addEventListener('click',debounce(signup,600));
+document.getElementById('signupBtn').addEventListener('click',signup());
 
 // 登入帳戶
 function login(){
@@ -201,7 +201,7 @@ function login(){
         });
     }
 }
-document.getElementById('loginBtn').addEventListener('click',debounce(login,600));
+document.getElementById('loginBtn').addEventListener('click',login);
 
 //登出帳戶
 function logout(){

@@ -2,7 +2,7 @@
 
 const bookingApiUrl = 'http://44.199.90.64:3000/api/booking';
 
-let bookingUsername = document.getElementById("bookingUsername");
+let greetings = document.querySelector(".greetings");
 
 let bookingInfo = document.getElementById("bookingInfo");
 let attractionInfo = document.getElementById("attractionInfo");
@@ -30,6 +30,7 @@ let navHeight = document.querySelector('.nav').clientHeight;
 let wrapperHeight = document.querySelector('.wrapper').clientHeight;
 let footer = document.getElementById("footer");
 
+let username;
 let attrResId;
 let attrResName;
 let attrResAddress;
@@ -55,7 +56,7 @@ getUser()
     } else{
         let name = response.data.name;
         let email = response.data.email;
-        bookingUsername.innerHTML = name;
+        username = name;
         contactName.value = name;
         contactEmail.value = email;
     };
@@ -72,6 +73,7 @@ getBookingData(bookingApiUrl)
 .then((response)=>{
 
     if (response.data === null){
+        greetings.innerHTML = "您好，"+username+"，待預定的行程如下：";
         bookingInfo.style.display = "none";
         attractionInfo.style.display = "none";
         contactInfo.style.display = "none";
@@ -89,6 +91,7 @@ getBookingData(bookingApiUrl)
         footer.style.height = footerHeight ;
         footer.style.padding = "10px 0 0 0" ;
     }else if (response.data !== null){
+        
         attrResId = response.data.attraction.id
         attrResName = response.data.attraction.name;
         attrResAddress = response.data.attraction.address;
@@ -104,6 +107,7 @@ getBookingData(bookingApiUrl)
         };
     
         if (response.data){
+            greetings.innerHTML = "您好，"+username+"，待預定的行程如下：";
             bookingInfo.style.display = "block";
             attractionInfo.style.display = "block";
             contactInfo.style.display = "block";
