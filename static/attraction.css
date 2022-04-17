@@ -606,7 +606,7 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
 
 .bookingStyle{
     background-color: #E8E8E8;
-    height:300px;
+    height:330px;
     border-radius: 5px;
 }
 

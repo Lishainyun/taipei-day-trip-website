@@ -11,8 +11,10 @@ let bookingErrorMessage = document.getElementById('bookingErrorMessage')
 // 預定行程
 function postBookingData(){
     
+    bookingErrorMessage.style.display = "none";
+    bookingErrorMessage.innerHTML = "";
+
     let hasSelectedDate = document.querySelector('.bookingDate.has-selected')
-    let hasNotSelectedDate = document.querySelector('.bookingDate.has-notSelected')
 
     let forenoon = document.getElementById("forenoon");
     let afternoon = document.getElementById("afternoon");
