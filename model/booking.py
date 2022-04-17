@@ -29,13 +29,13 @@ class BookingModel:
     def postBooking(data):
         userId = data["userId"]
         attractionId = data["attractionId"]
-        date = data["date"].strftime("%Y-%m-%d")
+        date = data["date"]
         time = data["time"]
         price = data["price"]
 
         dateCheck = datetime.today().strftime("%Y-%m-%d")
         timeCheck = ["上半天","下半天"]
-        priceCheck = [2000,2500]
+        priceCheck = ["2000","2500"]
 
         if date > dateCheck and time in timeCheck and price in priceCheck:
             try:
