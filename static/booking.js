@@ -12,6 +12,7 @@ let bookingErrorMessage = document.getElementById('bookingErrorMessage')
 function postBookingData(){
     
     let hasSelectedDate = document.querySelector('.bookingDate.has-selected')
+    let hasNotSelectedDate = document.querySelector('.bookingDate.has-notSelected')
 
     let forenoon = document.getElementById("forenoon");
     let afternoon = document.getElementById("afternoon");
@@ -46,12 +47,12 @@ function postBookingData(){
             window.location.href = "/booking";
         })
         .catch(console.log("post booking info error"))
+    }else if(!hasSelectedDate && bookingDate.value < currentDate){
+        let bookingErrorMessageText = document.createTextNode("您選擇了過去的日期，請重新選擇")
+        bookingErrorMessage.appendChild(bookingErrorMessageText)
+        bookingErrorMessage.style.display = 'block'; 
     } else if(!hasSelectedDate) {
         let bookingErrorMessageText = document.createTextNode("請選擇日期")
-        bookingErrorMessage.appendChild(bookingErrorMessageText)
-        bookingErrorMessage.style.display = 'block';
-    } else if(bookingDate.value < currentDate){
-        let bookingErrorMessageText = document.createTextNode("您選擇了過去的日期，請重新選擇")
         bookingErrorMessage.appendChild(bookingErrorMessageText)
         bookingErrorMessage.style.display = 'block';
     } else {
