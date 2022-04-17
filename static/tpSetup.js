@@ -104,7 +104,6 @@ $('form').on('submit', function (event) {
     forceBlurIos()
 
     const tappayStatus = TPDirect.card.getTappayFieldsStatus()
-    console.log(tappayStatus)
 
     // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
     if (tappayStatus.canGetPrime === false) {
@@ -119,7 +118,7 @@ $('form').on('submit', function (event) {
             return
         }
         primeCode = result.card.prime
-        console.log('get prime 成功，prime: ' + result.card.prime)
+        console.log('get prime 成功')
         
         // post data
         postOrderData()
