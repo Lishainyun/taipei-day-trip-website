@@ -44,7 +44,7 @@ function postBookingData(){
         })
         .catch(console.log("post booking info error"))
     } else if(!hasSelectedDate) {
-        bookingErrorMessageText = document.createTextNode('請選擇日期')
+        let bookingErrorMessageText = document.createTextNode("請選擇日期")
         bookingErrorMessage.appendChild(bookingErrorMessageText)
         bookingErrorMessage.style.display = 'block';
     } else {
