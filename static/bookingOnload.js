@@ -113,7 +113,7 @@ getBookingData(bookingApiUrl)
 
 // 驗證聯絡資料是否填寫
 contactInputArea.forEach(contactInput=>{
-    contactInputArea.addEventListener('input',()=>{
+    contactInput.addEventListener('input',()=>{
         if (contactInput.checkValidity()){
             contactInput.classList.add('has-success')
             contactInput.classList.remove('has-error')
