@@ -29,7 +29,7 @@ class BookingModel:
     def postBooking(data):
         userId = data["userId"]
         attractionId = data["attractionId"]
-        date = data["date"]
+        date = data["date"].strftime("%Y-%m-%d")
         time = data["time"]
         price = data["price"]
 
