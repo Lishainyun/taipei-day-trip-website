@@ -94,8 +94,6 @@ def userAPIs():
 def bookingAPIs():
 	if request.method == "POST":
 		data = request.json
-		print(type(data["price"]))
-		print(data['userId'],data['attractionId'],data['date'],data["time"],data["price"])
 		result = BookingModel.postBooking(data)
 		return result
 	elif request.method == 'GET':

@@ -49,7 +49,7 @@ function postBookingData(){
             window.location.href = "/booking";
         })
         .catch(console.log("post booking info error"))
-    }else if(!hasSelectedDate && bookingDate.value < currentDate){
+    }else if(!hasSelectedDate && bookingDate.value && bookingDate.value < currentDate){
         let bookingErrorMessageText = document.createTextNode("您選擇了過去的日期，請重新選擇")
         bookingErrorMessage.appendChild(bookingErrorMessageText)
         bookingErrorMessage.style.display = 'block'; 
