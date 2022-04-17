@@ -34,12 +34,6 @@ TPDirect.card.setup({
         ':focus': {
             'color': 'black'
         },
-        '.valid': {
-            'color': 'green'
-        },
-        '.invalid': {
-            'color': 'red'
-        },
     }
 })
 

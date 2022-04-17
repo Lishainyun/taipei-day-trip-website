@@ -10,6 +10,7 @@ let overlay = document.getElementById('overlay');
 let loginDiv = document.getElementById('loginDiv');
 let signupDiv = document.getElementById('signupDiv');
 
+let inputs = document.querySelectorAll('.loginSignupInput')
 let signupName = document.getElementById('signupName');
 let signupEmail = document.getElementById('signupEmail');
 let signupPassword = document.getElementById('signupPassword');
@@ -105,6 +106,10 @@ function clearInput(){
     signupPasswordCheck.value="";
     loginEmail.value="";
     loginPassword.value="";
+    inputs.forEach(input=>{
+        input.classList.remove('has-success')
+        input.classList.remove('has-error')
+    })
 };
 
 // 註冊新帳戶
@@ -223,3 +228,16 @@ function logout(){
         window.location.href = "";
     })
 }
+
+// 驗證登入登出輸入資料
+inputs.forEach(input=>{
+    input.addEventListener('input',()=>{
+        if (input.checkValidity()){
+            input.classList.add('has-success')
+            input.classList.remove('has-error')
+        } else {
+            input.classList.remove('has-success')
+            input.classList.add('has-error')
+        }
+    })
+})

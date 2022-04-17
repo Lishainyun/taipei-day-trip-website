@@ -13,18 +13,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
     <style>
         .tappay-field-focus {
-            border-color: #66afe9;
+            border-color: #448899;;
             outline: 0;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
         }
         .has-error .tappay-field-focus {
             border-color: #843534;
+            color:#843534;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
         }
         .has-success .tappay-field-focus {
             border-color: #2b542c;
+            color:#2b542c;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
         }
@@ -36,8 +38,8 @@
         <img src="/icon_close.png" onclick="cancel()">
         <div class="loginTopPadding"></div>
         <div class="loginTitle">登入會員帳號</div>
-        <input id="loginEmail" type="email" name="loginEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="loginPassword" type="password" name="loginPassword" placeholder="輸入密碼" required>
+        <input id="loginEmail" type="email" class="loginSignupInput" name="loginEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="loginPassword" type="password" class="loginSignupInput" name="loginPassword" placeholder="輸入密碼" required>
         <button id="loginBtn">登入帳戶</button>
         <div id="loginMessage"></div>
         <div id="loginSignupBlock" onclick="toSignupDiv()">還沒有帳戶？點此註冊</div>
@@ -46,10 +48,10 @@
         <img src="/icon_close.png" onclick="cancel()">
         <div class="signupTopPadding"></div>
         <div class="signupTitle">註冊會員帳號</div>
-        <input id="signupName" type="text" name="signupName" placeholder="輸入姓名" required>
-        <input id="signupEmail" type="email" name="signupEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="signupPassword" type="password" name="signupPassword" placeholder="輸入密碼" required>
-        <input id="signupPasswordCheck" type="password" name="signupPasswordCheck" placeholder="確認密碼" required>
+        <input id="signupName" type="text" class="loginSignupInput" name="signupName" placeholder="輸入姓名" required>
+        <input id="signupEmail" type="email" class="loginSignupInput" name="signupEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="signupPassword" type="password" class="loginSignupInput" name="signupPassword" placeholder="輸入密碼" required>
+        <input id="signupPasswordCheck" type="password" class="loginSignupInput" name="signupPasswordCheck" placeholder="確認密碼" required>
         <button id="signupBtn">註冊新帳戶</button>
         <div id="signupMessage"></div>
         <div id="signupLogInBlock" onclick="toLoginDiv()">已經有帳戶了？點此登入</div>
