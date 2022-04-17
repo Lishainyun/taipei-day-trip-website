@@ -152,7 +152,7 @@ function signup(){
                 signupMessage.style.display="block";
                 clearInput();
             } else if (res.status == 400){
-                signupMessage.innerHTML="註冊失敗，重複的Email";
+                signupMessage.innerHTML="註冊失敗，請依照指示輸入正確資料";
                 signupMessage.style = "color:#f54033;display:block";
                 clearInput();
             }
