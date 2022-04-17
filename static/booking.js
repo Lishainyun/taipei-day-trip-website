@@ -34,7 +34,7 @@ function postBookingData(){
         "price" : bookingCharge.textContent.split(' ')[1]
     };
     
-    if (userId && hasSelectedDate){
+    if (userId && hasSelectedDate && bookingDate.value > Date()){
         fetch(bookingApiUrl,{
             method: 'POST',
             headers: headers,
@@ -46,6 +46,10 @@ function postBookingData(){
         .catch(console.log("post booking info error"))
     } else if(!hasSelectedDate) {
         let bookingErrorMessageText = document.createTextNode("請選擇日期")
+        bookingErrorMessage.appendChild(bookingErrorMessageText)
+        bookingErrorMessage.style.display = 'block';
+    } else if(bookingDate.value < Date()){
+        let bookingErrorMessageText = document.createTextNode("您選擇了過去的日期，請重新選擇")
         bookingErrorMessage.appendChild(bookingErrorMessageText)
         bookingErrorMessage.style.display = 'block';
     } else {

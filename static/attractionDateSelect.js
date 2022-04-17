@@ -1,7 +1,9 @@
 "use strict"
 
 bookingDate.addEventListener('input',()=>{
-  if (bookingDate.checkValidity()){
+  let currentDate = new Date().toLocaleDateString('en-CA');
+
+  if (bookingDate.checkValidity() && bookingDate.value > currentDate){
     bookingDate.classList.remove('has-notSelected');
     bookingDate.classList.add('has-selected');
   } 
