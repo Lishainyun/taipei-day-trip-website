@@ -135,10 +135,11 @@ function signup(){
         signupMessage.style = "color:#f54033;display:block";
         clearInput();
     } else if (password !== passwordCheck){
-        signupMessage.innerHTML="密碼錯誤，請重新輸入";
+        signupMessage.innerHTML="確認密碼錯誤，請重新輸入";
         signupMessage.style = "color:#f54033;display:block";
         signupPassword.value="";
-        signupPasswordCheck.value="";      
+        signupPasswordCheck.value="";    
+        clearInput();  
     } else {
         fetch(userApiUrl,{
             method:'POST',
