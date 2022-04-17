@@ -105,22 +105,23 @@ getBookingData(bookingApiUrl)
         attractionAddress.innerHTML = attrResAddress;
         totalPrice.innerHTML = attrResPrice;
 
-        wrapper.style.display = "grid";
-        footer.style.display = "block";
     }
+
+    wrapper.style.display = "grid";
+    footer.style.display = "block";
 });
 
 // 驗證聯絡資料是否填寫
-contactInputArea.forEach(input=>{
-    input.addEventListener('input',()=>{
-        if (input.checkValidity()){
-            input.classList.add('has-success')
-            input.classList.remove('has-error')
+contactInputArea.forEach(contactInput=>{
+    contactInputArea.addEventListener('input',()=>{
+        if (contactInput.checkValidity()){
+            contactInput.classList.add('has-success')
+            contactInput.classList.remove('has-error')
         } else {
-            input.classList.remove('has-success')
-            input.classList.add('has-error')
+            contactInput.classList.remove('has-success')
+            contactInput.classList.add('has-error')
 
-            input.setCustomValidity("請填寫聯絡資訊")
+            contactInput.setCustomValidity("請填寫聯絡資訊")
         }
     })
 })
