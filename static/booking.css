@@ -369,6 +369,36 @@ input[id="contactName"],input[id="contactEmail"]{
     color:#000000;
 }
 
+.contactInputArea{
+    height:38px;
+    padding:10px;
+    width:200px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+
+.contactInputArea:focus {
+    border-color: #448899;
+    color:#000000;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.contactInputArea.has-error {
+    border-color: #843534;
+    color:#843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+.contactInputArea.has-success {
+    border-color: #2b542c;
+    color:#2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+}
+
 #attractionPicDiv{
     width:100%;
     height:100%;

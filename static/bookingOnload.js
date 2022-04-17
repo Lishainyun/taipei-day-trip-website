@@ -18,6 +18,8 @@ let attractionDate = document.getElementById("date");
 let attractionTime = document.getElementById("time");
 let attractionPrice = document.getElementById("price");
 let attractionAddress = document.getElementById("address");
+
+let contactInputArea = document.querySelectorAll('.contactInputArea')
 let contactName = document.getElementById("contactName");
 let contactEmail = document.getElementById("contactEmail");
 let phoneNums = document.getElementById('phoneNums')
@@ -107,3 +109,18 @@ getBookingData(bookingApiUrl)
         footer.style.display = "block";
     }
 });
+
+// 驗證聯絡資料是否填寫
+contactInputArea.forEach(input=>{
+    input.addEventListener('input',()=>{
+        if (input.checkValidity()){
+            input.classList.add('has-success')
+            input.classList.remove('has-error')
+        } else {
+            input.classList.remove('has-success')
+            input.classList.add('has-error')
+
+            input.setCustomValidity("請填寫聯絡資訊")
+        }
+    })
+})
