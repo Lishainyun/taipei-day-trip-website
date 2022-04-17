@@ -120,8 +120,6 @@ contactInputArea.forEach(contactInput=>{
         } else {
             contactInput.classList.remove('has-filled')
             contactInput.classList.add('has-notFilled')
-
-            contactInput.setCustomValidity("請填寫聯絡資訊")
         }
     })
 })

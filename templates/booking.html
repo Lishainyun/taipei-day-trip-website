@@ -38,8 +38,8 @@
         <img src="/icon_close.png" onclick="cancel()">
         <div class="loginTopPadding"></div>
         <div class="loginTitle">登入會員帳號</div>
-        <input id="loginEmail" type="email" class="loginSignupInput" name="loginEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="loginPassword" type="password" class="loginSignupInput" name="loginPassword" placeholder="輸入密碼" required>
+        <input id="loginEmail" type="email" name="loginEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="loginPassword" type="password" name="loginPassword" placeholder="輸入密碼" required>
         <button id="loginBtn">登入帳戶</button>
         <div id="loginMessage"></div>
         <div id="loginSignupBlock" onclick="toSignupDiv()">還沒有帳戶？點此註冊</div>
@@ -48,10 +48,10 @@
         <img src="/icon_close.png" onclick="cancel()">
         <div class="signupTopPadding"></div>
         <div class="signupTitle">註冊會員帳號</div>
-        <input id="signupName" type="text" class="loginSignupInput" name="signupName" placeholder="輸入姓名" required>
-        <input id="signupEmail" type="email" class="loginSignupInput" name="signupEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="signupPassword" type="password" class="loginSignupInput" name="signupPassword" placeholder="輸入密碼" required>
-        <input id="signupPasswordCheck" type="password" class="loginSignupInput" name="signupPasswordCheck" placeholder="確認密碼" required>
+        <input id="signupName" type="text" name="signupName" placeholder="輸入姓名" required>
+        <input id="signupEmail" type="email" name="signupEmail" placeholder="輸入電子郵件信箱" required>
+        <input id="signupPassword" type="password" name="signupPassword" placeholder="輸入密碼" required>
+        <input id="signupPasswordCheck" type="password" name="signupPasswordCheck" placeholder="確認密碼" required>
         <button id="signupBtn">註冊新帳戶</button>
         <div id="signupMessage"></div>
         <div id="signupLogInBlock" onclick="toLoginDiv()">已經有帳戶了？點此登入</div>
@@ -96,7 +96,7 @@
                 <input id="contactEmail" class="contactInputArea has-filled" type="email" name="contactEmail" required>
             </div>
             <div class="subHeading" style="margin-bottom:27px;font-weight: 400;">手機號碼：
-                <input id="phoneNums" class="contactInputArea has-notFilled" type="text" name="phoneNums" required>
+                <input id="phoneNums" class="contactInputArea" type="text" name="phoneNums" required>
             </div>
             <div class="heading" style="margin-bottom:40px;font-size: 16px;line-height: 23px;">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式</div>
             
