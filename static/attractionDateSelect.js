@@ -1,7 +1,5 @@
 "use strict"
 
-let bookingDate = document.querySelector('.bookingDate')
-
 bookingDate.addEventListener('input',()=>{
   if (bookingDate.checkValidity()){
     bookingDate.classList.remove('has-notSelected');
