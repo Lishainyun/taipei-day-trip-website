@@ -49,7 +49,7 @@ class BookingModel:
                 )	
                 result = cursor.fetchone()
 
-                if result=="" and userId and attractionId:
+                if not result and userId and attractionId:
                     cursor.execute(
                         """
                         INSERT INTO booking (user_id, attraction_id, booking_date, time, price)
