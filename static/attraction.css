@@ -959,6 +959,10 @@ input[id="forenoon"]:checked:after, input[id="afternoon"]:checked:after{
         margin-top: 40px;
     }
 
+    .bookingStyle{
+        height:300px;
+    }
+
     .descriptionArea{
         position: relative;
         display:grid;
