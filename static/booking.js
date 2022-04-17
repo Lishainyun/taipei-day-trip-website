@@ -46,6 +46,7 @@ function postBookingData(){
     } else if(!hasSelectedDate) {
         bookingErrorMessageText = document.createTextNode('請選擇日期')
         bookingErrorMessage.appendChild(bookingErrorMessageText)
+        bookingErrorMessage.style.display = 'block';
     } else {
         overlay.style.display = 'block';
         loginDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;transition: transform 0.5s, opacity 0.5s;')
