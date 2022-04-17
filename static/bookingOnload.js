@@ -68,7 +68,8 @@ getBookingData(bookingApiUrl)
         wrapper.style.display = "grid";
         footer.style.display = "block";
     }else{
-        
+        contactName.value = username;
+        contactEmail.value = userEmail;
         attrResId = response.data.attraction.id
         attrResName = response.data.attraction.name;
         attrResAddress = response.data.attraction.address;
@@ -85,8 +86,6 @@ getBookingData(bookingApiUrl)
     
         bookingInfo.style.display = "block";
         attractionInfo.style.display = "block";
-        contactName.value = username;
-        contactEmail.value = userEmail;
         contactInfo.style.display = "block";
         cardInfo.style.display = "block";
         paymentInfo.style.display = "block";
