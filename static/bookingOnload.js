@@ -115,11 +115,11 @@ getBookingData(bookingApiUrl)
 contactInputArea.forEach(contactInput=>{
     contactInput.addEventListener('input',()=>{
         if (contactInput.checkValidity()){
-            contactInput.classList.add('has-success')
-            contactInput.classList.remove('has-error')
+            contactInput.classList.add('has-filled')
+            contactInput.classList.remove('has-notFilled')
         } else {
-            contactInput.classList.remove('has-success')
-            contactInput.classList.add('has-error')
+            contactInput.classList.remove('has-filled')
+            contactInput.classList.add('has-notFilled')
 
             contactInput.setCustomValidity("請填寫聯絡資訊")
         }
