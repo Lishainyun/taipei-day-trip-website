@@ -6,6 +6,8 @@ let bookingAttractionId = window.location.pathname.split('/')[2];
 let bookingDate = document.getElementById("bookingDate");
 let bookingTime;
 let bookingCharge = document.getElementById("charge");
+let hasSelectedDate = document.querySelector('.bookingDate.has-selected')
+let bookingErrorMessage = document.getElementById('bookingErrorMessage')
 
 // 預定行程
 function postBookingData(){
@@ -31,7 +33,7 @@ function postBookingData(){
         "price" : bookingCharge.textContent.split(' ')[1]
     };
     
-    if (userId){
+    if (userId && hasSelectedDate){
         fetch(bookingApiUrl,{
             method: 'POST',
             headers: headers,
@@ -41,6 +43,9 @@ function postBookingData(){
             window.location.href = "/booking";
         })
         .catch(console.log("post booking info error"))
+    } else if(!hasSelectedDate) {
+        bookingErrorMessageText = document.createTextNode('請選擇日期')
+        bookingErrorMessage.appendChild(bookingErrorMessageText)
     } else {
         overlay.style.display = 'block';
         loginDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;transition: transform 0.5s, opacity 0.5s;')
