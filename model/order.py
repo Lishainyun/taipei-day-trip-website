@@ -41,104 +41,116 @@ class OrderModel:
         phoneNums = data["order"]["contact"]["phone"]
         attractionId = data["order"]["trip"]["attraction"]["id"]
 
-        if sessionEmail:
-            try:
-                conn = mypool.connect()
-                cursor = conn.cursor(dictionary=True)
-                cursor.execute(
-                    """
-                    INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone, attraction_id)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,attractionId)
-                )	
-                conn.commit()
-            except:
-                return jsonify({
-                    "error":True,
-                    "message":"訂單建立失敗，輸入不正確或其他原因"
-                }), 400 
-            finally:
-                cursor.close()
-                conn.close() 
+        namePattern = re.compile(r"(\S)")
+        emailPattern = re.compile(r"([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\[[\t -Z^-~]*])")
+        phoneNumsPattern = re.compile(r"(09\d{8})")
 
-            payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
-            prime = data["prime"]
-            headers = {
-                "Content-Type": "application/json",
-                "x-api-key": partnerKey,
-            }
-            body = {
-                "prime":prime,
-                "partner_key":partnerKey,
-                "merchant_id":"yunnie123_TAISHIN",
-                "details":"tapPay Test",
-                "amount":attrPrice,
-                "cardholder":{
-                    "phone_number":phoneNums,
-                    "name":contactName,
-                    "email":contactEmail,
-                },
-            }
+        contactNameCheck = re.findall(namePattern, contactName)
+        contactEmailCheck = re.fullmatch(emailPattern, contactEmail)        
+        phoneNumsCheck = re.fullmatch(phoneNumsPattern, phoneNums)        
 
-            response = requests.post(payByPrimeUrl, json=body, headers=headers, timeout=30)
-            print(response.json())
+        if contactNameCheck and contactEmailCheck and phoneNumsCheck:
 
-            if response.json()['status'] == 0:
-                conn = mypool.connect()
-                cursor = conn.cursor(dictionary=True)
-                cursor.execute(
-                    """
-                    UPDATE orders
-                    SET status = %s
-                    WHERE contact_name = %s
-                    """, ('0',contactName,)
-                )	
+            if sessionEmail:
+                try:
+                    conn = mypool.connect()
+                    cursor = conn.cursor(dictionary=True)
+                    cursor.execute(
+                        """
+                        INSERT INTO orders (order_time, order_id, status, price, name, date, time, contact_name, contact_email, contact_phone, attraction_id)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                        """, (orderTime,orderId,'1',attrPrice,attrName,date,time,contactName,contactEmail,phoneNums,attractionId)
+                    )	
+                    conn.commit()
+                except:
+                    return jsonify({
+                        "error":True,
+                        "message":"訂單建立失敗，輸入不正確或其他原因"
+                    }), 400 
+                finally:
+                    cursor.close()
+                    conn.close() 
 
-                cursor.execute(
-                    """
-                    SELECT id 
-                    FROM user
-                    WHERE email = %s
-                    """, (sessionEmail,)
-                )	
-                result = cursor.fetchone()
-                userId = result['id']
+                payByPrimeUrl =  "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+                prime = data["prime"]
+                headers = {
+                    "Content-Type": "application/json",
+                    "x-api-key": partnerKey,
+                }
+                body = {
+                    "prime":prime,
+                    "partner_key":partnerKey,
+                    "merchant_id":"yunnie123_TAISHIN",
+                    "details":"tapPay Test",
+                    "amount":attrPrice,
+                    "cardholder":{
+                        "phone_number":phoneNums,
+                        "name":contactName,
+                        "email":contactEmail,
+                    },
+                }
 
-                cursor.execute(
-                    """
-                    DELETE FROM booking
-                    WHERE user_id = %s
-                    """, (userId,)
-                )	
+                response = requests.post(payByPrimeUrl, json=body, headers=headers, timeout=30)
+                print(response.json())
 
-                conn.commit()
-                cursor.close()
-                conn.close()  
+                if response.json()['status'] == 0:
+                    conn = mypool.connect()
+                    cursor = conn.cursor(dictionary=True)
+                    cursor.execute(
+                        """
+                        UPDATE orders
+                        SET status = %s
+                        WHERE contact_name = %s
+                        """, ('0',contactName,)
+                    )	
 
-                return jsonify({
-                    "data":{
-                        "number":orderId,
-                        "payment":{
-                            "status":0,
-                            "message":"付款成功"
+                    cursor.execute(
+                        """
+                        SELECT id 
+                        FROM user
+                        WHERE email = %s
+                        """, (sessionEmail,)
+                    )	
+                    result = cursor.fetchone()
+                    userId = result['id']
+
+                    cursor.execute(
+                        """
+                        DELETE FROM booking
+                        WHERE user_id = %s
+                        """, (userId,)
+                    )	
+
+                    conn.commit()
+                    cursor.close()
+                    conn.close()  
+
+                    return jsonify({
+                        "data":{
+                            "number":orderId,
+                            "payment":{
+                                "status":0,
+                                "message":"付款成功"
+                            }
                         }
-                    }
-                }), 200
+                    }), 200
+                else:
+                    return jsonify({
+                        "data":{
+                            "number":orderId,
+                            "payment":{
+                                "status":1,
+                                "message":"付款失敗"
+                            }
+                        }
+                    }), 200 
             else:
                 return jsonify({
-                    "data":{
-                        "number":orderId,
-                        "payment":{
-                            "status":1,
-                            "message":"付款失敗"
-                        }
-                    }
-                }), 200 
+                    "error":True,
+                    "message":"未登入系統，拒絕存取"
+                }), 403
         else:
-            return jsonify({
-                "error":True,
-                "message":"未登入系統，拒絕存取"
-            }), 403
+            return jsonify({"error":True,"message":"訂單建立失敗，聯絡資料不正確"}), 400
 
     def getOrder(orderNumber,email):
         orderNumber = orderNumber
