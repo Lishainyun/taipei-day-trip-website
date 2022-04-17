@@ -49,7 +49,7 @@ class BookingModel:
                 )	
                 result = cursor.fetchone()
 
-                if not result and userId and attractionId and date and time and price:
+                if result=="" and userId and attractionId:
                     cursor.execute(
                         """
                         INSERT INTO booking (user_id, attraction_id, booking_date, time, price)
@@ -58,7 +58,7 @@ class BookingModel:
                         )	
                     conn.commit()
                     return jsonify({"ok":True}), 200
-                elif result != "" and userId and attractionId and date and time and price:
+                elif result != "" and userId and attractionId:
                     cursor.execute(
                         """
                         UPDATE booking
