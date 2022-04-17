@@ -62,7 +62,7 @@
                 <p class="formTitle">訂購導覽行程</p>
                 <p class="formContent">以此景點為中心的一日行程，帶您探索城市角落故事</p>
                 <label for="bookingDate" class="formTitle">選擇日期：</label>
-                <input id="bookingDate" type="date" name="bookingDate" placeholder="yyyy/mm/dd">
+                <input id="bookingDate" class="bookingDate has-notSelected" type="date" name="bookingDate" placeholder="yyyy/mm/dd" required>
                 <div class="selectTimeContainer">
                     <div class="formTitle">選擇時間：</div>
                     <input id="forenoon" type="radio" name="radio" onclick="selectForenoon()" value="上半天" checked>
@@ -71,7 +71,7 @@
                     <label for="afternoon" class="noonText">下半天</label>
                 </div>
                 <p class="formTitle" style="margin-top: 0;">導覽費用：<span id="charge"></span></p>
-                <button id="bookingBtn">開始預訂行程</button>
+                <button id="bookingBtn" disabled>開始預訂行程</button>
             </div>
         </div>
 
@@ -99,6 +99,7 @@
     <script src="/attractionSlider.js"></script>
     <script src="/attractionSlideBtn.js"></script>
     <script src="/attractionSelectTime.js"></script>
+    <script src="/attractionDateSelect.js"></script>
     <script src="/attrLogInAndSignUp.js"></script>
     <script src="/booking.js"></script>
     <script src="/bookingSchedule.js"></script>

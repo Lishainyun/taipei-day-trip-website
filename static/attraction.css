@@ -326,12 +326,31 @@ img[src="/icon_close.png"]{
     color:#666666;
 }
 
-#bookingDate{
+
+.bookingDate.has-notSelected{
     width:193px;
     height: 2.375rem;
     border:0;
     padding:0;
     background-color: #FFFFFF;
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+.bookingDate:focus {
+    border-color: #448899;
+    color:#000000;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.bookingDate.has-selected {
+    border-color: #2b542c;
+    color:#2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
 }
 
 #charge{
