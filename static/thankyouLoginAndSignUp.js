@@ -35,6 +35,7 @@ checkUserStatus(userApiUrl)
     if (res === true){
         window.location.href = "/";
     } else{
+        userId = response.data.id
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
         document.querySelector('.nav').style.display = 'block'
@@ -57,10 +58,11 @@ let navBooking = document.getElementById("navBooking");
 // 查看行程
 function checkSchedule(){
     if (userId){
+        navBooking.href = "/booking"
         window.location.href = "/booking"
     } else {
-        overlay.style.display = 'block';
-        loginDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;transition: transform 0.5s, opacity 0.5s;')
+        navBooking.href = "/"
+        window.location.href = "/"
     }
 }
 
