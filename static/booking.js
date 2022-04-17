@@ -6,11 +6,12 @@ let bookingAttractionId = window.location.pathname.split('/')[2];
 let bookingDate = document.getElementById("bookingDate");
 let bookingTime;
 let bookingCharge = document.getElementById("charge");
-let hasSelectedDate = document.querySelector('.bookingDate.has-selected')
 let bookingErrorMessage = document.getElementById('bookingErrorMessage')
 
 // 預定行程
 function postBookingData(){
+    
+    let hasSelectedDate = document.querySelector('.bookingDate.has-selected')
 
     let forenoon = document.getElementById("forenoon");
     let afternoon = document.getElementById("afternoon");
