@@ -52,6 +52,5 @@ function postOrderData(){
         contactMessage.innerHTML = ""
         contactMessage.innerHTML = "請輸入完整且正確的聯絡資訊"
         contactMessage.style.color = "#f54033"
-        console.log("No primeCode be found")
     }
 }
