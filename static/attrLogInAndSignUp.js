@@ -106,6 +106,10 @@ function clearInput(){
     signupPasswordCheck.value="";
     loginEmail.value="";
     loginPassword.value="";
+    inputs.forEach(input=>{
+        input.classList.remove('has-success')
+        input.classList.remove('has-error')
+    })
 };
 
 // 註冊新帳戶
