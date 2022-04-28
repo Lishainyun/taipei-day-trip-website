@@ -2,8 +2,9 @@ from sqlalchemy import *
 from dotenv import *
 from flask import jsonify
 from process_images import ImagesList
+from datetime import *
 import sqlalchemy.pool as pool
-import os, json, mysql.connector
+import os, json, mysql.connector, re
 # DB
 
 load_dotenv("env.env")
@@ -32,45 +33,52 @@ class BookingModel:
         time = data["time"]
         price = data["price"]
 
-        try:
-            conn = mypool.connect()
-            cursor = conn.cursor(dictionary=True)
-            cursor.execute(
-                """
-                SELECT user_id FROM booking 
-                WHERE user_id = %s 
-                """, (userId,)
-            )	
-            result = cursor.fetchone()
+        dateCheck = datetime.today().strftime("%Y-%m-%d")
+        timeCheck = ["上半天","下半天"]
+        priceCheck = ["2000","2500"]
 
-            if not result and userId and attractionId and date and time and price:
+        if date > dateCheck and time in timeCheck and price in priceCheck:
+            try:
+                conn = mypool.connect()
+                cursor = conn.cursor(dictionary=True)
                 cursor.execute(
                     """
-                    INSERT INTO booking (user_id, attraction_id, booking_date, time, price)
-                    VALUES (%s, %s, %s, %s, %s)
-                    """, (userId, attractionId, date, time, price)
-                    )	
-                conn.commit()
-                return jsonify({"ok":True}), 200
-            elif result != "" and userId and attractionId and date and time and price:
-                cursor.execute(
-                    """
-                    UPDATE booking
-                    SET attraction_id = %s, booking_date = %s, time = %s, price = %s
-                    WHERE user_id = %s
-                    """, (attractionId, date, time, price, userId,)
-                    )	
-                conn.commit()
-                return jsonify({"ok":True}), 200
-            elif not userId:
-                return jsonify({"error":True,"message":"未登入系統，拒絕存取"}), 403
-            else:
-                return jsonify({"error":True,"message":"建立失敗，輸入不正確或其他原因"}), 400
-        except:
-            return jsonify({"error":True,"message":"建立失敗，輸入不正確或其他原因"}), 500
-        finally:
-            cursor.close()
-            conn.close() 
+                    SELECT user_id FROM booking 
+                    WHERE user_id = %s 
+                    """, (userId,)
+                )	
+                result = cursor.fetchone()
+
+                if not result and userId and attractionId:
+                    cursor.execute(
+                        """
+                        INSERT INTO booking (user_id, attraction_id, booking_date, time, price)
+                        VALUES (%s, %s, %s, %s, %s)
+                        """, (userId, attractionId, date, time, price)
+                        )	
+                    conn.commit()
+                    return jsonify({"ok":True}), 200
+                elif result != "" and userId and attractionId:
+                    cursor.execute(
+                        """
+                        UPDATE booking
+                        SET attraction_id = %s, booking_date = %s, time = %s, price = %s
+                        WHERE user_id = %s
+                        """, (attractionId, date, time, price, userId,)
+                        )	
+                    conn.commit()
+                    return jsonify({"ok":True}), 200
+                elif not userId:
+                    return jsonify({"error":True,"message":"未登入系統，拒絕存取"}), 403
+                else:
+                    return jsonify({"error":True,"message":"建立失敗，輸入不正確或其他原因"}), 400
+            except:
+                return jsonify({"error":True,"message":"建立失敗，輸入不正確或其他原因"}), 500
+            finally:
+                cursor.close()
+                conn.close() 
+        else:
+            return jsonify({"error":True,"message":"建立失敗，輸入不正確或其他原因"}), 400            
 
     def getBooking(email):
         email = email 

@@ -5,6 +5,8 @@ function search(){
     document.getElementById('attractionsContainer').innerHTML="";
     document.getElementById('errorMessage').innerHTML="";
     document.getElementById('errorMessage').style.margin = "0"
+    footer.style.display = "none";
+
     
     let page = 0;
 
@@ -24,17 +26,17 @@ function search(){
 
             // 回傳錯誤訊息
             let errorMessageDiv = document.getElementById('errorMessage');
-            let messageTextnode = document.createTextNode("查無景點")    
+            let messageTextnode = document.createTextNode("查無景點")
+            errorMessageDiv.setAttribute('style', 'margin:40px')      
             errorMessageDiv.appendChild(messageTextnode)
-            document.getElementById('errorMessage').style.margin = "40px"
             // footer 置底
-            let footer = document.getElementById('footer')
             footer.style.position = "absolute";
+            footer.style.display = "block";
 
         } else if(response['message'] === "伺服器內部錯誤，請依照規格書指示"){
             // footer 置底
-            let footer = document.getElementById('footer');
             footer.style.position = "relative";
+            footer.style.display = "block";
             onload()
         } else{
                 
@@ -64,7 +66,6 @@ function search(){
                 let category = data[i]['category'];
                 let attractionId = data[i]['id'];
 
-                let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
                 let picImgTag = document.createElement('img');
                 let namePTag = document.createElement('p');
@@ -76,6 +77,7 @@ function search(){
                 let catTextnode = document.createTextNode(category);
         
                 picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('class', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
@@ -94,10 +96,19 @@ function search(){
                 catPTag.appendChild(catTextnode);
                 footer.style.position = "relative";
             }
+            
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }
+
+            footer.style.display = "block";
+
         }
     })
 }
 
-selectElement.addEventListener('change', debounce(search,600))
+selectElement.addEventListener('change', debounce(search,500))
 
-document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,600))
+document.getElementById('searchBtnIcon').addEventListener("click", debounce(search,500))

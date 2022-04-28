@@ -1,9 +1,11 @@
 "use strict"
 
+const selectElement = document.querySelector('#searchInput');
 let url = 'http://44.199.90.64:3000/api/attractions?';
 let nextPage = "";
 let searchInput = "";
-const selectElement = document.querySelector('#searchInput');
+let footer = document.getElementById("footer")
+
 
 const debounce = function(func, delay){
     let timer;
@@ -86,6 +88,9 @@ function onload(){
             catPTag.appendChild(catTextnode);
 
         }
+
+        footer.style.display = "block";
+
     })
 };
 

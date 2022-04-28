@@ -1,8 +1,10 @@
 "use strict"
 
+let attractionsContainer = document.getElementById('attractionsContainer');
+
 function scroll(){
 
-    if (nextPage !== null && searchInput === ""){
+    if (searchInput === ""){
         fetch(url + 'page=' + nextPage, {
             method:'get'
         })
@@ -28,13 +30,12 @@ function scroll(){
                       });
                     };
                 }
-    
+
                 let attractionsPic = data[i]['images'][0];
                 let mrt = data[i]['mrt'];
                 let category = data[i]['category'];
                 let attractionId = data[i]['id'];
         
-                let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
                 let picImgTag = document.createElement('img');
                 let namePTag = document.createElement('p');
@@ -46,6 +47,7 @@ function scroll(){
                 let catTextnode = document.createTextNode(category);
                 
                 picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('class', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
@@ -63,8 +65,17 @@ function scroll(){
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
             }
+            // loader
+            let loader = document.getElementById('loader')
+            attractionsContainer.removeChild(loader)
+            
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }
         });
-    }else if(nextPage !== null && searchInput !== ""){
+    }else {
         fetch(url + 'page=' + nextPage + '&keyword=' + searchInput, {
             method:'get'
         })
@@ -96,7 +107,6 @@ function scroll(){
                 let category = data[i]['category'];
                 let attractionId = data[i]['id'];
         
-                let attractionsContainer = document.getElementById('attractionsContainer');
                 let picDivTag = document.createElement('div');
                 let picImgTag = document.createElement('img');
                 let namePTag = document.createElement('p');
@@ -108,6 +118,7 @@ function scroll(){
                 let catTextnode = document.createTextNode(category);
                 
                 picDivTag.setAttribute('style', 'width:100%;border:1px solid #E8E8E8;border-radius:5px;overflow:hidden;cursor:pointer');
+                picDivTag.setAttribute('id', 'result');
                 picDivTag.setAttribute('onclick', 'location.href="/attraction/{attractionId}"'.format({attractionId:attractionId}))
                 picImgTag.setAttribute('src',attractionsPic)
                 picImgTag.setAttribute('title', nameTextnode);
@@ -124,17 +135,33 @@ function scroll(){
                 mrtPTag.appendChild(mrtTextnode);
                 picDivTag.appendChild(catPTag);
                 catPTag.appendChild(catTextnode);
-            }  
-        });
-    } else{
-
+            }
+            // loader
+            let loader = document.getElementById('loader')
+            attractionsContainer.removeChild(loader)
+            
+            for (let i = 0; i < attractionsContainer.children.length; i++){
+                if (attractionsContainer.children[i].tagName == "DIV"){
+                    attractionsContainer.children[i].style.display = 'block'
+                }
+            }      
+        })  
     }
 };
 
 function scrollToBot(){
     if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
-        scroll();
+        if (nextPage !== null){
+
+            let loader = document.createElement('div');
+
+            attractionsContainer.appendChild(loader)
+            loader.setAttribute('id', 'loader')            
+            loader.setAttribute('display', 'block')
+
+            scroll()
+        }
     };
 }
 
-window.addEventListener('scroll', debounce(scrollToBot,600))
+window.addEventListener('scroll', debounce(scrollToBot,500))

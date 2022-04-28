@@ -4,6 +4,7 @@ const orderApiUrl = 'http://44.199.90.64:3000/api/orders';
 
 // post data
 function postOrderData(){
+
     let headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -29,8 +30,10 @@ function postOrderData(){
             }
         }
     };
+    let contactEmailPattern = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    let phoneNumsPattern =  /^(09)[0-9]{8}$/;
 
-    if(primeCode){
+    if(primeCode && contactName.value !== "" && contactEmail.value.search(contactEmailPattern) !== -1 && phoneNums.value.search(phoneNumsPattern) !== -1){
         fetch(orderApiUrl,{
             method:"POST",
             headers:headers,
@@ -44,7 +47,10 @@ function postOrderData(){
             window.location.href = "/thankyou?number="+orderNums;
         })
         .catch(console.log("postOrder failed"))
-    } else{
-        console.log("No primeCode be found")
+    } else {
+        let contactMessage = document.getElementById('contactMessage')
+        contactMessage.innerHTML = ""
+        contactMessage.innerHTML = "請輸入完整且正確的聯絡資訊"
+        contactMessage.style.color = "#f54033"
     }
 }

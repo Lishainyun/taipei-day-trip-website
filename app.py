@@ -6,7 +6,7 @@ from model.attraction import AttractionModel
 from model.user import UserModel
 from model.booking import BookingModel
 from model.order import OrderModel
-import os
+import os, re
 
 app=Flask(__name__, static_folder="static", static_url_path="/")
 bcrypt = Bcrypt(app)
@@ -55,9 +55,17 @@ def userAPIs():
 
 	if request.method == 'POST':
 		data = request.json
-		pwHash = bcrypt.generate_password_hash(data['signupPassword']).decode('utf-8')
-		result = UserModel.signUp(data,pwHash)
-		return result
+		pw = data['signupPassword']
+		# 檢查密碼是否包含大小寫字母，以及長度是否為6~20碼
+		pwPattern = re.compile("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$")
+		pwCheck = re.findall(pwPattern, pw)
+
+		if pwCheck:
+			pwHash = bcrypt.generate_password_hash(pw).decode('utf-8')
+			result = UserModel.signUp(data,pwHash)
+			return result
+		else:
+			return jsonify({"error":True,"message":"註冊失敗，請輸入6~20碼含大小寫英文字母及數字"}), 400
 	
 	elif request.method == 'PATCH':
 		data = request.json

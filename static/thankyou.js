@@ -5,6 +5,7 @@ let paramNums = new URLSearchParams(window.location.search).get('number')
 let orderStatus = document.getElementById('orderStatus')
 let orderNums = document.getElementById('orderNums')
 let navHeight = document.querySelector('.nav').clientHeight;
+let wrapper = document.querySelector('.wrapper')
 let footer = document.getElementById("footer");
 
 // 載入頁面get order data
@@ -37,4 +38,7 @@ getOrder()
     footer.style.padding = "10px 0 0 0" ;
     orderStatus.appendChild(orderStatusText)
     orderNums.appendChild(orderIdText)
+
+    footer.style.display = "block";
+    wrapper.style.display = "grid";
 });

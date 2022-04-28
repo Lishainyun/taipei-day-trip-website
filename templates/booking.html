@@ -13,47 +13,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
     <style>
         .tappay-field-focus {
-            border-color: #66afe9;
+            border-color: #448899;;
             outline: 0;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
         }
         .has-error .tappay-field-focus {
             border-color: #843534;
+            color:#843534;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
         }
         .has-success .tappay-field-focus {
             border-color: #2b542c;
+            color:#2b542c;
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
         }
     </style>
 </head>
 <body>
-    <div id="overlay" onclick="cancel()"></div>
-    <div id="loginDiv">
-        <img src="/icon_close.png" onclick="cancel()">
-        <div class="loginTopPadding"></div>
-        <div class="loginTitle">登入會員帳號</div>
-        <input id="loginEmail" type="email" name="loginEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="loginPassword" type="password" name="loginPassword" placeholder="輸入密碼" required>
-        <button id="loginBtn">登入帳戶</button>
-        <div id="loginMessage"></div>
-        <div id="loginSignupBlock" onclick="toSignupDiv()">還沒有帳戶？點此註冊</div>
-    </div>
-    <div id="signupDiv">
-        <img src="/icon_close.png" onclick="cancel()">
-        <div class="signupTopPadding"></div>
-        <div class="signupTitle">註冊會員帳號</div>
-        <input id="signupName" type="text" name="signupName" placeholder="輸入姓名" required>
-        <input id="signupEmail" type="email" name="signupEmail" placeholder="輸入電子郵件信箱" required>
-        <input id="signupPassword" type="password" name="signupPassword" placeholder="輸入密碼" required>
-        <input id="signupPasswordCheck" type="password" name="signupPasswordCheck" placeholder="確認密碼" required>
-        <button id="signupBtn">註冊新帳戶</button>
-        <div id="signupMessage"></div>
-        <div id="signupLogInBlock" onclick="toLoginDiv()">已經有帳戶了？點此登入</div>
-    </div>
 
     <div style="height:54px"></div>
 
@@ -62,13 +41,13 @@
 		    <p class="navText"><a class="indexLink" href="/">台北一日遊</a></p>
 		    <ul class="indexMenu">
 			    <li><a href="" id="navBooking">預定行程</a></li>
-                <li><a style="color:#666666" onclick="logInOrSignUp()" id="navInUp">登入/註冊</a></li>
+                <li><a style="color:#666666" onclick="logout()" id="navInUp"></a></li>
 		    </ul>
 	    </div>
     </div>
 
     <div class="wrapper">
-        <div class="greetings">您好，<span id="bookingUsername"></span>，待預訂的行程如下：</div>
+        <div class="greetings"></div>
         <div id="withoutBooking">目前沒有任何待預定的行程</div>
         <div id="bookingInfo">
             <div id="attractionPicDiv"><img id="attractionPic"></div>
@@ -88,15 +67,15 @@
               
             <div class="heading" style="margin:44px 0 31px 0">您的聯絡資訊</div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">聯絡姓名：
-                <input id="contactName" type="text" name="contactName" value="">
+                <input id="contactName" class="contactInputArea has-filled" type="text" name="contactName" required>
             </div>
             <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">聯絡信箱：
-                <input id="contactEmail" type="text" name="contactEmail" value="">
+                <input id="contactEmail" class="contactInputArea has-filled" type="email" name="contactEmail" required>
             </div>
             <div class="subHeading" style="margin-bottom:27px;font-weight: 400;">手機號碼：
-                <input id="phoneNums" type="text" name="phoneNums">
+                <input id="phoneNums" class="contactInputArea" type="text" name="phoneNums" maxlength="11" pattern="09\d{2}\d{6}" required>
             </div>
-            <div class="heading" style="margin-bottom:40px;font-size: 16px;line-height: 23px;">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式</div>
+            <div class="heading" id="contactMessage" style="margin-bottom:40px;font-size: 16px;line-height: 23px;">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式</div>
             
         </div>
         <hr class="hr"/> 
@@ -121,30 +100,15 @@
                     <button class="submitBtn" id="confirmOrder" style="margin-top:25px;float:right">確認訂購並付款</button>
                 </div>
             </form>
-            <!-- <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">卡片號碼：
-                <input class="cardNumsGroup" id="cardNums" type="text" name="cardNums" placeholder="**** **** **** ****">
-            </div>
-            <div class="subHeading" style="margin-bottom:29px;font-weight: 400;">過期時間：
-                <input class="expDateGroup" id="expDate" type="text" name="expDate" placeholder="MM/YY">
-            </div>
-            <div class="subHeading" style="margin-bottom:47px;font-weight: 400;">驗證密碼：
-                <input class="validationGroup" id="validation" type="text" name="validation" placeholder="CVV">
-            </div> -->
         </div>
-        <!-- <hr class="hr"/>    -->
     </div>
-
-    <!-- <div id="paymentInfo" class="subHeading">
-        <div style="float:right">總價：新台幣<span id="totalPrice"></span><span>元</span></div><br/>
-        <button type="submit" class="submitBtn" id="confirmOrder" style="margin-top:25px;float:right">確認訂購並付款</button>
-    </div> -->
 
     <div id="footer">
         <p id="footerText"><b>COPYRIGHT@2021台北一日遊</b></p>
     </div>
 
     <script src="/bookingDebounce.js"></script>
-    <script src="/logInAndSignUp.js"></script>
+    <script src="/bookingLogInAndSignUp.js"></script>
     <script src="/bookingOnload.js"></script>
     <script src="/bookingDelete.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

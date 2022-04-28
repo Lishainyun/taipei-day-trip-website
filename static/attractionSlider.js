@@ -2,6 +2,10 @@
 
 const url = 'http://44.199.90.64:3000/api';
 const attractionPath = window.location.pathname;
+
+let wrapper = document.querySelector('.wrapper')
+let footer = document.getElementById('footer');
+
 let fetchPicsLength;
 let picId = 0;
 
@@ -74,8 +78,11 @@ function slider(){
             getSlideDotsId.appendChild(dots)
             getPicsAreaId.appendChild(renderPics)
         };
+        
         document.getElementById("pic0").style.opacity = 1;
         document.getElementById("dot0").checked = true;
+        wrapper.style.display = "block";
+        footer.style.display = "block";
 
     })
 };

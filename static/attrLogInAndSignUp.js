@@ -5,10 +5,12 @@ const userApiUrl = 'http://44.199.90.64:3000/api/user'
 let navInUp = document.getElementById('navInUp');
 let navOut = document.getElementById('navOut');
 
+
 let overlay = document.getElementById('overlay');
 let loginDiv = document.getElementById('loginDiv');
 let signupDiv = document.getElementById('signupDiv');
 
+let inputs = document.querySelectorAll('.loginSignupInput')
 let signupName = document.getElementById('signupName');
 let signupEmail = document.getElementById('signupEmail');
 let signupPassword = document.getElementById('signupPassword');
@@ -20,6 +22,8 @@ let loginPassword = document.getElementById('loginPassword');
 let loginMessage = document.getElementById('loginMessage');
 
 let userId;
+let username;
+let userEmail;
 
 // 載入頁面確認登入狀態
 async function checkUserStatus(userApiUrl){
@@ -31,10 +35,18 @@ async function checkUserStatus(userApiUrl){
 
 checkUserStatus(userApiUrl)
 .then((response)=>{
-    userId = response.data.id
-    if (userId){
+    let res = response.error
+    if (res === true){
+        navInUp.id="navInUp"
+        navInUp.innerHTML="登入/註冊"
+        document.querySelector('.nav').style.display = 'block'
+    } else{
+        userId = response.data.id
+        username = response.data.name
+        userEmail = response.data.email
         navInUp.id="navOut"
         navInUp.innerHTML="登出系統"
+        document.querySelector('.nav').style.display = 'block'
     }
 });
 
@@ -55,6 +67,7 @@ function cancel(){
     .then(response => response.json())
     .then((res)=>{
         userId = res.data.id
+
     })
     overlay.style.display = 'none';
     loginDiv.setAttribute('style','transform: translate(-50%, -275px);opacity:0;transition: transform 0.5s, opacity 0.5s;');
@@ -93,6 +106,10 @@ function clearInput(){
     signupPasswordCheck.value="";
     loginEmail.value="";
     loginPassword.value="";
+    inputs.forEach(input=>{
+        input.classList.remove('has-success')
+        input.classList.remove('has-error')
+    })
 };
 
 // 註冊新帳戶
@@ -122,10 +139,11 @@ function signup(){
         signupMessage.style = "color:#f54033;display:block";
         clearInput();
     } else if (password !== passwordCheck){
-        signupMessage.innerHTML="密碼錯誤，請重新輸入";
+        signupMessage.innerHTML="確認密碼錯誤，請重新輸入";
         signupMessage.style = "color:#f54033;display:block";
         signupPassword.value="";
-        signupPasswordCheck.value="";      
+        signupPasswordCheck.value="";    
+        clearInput();  
     } else {
         fetch(userApiUrl,{
             method:'POST',
@@ -139,7 +157,7 @@ function signup(){
                 signupMessage.style.display="block";
                 clearInput();
             } else if (res.status == 400){
-                signupMessage.innerHTML="註冊失敗，重複的Email";
+                signupMessage.innerHTML="註冊失敗，請依照指示輸入正確資料";
                 signupMessage.style = "color:#f54033;display:block";
                 clearInput();
             }
@@ -151,7 +169,7 @@ function signup(){
         });
     }
 }
-document.getElementById('signupBtn').addEventListener('click',debounce(signup,600));
+document.getElementById('signupBtn').addEventListener('click',debounce(signup,200));
 
 // 登入帳戶
 function login(){
@@ -196,7 +214,7 @@ function login(){
         });
     }
 }
-document.getElementById('loginBtn').addEventListener('click',debounce(login,600));
+document.getElementById('loginBtn').addEventListener('click',debounce(login,200));
 
 //登出帳戶
 function logout(){
@@ -208,20 +226,19 @@ function logout(){
         navOut.id="navInUp";
         navOut.innerHTML="登入/註冊"; 
         userId = "";  
-        window.location.href = "/";
+        window.location.href = "";
     })
 }
 
-let navBooking = document.getElementById("navBooking");
-
-// 查看行程
-function checkSchedule(){
-    if (userId){
-        window.location.href = "/booking"
-    } else {
-        overlay.style.display = 'block';
-        loginDiv.setAttribute('style','transform: translate(-50%, 80px);opacity:1;transition: transform 0.5s, opacity 0.5s;')
-    }
-}
-
-navBooking.addEventListener("click", debounce(checkSchedule,500));
+// 驗證登入登出輸入資料
+inputs.forEach(input=>{
+    input.addEventListener('input',()=>{
+        if (input.checkValidity()){
+            input.classList.add('has-success')
+            input.classList.remove('has-error')
+        } else {
+            input.classList.remove('has-success')
+            input.classList.add('has-error')
+        }
+    })
+})
