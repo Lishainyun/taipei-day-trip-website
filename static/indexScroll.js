@@ -150,7 +150,7 @@ function scroll(){
 };
 
 function scrollToBot(){
-    if ((window.innerHeight + Math.round(window.scrollY)) === document.body.offsetHeight){
+    if ((window.innerHeight + Math.floor(window.scrollY)) === document.body.offsetHeight){
         if (nextPage !== null){
 
             let loader = document.createElement('div');
